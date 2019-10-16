@@ -48,6 +48,18 @@ function parse(str) {
     return str.replace(/%s/g, () => args[i++]);
 }
 
+function  check_file() {
+    const path = './alphabet.json';
+    try {
+        if (fs.existsSync(path)) {
+           console.log('exists');
+        } else {
+            console.log('does not exist');
+        }
+    } catch(err) {
+        console.error(err)
+    }
+}
 function get(cursor) {
     axios
     .create({
@@ -93,7 +105,7 @@ function get(cursor) {
             });
             //process.exit(0)
         }
-
+        check_file();
         console.log(c, next);
     })
 }
