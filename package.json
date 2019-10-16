@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node server.js",
-    "client": "npm start --prefix client",
-    "start": "node server.js",
-    "build": "node server.js",
-    "heroku-postbuild": "concurrently \"npm run server\" \"npm run client\""
+    "start-server": "node server.js",
+    "start-client": "npm start --prefix client",
+
+    "build-server": "node server.js",
+    "build-client" : "npm build --prefix client",
+    "build": "concurrently \"npm run build-server\" \"npm run build-client\"",
+    "heroku-postbuild": "concurrently \"npm run strat-server\" \"npm run start-client\""
   },
   "keywords": [],
   "author": "",
