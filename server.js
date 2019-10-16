@@ -6,7 +6,7 @@ const app = express();
 
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:angola sort:followers-desc", first: 100, after:%s) {
+  search(type: USER, query:"location:yemen sort:followers-desc", first: 100, after:%s) {
     edges {
     
       node {
