@@ -61,7 +61,7 @@ function parse(str) {
 }
 
 function  check_file() {
-    const path = 'client/src/alphabet.json';
+    const path = './alphabet.json';
     try {
         if (fs.existsSync(path)) {
            console.log('exists');
@@ -109,7 +109,7 @@ function get(cursor) {
         } else {
             //console.log(jsonAr);
             const jsonContent = JSON.stringify(jsonAr);
-            fs.writeFileSync("client/src/alphabet.json", jsonContent, 'utf8', function (err) {
+            fs.writeFileSync("./alphabet.json", jsonContent, 'utf8', function (err) {
                 if (err) {
                     return console.log(err);
                 }
