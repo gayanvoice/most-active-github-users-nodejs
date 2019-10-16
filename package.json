@@ -10,7 +10,7 @@
     "build-server": "node server.js",
     "build-client" : "npm build --prefix client",
     "build": "concurrently \"npm run build-server\" \"npm run build-client\"",
-    "heroku-postbuild": "concurrently \"npm run strat-server\" \"npm run start-client\""
+    "heroku-postbuild": "concurrently \"npm run start-server\" \"npm run start-client\""
   },
   "keywords": [],
   "author": "",
