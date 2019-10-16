@@ -1,7 +1,8 @@
 const axios = require('axios');
 const express = require("express");
 const bodyParser = require('body-parser');
-import data from 'alphabet';
+
+const data = require('./alphabet');
 
 const fs = require('fs');
 
