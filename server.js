@@ -50,7 +50,7 @@ function parse(str) {
 }
 
 function  check_file() {
-    const path = './alphabet.json';
+    const path = 'client/src/alphabet.json';
     try {
         if (fs.existsSync(path)) {
            console.log('exists');
