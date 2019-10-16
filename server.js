@@ -1,8 +1,18 @@
 const axios = require('axios');
 const express = require("express");
+const bodyParser = require('body-parser');
+import data from './alphabet';
+
 const fs = require('fs');
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/api/query', (req, res) => {
+    res.send({ express: data });
+});
+
 
 const GraphQlStr = `
 query {
