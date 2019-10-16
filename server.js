@@ -103,7 +103,7 @@ function get(cursor) {
                 }
                 console.log("The file was saved!");
             });
-            process.exit(0)
+            //process.exit(0)
         }
         check_file();
         console.log(c, next);
