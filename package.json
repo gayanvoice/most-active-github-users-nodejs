@@ -4,13 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "node server.js",
-    "start-client": "npm start --prefix client",
-
-    "build-server": "node server.js",
-    "build-client" : "npm build --prefix client",
-    "build": "concurrently \"npm run build-server\" \"npm run build-client\"",
-    "heroku-postbuild": "concurrently \"npm run start-server\" \"npm run start-client\""
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
