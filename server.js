@@ -6,7 +6,7 @@ const app = express();
 
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:angola sort:followers-desc", first: 50, after:%s) {
+  search(type: USER, query:"location:srilanka sort:followers-desc", first: 50, after:%s) {
     edges {
       node {
         __typename
@@ -103,7 +103,7 @@ function get(cursor) {
                 }
                 console.log("The file was saved!");
             });
-            process.exit(0)
+            //process.exit(0)
         }
         check_file();
         console.log(c, next);
@@ -112,13 +112,11 @@ function get(cursor) {
 
 get(null);
 
-if(process.env.NODE_ENV === "production"){
-    app.use(express.static('client/build'));
+var the_interval = 20 * 1000;
+setInterval(function() {
+    console.log("Check " + (the_interval/1000) + " seconds");
+}, the_interval);
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-    })
-}
 
 const API_PORT = process.env.PORT || 4000;
 app.listen(API_PORT, () => console.log(`LISTENING ON UHH PORT ${API_PORT}`));
