@@ -98,7 +98,7 @@ function get(cursor) {
         } else {
             //console.log(jsonAr);
             const jsonContent = JSON.stringify(jsonAr);
-            fs.writeFileSync("./alphabet.json", jsonContent, 'utf8', function (err) {
+            fs.writeFileSync("client/src/alphabet.json", jsonContent, 'utf8', function (err) {
                 if (err) {
                     return console.log(err);
                 }
