@@ -103,7 +103,7 @@ function get(cursor) {
                 }
                 console.log("The file was saved!");
             });
-            //process.exit(0)
+            process.exit(0)
         }
         check_file();
         console.log(c, next);
@@ -111,6 +111,14 @@ function get(cursor) {
 }
 
 get(null);
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    })
+}
 
 var the_interval = 20 * 1000;
 setInterval(function() {
