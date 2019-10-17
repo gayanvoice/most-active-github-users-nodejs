@@ -17,7 +17,7 @@ app.get('/api/query', (req, res) => {
 
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:china sort:followers-desc", first: 10, after:%s) {
+  search(type: USER, query:"location:japan sort:followers-desc", first: 10, after:%s) {
     edges {
     
       node {
@@ -76,7 +76,7 @@ function  check_file() {
 
 function get(cursor, re) {
 
-    if (!(re <= 2)){
+    if (!(re <= 10)){
         next = false;
     } else {
         re = re + 1;
