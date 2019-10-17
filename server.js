@@ -151,7 +151,7 @@ setInterval(function() {
     console.log("Check " + (the_interval_check/1000) + " seconds");
 }, the_interval_check);
 
-var the_interval_git = 60 * 1000;
+var the_interval_git = 24 * 60 * 60 * 1000;
 setInterval(function() {
     jsonAr=[];
     b={};
