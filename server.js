@@ -87,7 +87,7 @@ function get(cursor, re) {
         .create({
             baseURL: 'https://api.github.com/graphql',
             headers: {
-                Authorization: `bearer d790179c1e02ebbaa4843f755518f20ad58e4ca2`
+                Authorization: `bearer `
             },
         })
         .post('', {
