@@ -17,7 +17,7 @@ app.get('/api/query', (req, res) => {
 
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:yemen  sort:followers-desc", first: 100, after:%s) {
+  search(type: USER, query:"location:china sort:followers-desc", first: 10, after:%s) {
     edges {
     
       node {
@@ -52,7 +52,7 @@ query {
 `;
 
 
-var jsonAr=[], b={};
+var jsonAr=[], b={}, re = 1, next = true;
 
 function parse(str) {
     var args = [].slice.call(arguments, 1),
@@ -72,24 +72,34 @@ function  check_file() {
         console.error(err)
     }
 }
-function get(cursor) {
-    axios
-    .create({
-        baseURL: 'https://api.github.com/graphql',
-        headers: {
-            Authorization: `bearer d790179c1e02ebbaa4843f755518f20ad58e4ca2`
-        },
-    })
-    .post('', {
-        query: parse(GraphQlStr, cursor)
-    })
-    .then(({data}) => {
-        var jsonStr = data.data.search.edges;
-        var c = "\"" + data.data.search.pageInfo.endCursor + "\"";
-        var next = data.data.search.pageInfo.hasNextPage;
-        if(next){
+
+
+function get(cursor, re) {
+
+    if (!(re <= 2)){
+        next = false;
+    } else {
+        re = re + 1;
+    }
+
+    if(next) {
+        axios
+        .create({
+            baseURL: 'https://api.github.com/graphql',
+            headers: {
+                Authorization: `bearer d790179c1e02ebbaa4843f755518f20ad58e4ca2`
+            },
+        })
+        .post('', {
+            query: parse(GraphQlStr, cursor)
+        })
+        .then(({data}) => {
+            var jsonStr = data.data.search.edges;
+            cursor = "\"" + data.data.search.pageInfo.endCursor + "\"";
+            next = data.data.search.pageInfo.hasNextPage;
+
             Object.keys(jsonStr).forEach(function (index, key) {
-                if(jsonStr[key].node.__typename === "User"){
+                if (jsonStr[key].node.__typename === "User") {
                     // "__typename": "User",
                     console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
                     b = {
@@ -105,24 +115,21 @@ function get(cursor) {
                 }
 
             });
-            get(c);
-        } else {
-            //console.log(jsonAr);
-            const jsonContent = JSON.stringify(jsonAr);
-            fs.writeFileSync("./alphabet.json", jsonContent, 'utf8', function (err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log("The file was saved!");
-            });
-            //process.exit(0)
-        }
-        check_file();
-        console.log(c, next);
-    })
+            get(cursor, re);
+        });
+    } else {
+        const jsonContent = JSON.stringify(jsonAr);
+        fs.writeFile("./alphabet.json", jsonContent, 'utf8', function (err) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log("The file was saved!");
+        });
+    }
+    check_file();
 }
 
-get(null);
+get(null, re);
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static('client/build'));
