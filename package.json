@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "create-app": "npm install && cd client && npm install",
+    "server": "node server.js",
+    "client": "npm start --prefix client",
+    "start": "concurrently \" npm run server\" \"npm run client\" "
   },
   "keywords": [],
   "author": "",

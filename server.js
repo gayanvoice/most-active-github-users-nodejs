@@ -2,9 +2,11 @@ const axios = require('axios');
 const express = require("express");
 const bodyParser = require('body-parser');
 
-const data = require('./alphabet');
+const data = require('./client/src/alphabet');
 
 const fs = require('fs');
+
+const key = '';
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,11 +17,11 @@ app.get('/api/query', (req, res) => {
 });
 
 
+
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:japan sort:followers-desc", first: 10, after:%s) {
+  search(type: USER, query:"location:china sort:followers-desc", first: 50, after:%s) {
     edges {
-    
       node {
         __typename
         ... on User {
@@ -52,7 +54,7 @@ query {
 `;
 
 
-var jsonAr=[], b={}, re = 1, next = true;
+var jsonAr=[], b={}, re = 0, next = true;
 
 function parse(str) {
     var args = [].slice.call(arguments, 1),
@@ -61,7 +63,7 @@ function parse(str) {
 }
 
 function  check_file() {
-    const path = './alphabet.json';
+    const path = './client/src/alphabet.json';
     try {
         if (fs.existsSync(path)) {
            console.log('exists');
@@ -76,18 +78,20 @@ function  check_file() {
 
 function get(cursor, re) {
 
-    if (!(re <= 10)){
+    if (!(re < 2)){
         next = false;
     } else {
         re = re + 1;
     }
+
+    console.log(re);
 
     if(next) {
         axios
         .create({
             baseURL: 'https://api.github.com/graphql',
             headers: {
-                Authorization: `bearer `
+                Authorization: `bearer ` + key + ``
             },
         })
         .post('', {
@@ -116,15 +120,18 @@ function get(cursor, re) {
 
             });
             get(cursor, re);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
     } else {
         const jsonContent = JSON.stringify(jsonAr);
-        fs.writeFile("./alphabet.json", jsonContent, 'utf8', function (err) {
+        fs.writeFileSync("./client/src/alphabet.json", jsonContent, 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }
-            console.log("The file was saved!");
         });
+        console.log("The file saved!");
     }
     check_file();
 }
@@ -139,10 +146,21 @@ if(process.env.NODE_ENV === "production"){
     })
 }
 
-var the_interval = 20 * 1000;
+var the_interval_check = 20 * 1000;
 setInterval(function() {
-    console.log("Check " + (the_interval/1000) + " seconds");
-}, the_interval);
+    console.log("Check " + (the_interval_check/1000) + " seconds");
+}, the_interval_check);
+
+var the_interval_git = 60 * 1000;
+setInterval(function() {
+    jsonAr=[];
+    b={};
+    re = 0;
+    next = true;
+    console.log("Refresh lists");
+    get(null, re);
+}, the_interval_git);
+
 
 
 const API_PORT = process.env.PORT || 4000;
