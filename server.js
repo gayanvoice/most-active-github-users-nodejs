@@ -2,7 +2,6 @@ const axios = require('axios');
 const express = require("express");
 const bodyParser = require('body-parser');
 
-const data = require('./client/src/alphabet');
 
 const fs = require('fs');
 
@@ -12,7 +11,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/query', (req, res) => {
+app.get('/data/sri_lanka', (req, res) => {
+    const data = require('./client/src/data/sri_lanka');
     res.send({ express: data });
 });
 
@@ -20,7 +20,7 @@ app.get('/api/query', (req, res) => {
 
 const GraphQlStr = `
 query {
-  search(type: USER, query:"location:china sort:followers-desc", first: 50, after:%s) {
+  search(type: USER, query:"location:srilanka sort:followers-desc", first: 50, after:%s) {
     edges {
       node {
         __typename
@@ -63,7 +63,7 @@ function parse(str) {
 }
 
 function  check_file() {
-    const path = './client/src/alphabet.json';
+    const path = './client/src/data/sri_lanka.json';
     try {
         if (fs.existsSync(path)) {
            console.log('exists');
@@ -126,7 +126,7 @@ function get(cursor, re) {
         });
     } else {
         const jsonContent = JSON.stringify(jsonAr);
-        fs.writeFileSync("./client/src/alphabet.json", jsonContent, 'utf8', function (err) {
+        fs.writeFileSync("./client/src/data/sri_lanka.json", jsonContent, 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -164,4 +164,4 @@ setInterval(function() {
 
 
 const API_PORT = process.env.PORT || 4000;
-app.listen(API_PORT, () => console.log(`LISTENING ON UHH PORT ${API_PORT}`));
+app.listen(API_PORT, () => console.log(`PORT ${API_PORT}`));
