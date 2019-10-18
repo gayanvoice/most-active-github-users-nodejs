@@ -13,6 +13,7 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.path = './client/src/data/'+country+'.json'; // okay
+
         this.key = ''; // okay
         this.per = 100;
         this.num = 2;
