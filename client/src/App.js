@@ -22,10 +22,10 @@ function App() {
                         </ul>
                     </div>
                 </nav>
-                <div className="nav-scroller bg-white shadow-sm ml-2">
+                <div className="nav-scroller bg-white shadow-sm">
                     <nav className="nav nav-underline">
-                        <span className="nav-link"><Link to="/country/sri_lanka">LK</Link></span>
-                        <span className="nav-link"><Link to="/country/india">IN</Link></span>
+                        <span className="nav-link"><Link to="/country/sri_lanka">Sri Lanka</Link></span>
+                        <span className="nav-link"><Link to="/country/india">India</Link></span>
                     </nav>
                 </div>
                 <main role="main" className="container">

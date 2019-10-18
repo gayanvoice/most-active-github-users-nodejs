@@ -13,10 +13,9 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.path = './client/src/data/'+country+'.json'; // okay
-
         this.key = ''; // okay
-        this.per = 100;
-        this.num = 2;
+        this.per = 10;
+        this.num = 100;
         // okay
         this.query = `
         query {
@@ -56,15 +55,13 @@ module.exports = class GraphQuery {
 
 
     request(){
-
         console.log(util.locations(this.cities));
-
         if (!(this.re < this.num)){
             this.next = false;
         } else {
             this.re = this.re + 1;
         }
-
+        console.log(this.re);
         if(this.next) {
             axios
                 .create({
