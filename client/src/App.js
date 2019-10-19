@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Sri_Lanka from './country/Sri_Lanka';
 import India from './country/India';
 import China from './country/China';
-
+import Afghanistan from './country/Afghanistan';
+import Albania from './country/Albania';
 import Home from './components/home';
 
 import {
@@ -39,6 +40,8 @@ function App() {
                 </nav>
                 <div className="nav-scroller bg-white">
                     <nav className="nav nav-underline">
+                        <span className="nav-link"><Link to="/country/afghanistan">Afghanistan</Link></span>
+                        <span className="nav-link"><Link to="/country/albania">Albania</Link></span>
                         <span className="nav-link"><Link to="/country/china">China</Link></span>
                         <span className="nav-link"><Link to="/country/sri_lanka">Sri Lanka</Link></span>
                         <span className="nav-link"><Link to="/country/india">India</Link></span>
@@ -81,6 +84,10 @@ function App() {
                 <main role="main" className="container">
                     <Switch>
                         <Route path="/" component={Home} exact/>
+                        <Route path="/country/afghanistan" component={Afghanistan}/>
+                        <Route path="/country/albania" component={Albania}/>
+
+
                         <Route path="/country/sri_lanka" component={Sri_Lanka}/>
                         <Route path="/country/india" component={India}/>
                         <Route path="/country/china" component={China}/>

@@ -35,7 +35,7 @@ const India = () => {
                     <span className="mr-2 rounded bg-primary" height="64" width="64"/>
                     <div className="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
                         <div className="d-flex justify-content-between align-items-center w-100">
-                            <strong className="text-gray-dark">Username</strong>
+                            <strong className="text-gray-dark">Username (Followers)</strong>
                             Contributions
                         </div>
                     </div>
@@ -51,7 +51,7 @@ const India = () => {
                                 </a>
                                 {item.contribution}
                             </div>
-                            <span className="d-block"><a href={'https://github.com/' + item.login} target="_blank" rel="noopener noreferrer" className="text-black-50">@{item.login}</a></span>
+                            <span className="d-block"><a href={'https://github.com/' + item.login} target="_blank" rel="noopener noreferrer" className="text-black-50">@{item.login} ({item.followers})</a></span>
                         </div>
                 </div>
 

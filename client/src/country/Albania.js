@@ -1,7 +1,7 @@
 import React  from 'react';
-import data from '../data/india';
+import data from '../data/albania';
 
-const country_name = "India";
+const country_name = "Albania";
 
 function compare( a, b ) {
     if ( a.contribution < b.contribution ){
@@ -53,7 +53,7 @@ const India = () => {
                             </div>
                             <span className="d-block"><a href={'https://github.com/' + item.login} target="_blank" rel="noopener noreferrer" className="text-black-50">@{item.login} ({item.followers})</a></span>
                         </div>
-                    </div>
+                </div>
 
                 })}
 

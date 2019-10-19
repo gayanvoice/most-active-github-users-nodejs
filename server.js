@@ -3,11 +3,11 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const GraphQuery = require('./GraphQuery');
 
-var lka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
-var ind = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
-var chn = ["china", "beijing", "shanghai", "delhi", "kolkata", "chennai"];
-
-var china = 'china', srilanka = 'sri_lanka', india = 'india';
+var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
+var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
+var china = ["china", "chengdu", "shenzen", "tianjin", "guangzhou", "shanghai", "beijing", "hangzhou"];
+var afghansitan = ["afghanistan", "kabul", "kandahar", "herat", "mazar-e-sharif", "jalalabad", "ghazni", "nangarhar"];
+var albania = ["albania", "tirana", "durres", "vlore", "elbasan", "shkoder"];
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,15 +18,21 @@ setInterval(function() {
     seconds = seconds + 1000;
     console.log(seconds);
     if(seconds === (5000)){
-        let query = new GraphQuery(china, chn);
+        let query = new GraphQuery('china', china);
         query.request();
     } else if(seconds === (60000)){
-        let query = new GraphQuery(india, ind);
+        let query = new GraphQuery('india', india);
         query.request();
     } else if(seconds === (120000)){
-        let query = new GraphQuery(srilanka, lka);
+        let query = new GraphQuery('srilanka', srilanka);
         query.request();
-    }  else if(seconds === (180000)){
+    } else if(seconds === (180000)){
+        let query = new GraphQuery('afghanistan', afghansitan);
+        query.request();
+    } else if(seconds === (180000)){
+        let query = new GraphQuery('albania', albania);
+        query.request();
+    }  else if(seconds === (240000)){
         seconds = 1000;
     }
 }, seconds);
