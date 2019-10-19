@@ -26,7 +26,7 @@ function limit(value) {
 }
 
 
-const India = () => {
+const Albania = () => {
     return (
         <div className="App">
             <div className="my-3 p-3 bg-white rounded shadow-sm w-100">
@@ -66,4 +66,4 @@ const India = () => {
     );
 };
 
-export default India;
+export default Albania;

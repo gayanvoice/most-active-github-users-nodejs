@@ -1,7 +1,7 @@
 import React  from 'react';
-import data from '../data/afghanistan';
+import data from '../data/finland';
 
-const country_name = "Afghanistan";
+const country_name = "Finland";
 
 function compare( a, b ) {
     if ( a.contribution < b.contribution ){
@@ -26,7 +26,7 @@ function limit(value) {
 }
 
 
-const India = () => {
+const Finland = () => {
     return (
         <div className="App">
             <div className="my-3 p-3 bg-white rounded shadow-sm w-100">
@@ -66,4 +66,4 @@ const India = () => {
     );
 };
 
-export default India;
+export default Finland;

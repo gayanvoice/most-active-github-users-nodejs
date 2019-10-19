@@ -1,5 +1,5 @@
 import React  from 'react';
-import data from '../data/sri_lanka';
+import data from '../data/srilanka';
 
 const country_name = "Sri Lanka";
 
@@ -26,7 +26,7 @@ function limit(value) {
 }
 
 
-const India = () => {
+const SriLanka = () => {
     return (
         <div className="App">
             <div className="my-3 p-3 bg-white rounded shadow-sm w-100">
@@ -66,4 +66,4 @@ const India = () => {
     );
 };
 
-export default India;
+export default SriLanka;
