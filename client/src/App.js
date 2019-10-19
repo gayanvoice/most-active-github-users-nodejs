@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
-import Sri_Lanka from './country/Sri_Lanka';
+import SriLanka from './country/SriLanka';
 import India from './country/India';
 import China from './country/China';
-import Afghanistan from './country/Afghanistan';
 import Albania from './country/Albania';
-import Algeria from './country/Algeria';
-import Angola from './country/Angola';
 import Argentina from './country/Argentina';
 import Australia from './country/Australia';
 import Austria from './country/Austria';
@@ -46,21 +43,51 @@ function App() {
                         </ul>
                     </div>
                 </nav>
-                <div className="nav-scroller bg-white">
+                <div className="nav-scroller bg-white rounded shadow-sm m-2 p-2">
                     <nav className="nav nav-underline">
-                        <span className="nav-link"><Link to="/country/afghanistan">Afghanistan</Link></span>
                         <span className="nav-link"><Link to="/country/albania">Albania</Link></span>
-                        <span className="nav-link"><Link to="/country/algeria">Algeria</Link></span>
-                        <span className="nav-link"><Link to="/country/angola">Angola</Link></span>
                         <span className="nav-link"><Link to="/country/argentina">Argentina</Link></span>
                         <span className="nav-link"><Link to="/country/australia">Australia</Link></span>
                         <span className="nav-link"><Link to="/country/austria">Austria</Link></span>
+                        <span className="nav-link"><Link to="/country/bangladesh">Bangladesh</Link></span>
+                        <span className="nav-link"><Link to="/country/belgium">Belgium</Link></span>
+                        <span className="nav-link"><Link to="/country/brazil">Brazil</Link></span>
+                        <span className="nav-link"><Link to="/country/canada">Canada</Link></span>
                         <span className="nav-link"><Link to="/country/china">China</Link></span>
-                        <span className="nav-link"><Link to="/country/sri_lanka">Sri Lanka</Link></span>
+                        <span className="nav-link"><Link to="/country/croatia">Croatia</Link></span>
+                        <span className="nav-link"><Link to="/country/denmark">Denmark</Link></span>
+                        <span className="nav-link"><Link to="/country/estonia">Estonia</Link></span>
+                        <span className="nav-link"><Link to="/country/finland">Finland</Link></span>
+                        <span className="nav-link"><Link to="/country/france">France</Link></span>
+                        <span className="nav-link"><Link to="/country/germany">Germany</Link></span>
+                        <span className="nav-link"><Link to="/country/greece">Greece</Link></span>
                         <span className="nav-link"><Link to="/country/india">India</Link></span>
+                        <span className="nav-link"><Link to="/country/indonesia">Indonesia</Link></span>
+                        <span className="nav-link"><Link to="/country/israel">Israel</Link></span>
+                        <span className="nav-link"><Link to="/country/italy">Italy</Link></span>
+                        <span className="nav-link"><Link to="/country/japan">Japan</Link></span>
+                        <span className="nav-link"><Link to="/country/latvia">Latvia</Link></span>
+                        <span className="nav-link"><Link to="/country/luxembourg">Luxembourg</Link></span>
+                        <span className="nav-link"><Link to="/country/malaysia">Malaysia</Link></span>
+                        <span className="nav-link"><Link to="/country/mexico">Mexico</Link></span>
+                        <span className="nav-link"><Link to="/country/netherlands">Netherlands</Link></span>
+                        <span className="nav-link"><Link to="/country/newzealand">New Zealand</Link></span>
+                        <span className="nav-link"><Link to="/country/norway">Norway</Link></span>
+                        <span className="nav-link"><Link to="/country/pakistan">Pakistan</Link></span>
+                        <span className="nav-link"><Link to="/country/philippines">Philippines</Link></span>
+                        <span className="nav-link"><Link to="/country/portugal">Portugal</Link></span>
+                        <span className="nav-link"><Link to="/country/romania">Romania</Link></span>
+                        <span className="nav-link"><Link to="/country/russia">Russia</Link></span>
+                        <span className="nav-link"><Link to="/country/singapore">Singapore</Link></span>
+                        <span className="nav-link"><Link to="/country/spain">Spain</Link></span>
+                        <span className="nav-link"><Link to="/country/srilanka">Sri Lanka</Link></span>
+                        <span className="nav-link"><Link to="/country/sweden">Sweden</Link></span>
+                        <span className="nav-link"><Link to="/country/thailand">Thailand</Link></span>
+                        <span className="nav-link"><Link to="/country/ukraine">Ukraine</Link></span>
+                        <span className="nav-link"><Link to="/country/">United Kingdom</Link></span>
                     </nav>
                 </div>
-                <div className="d-flex align-items-center p-3 mb-4 rounded shadow-sm">
+                <div className="d-flex align-items-center p-3 mb-4 rounded shadow-sm mt-3">
                     <a className="nav-link" href="https://github.com/gayanvoice/GitHubStats"><img className="mr-3" src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="GitHub Logo"  height="48"/></a>
                     <div className="lh-100">
                         <h6 className="mb-0 lh-100">GitHub Stats - Popular users of GitHub from various countries</h6>
@@ -97,16 +124,12 @@ function App() {
                 <main role="main" className="container">
                     <Switch>
                         <Route path="/" component={Home} exact/>
-                        <Route path="/country/afghanistan" component={Afghanistan}/>
                         <Route path="/country/albania" component={Albania}/>
-                        <Route path="/country/algeria" component={Algeria}/>
-                        <Route path="/country/angola" component={Angola}/>
                         <Route path="/country/argentina" component={Argentina}/>
                         <Route path="/country/australia" component={Australia}/>
                         <Route path="/country/austria" component={Austria}/>
 
-
-                        <Route path="/country/sri_lanka" component={Sri_Lanka}/>
+                        <Route path="/country/srilanka" component={SriLanka}/>
                         <Route path="/country/india" component={India}/>
                         <Route path="/country/china" component={China}/>
                     </Switch>
