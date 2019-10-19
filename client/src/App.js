@@ -1,15 +1,46 @@
 import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
-import SriLanka from './country/SriLanka';
-import India from './country/India';
-import China from './country/China';
 import Albania from './country/Albania';
 import Argentina from './country/Argentina';
 import Australia from './country/Australia';
 import Austria from './country/Austria';
-
-
+import Bangladesh from './country/Bangladesh';
+import Belgium from './country/Belgium';
+import Brazil from './country/Brazil';
+import Canada from './country/Canada';
+import China from './country/China';
+import Croatia from './country/Croatia';
+import Denmark from './country/Denmark';
+import Estonia from './country/Estonia';
+import Finland from './country/Finland';
+import France from './country/France';
+import Germany from './country/Germany';
+import Greece from './country/Greece';
+import India from './country/India';
+import Indonesia from './country/Indonesia';
+import Israel from './country/Israel';
+import Italy from './country/Italy';
+import Japan from './country/Japan';
+import Latvia from './country/Latvia';
+import Luxembourg from './country/Luxemburg';
+import Malaysia from './country/Malaysia';
+import Mexico from './country/Mexico';
+import Netherlands from './country/Netherlands';
+import NewZealand from './country/NewZealand';
+import Norway from './country/Norway';
+import Pakistan from './country/Pakistan';
+import Philippines from './country/Philippines';
+import Portugal from './country/Portugal';
+import Romania from './country/Romania';
+import Russia from './country/Russia';
+import Singapore from './country/Singapore';
+import Spain from './country/Spain';
+import SriLanka from './country/SriLanka';
+import Sweden from './country/Sweden';
+import Thailand from './country/Thailand';
+import Ukraine from './country/Ukraine';
+import UnitedKingdom from './country/UnitedKingdom';
 
 import Home from './components/home';
 
@@ -84,7 +115,7 @@ function App() {
                         <span className="nav-link"><Link to="/country/sweden">Sweden</Link></span>
                         <span className="nav-link"><Link to="/country/thailand">Thailand</Link></span>
                         <span className="nav-link"><Link to="/country/ukraine">Ukraine</Link></span>
-                        <span className="nav-link"><Link to="/country/">United Kingdom</Link></span>
+                        <span className="nav-link"><Link to="/country/unitedkingdom">United Kingdom</Link></span>
                     </nav>
                 </div>
                 <div className="d-flex align-items-center p-3 mb-4 rounded shadow-sm mt-3">
@@ -128,10 +159,42 @@ function App() {
                         <Route path="/country/argentina" component={Argentina}/>
                         <Route path="/country/australia" component={Australia}/>
                         <Route path="/country/austria" component={Austria}/>
-
-                        <Route path="/country/srilanka" component={SriLanka}/>
-                        <Route path="/country/india" component={India}/>
+                        <Route path="/country/bangladesh" component={Bangladesh}/>
+                        <Route path="/country/belgium" component={Belgium}/>
+                        <Route path="/country/brazil" component={Brazil}/>
+                        <Route path="/country/canada" component={Canada}/>
                         <Route path="/country/china" component={China}/>
+                        <Route path="/country/croatia" component={Croatia}/>
+                        <Route path="/country/denmark" component={Denmark}/>
+                        <Route path="/country/estonia" component={Estonia}/>
+                        <Route path="/country/finland" component={Finland}/>
+                        <Route path="/country/france" component={France}/>
+                        <Route path="/country/germany" component={Germany}/>
+                        <Route path="/country/greece" component={Greece}/>
+                        <Route path="/country/india" component={India}/>
+                        <Route path="/country/indonesia" component={Indonesia}/>
+                        <Route path="/country/israel" component={Israel}/>
+                        <Route path="/country/italy" component={Italy}/>
+                        <Route path="/country/japan" component={Japan}/>
+                        <Route path="/country/latvia" component={Latvia}/>
+                        <Route path="/country/luxembourg" component={Luxembourg}/>
+                        <Route path="/country/malaysia" component={Malaysia}/>
+                        <Route path="/country/mexico" component={Mexico}/>
+                        <Route path="/country/netherlands" component={Netherlands}/>
+                        <Route path="/country/newzealand" component={NewZealand}/>
+                        <Route path="/country/norway" component={Norway}/>
+                        <Route path="/country/pakistan" component={Pakistan}/>
+                        <Route path="/country/philippines" component={Philippines}/>
+                        <Route path="/country/portugal" component={Portugal}/>
+                        <Route path="/country/romania" component={Romania}/>
+                        <Route path="/country/russia" component={Russia}/>
+                        <Route path="/country/singapore" component={Singapore}/>
+                        <Route path="/country/spain" component={Spain}/>
+                        <Route path="/country/srilanka" component={SriLanka}/>
+                        <Route path="/country/sweden" component={Sweden}/>
+                        <Route path="/country/thailand" component={Thailand}/>
+                        <Route path="/country/ukraine" component={Ukraine}/>
+                        <Route path="/country/unitedkingdom" component={UnitedKingdom}/>
                     </Switch>
                 </main>
             </div>
