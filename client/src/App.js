@@ -6,6 +6,14 @@ import India from './country/India';
 import China from './country/China';
 import Afghanistan from './country/Afghanistan';
 import Albania from './country/Albania';
+import Algeria from './country/Algeria';
+import Angola from './country/Angola';
+import Argentina from './country/Argentina';
+import Australia from './country/Australia';
+import Austria from './country/Austria';
+
+
+
 import Home from './components/home';
 
 import {
@@ -42,6 +50,11 @@ function App() {
                     <nav className="nav nav-underline">
                         <span className="nav-link"><Link to="/country/afghanistan">Afghanistan</Link></span>
                         <span className="nav-link"><Link to="/country/albania">Albania</Link></span>
+                        <span className="nav-link"><Link to="/country/algeria">Algeria</Link></span>
+                        <span className="nav-link"><Link to="/country/angola">Angola</Link></span>
+                        <span className="nav-link"><Link to="/country/argentina">Argentina</Link></span>
+                        <span className="nav-link"><Link to="/country/australia">Australia</Link></span>
+                        <span className="nav-link"><Link to="/country/austria">Austria</Link></span>
                         <span className="nav-link"><Link to="/country/china">China</Link></span>
                         <span className="nav-link"><Link to="/country/sri_lanka">Sri Lanka</Link></span>
                         <span className="nav-link"><Link to="/country/india">India</Link></span>
@@ -86,6 +99,11 @@ function App() {
                         <Route path="/" component={Home} exact/>
                         <Route path="/country/afghanistan" component={Afghanistan}/>
                         <Route path="/country/albania" component={Albania}/>
+                        <Route path="/country/algeria" component={Algeria}/>
+                        <Route path="/country/angola" component={Angola}/>
+                        <Route path="/country/argentina" component={Argentina}/>
+                        <Route path="/country/australia" component={Australia}/>
+                        <Route path="/country/austria" component={Austria}/>
 
 
                         <Route path="/country/sri_lanka" component={Sri_Lanka}/>
