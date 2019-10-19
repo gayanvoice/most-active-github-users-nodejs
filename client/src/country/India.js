@@ -1,6 +1,8 @@
 import React from 'react';
 import data from '../data/india';
 
+const country_name = "India";
+
 function compare( a, b ) {
     if ( a.contribution < b.contribution ){
         return 1;
@@ -20,21 +22,15 @@ function check_username(value) {
 }
 
 function limit(value) {
-    return  value.slice(0, 100)
+    return  value.slice(0, 256)
 }
+
 
 const India = () => {
     return (
         <div className="App">
-            <div className="d-flex align-items-center p-3 my-4 rounded shadow-sm">
-                <a className="nav-link" href="https://github.com/gayanvoice/GitHubStats"><img className="mr-3" src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="GitHub Logo"  height="48"/></a>
-                    <div className="lh-100">
-                        <h6 className="mb-0 lh-100">GitHub Stats - Popular users of GitHub from various countries</h6>
-                        <small>Get requests from GitHub API v4 using GraphQL by NodeJS. For the frontend, used ReactJS and Bootstrap and deployed in Google Cloud.</small>
-                    </div>
-            </div>
             <div className="my-3 p-3 bg-white rounded shadow-sm w-100">
-                <h5 className="pb-2 mb-0">Active users from India</h5>
+                <h5 className="pb-2 mb-0 font-weight-bold">Active users from {country_name}</h5>
                 <div className={"media text-muted pt-3"}>
                     <span className="mr-2 rounded bg-primary" height="64" width="64"/>
                     <div className="media-body pb-3 mb-0 lh-125 border-bottom border-gray">

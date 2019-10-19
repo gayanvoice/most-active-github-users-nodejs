@@ -12,11 +12,11 @@ module.exports = class GraphQuery {
         this.next = true;
         this.cursor = null;
         this.cities = cities;
-        this.path = './client/src/data/'+country+'.json'; // okay
-        this.key = ''; // okay
+        this.path = './client/src/data/'+country+'.json';
+        this.key = '';
         this.per = 10;
-        this.num = 100;
-        // okay
+        this.num = 20;
+
         this.query = `
         query {
           search(type: USER, query:"%s sort:followers-desc", first:%s, after:%s) {
@@ -52,7 +52,6 @@ module.exports = class GraphQuery {
         }`;
 
     }
-
 
     request(){
         console.log(util.locations(this.cities));
@@ -110,7 +109,7 @@ module.exports = class GraphQuery {
                     return console.log(err);
                 }
             });
-            console.log("The file saved!");
+            console.log("The file is saved!");
         }
         util.check_file(this.path);
 

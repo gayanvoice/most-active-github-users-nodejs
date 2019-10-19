@@ -1,7 +1,8 @@
-import React from 'react';
-import data from '../data/sri_lanka';
+import React  from 'react';
+import data from '../data/china';
 
-const country_name = "Sri Lanka";
+const country_name = "China";
+
 function compare( a, b ) {
     if ( a.contribution < b.contribution ){
         return 1;
@@ -24,7 +25,8 @@ function limit(value) {
     return  value.slice(0, 256)
 }
 
-const Sri_Lanka = () => {
+
+const India = () => {
     return (
         <div className="App">
             <div className="my-3 p-3 bg-white rounded shadow-sm w-100">
@@ -51,7 +53,7 @@ const Sri_Lanka = () => {
                             </div>
                             <span className="d-block"><a href={'https://github.com/' + item.login} target="_blank" rel="noopener noreferrer" className="text-black-50">@{item.login}</a></span>
                         </div>
-                    </div>
+                </div>
 
                 })}
 
@@ -64,4 +66,4 @@ const Sri_Lanka = () => {
     );
 };
 
-export default Sri_Lanka;
+export default India;

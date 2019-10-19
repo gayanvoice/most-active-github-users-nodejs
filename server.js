@@ -1,25 +1,35 @@
 
 const express = require("express");
 const bodyParser = require('body-parser');
-
 const GraphQuery = require('./GraphQuery');
-
 
 var lka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
 var ind = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
+var chn = ["china", "beijing", "shanghai", "delhi", "kolkata", "chennai"];
 
-var srilanka = 'sri_lanka', india = 'india';
+var china = 'china', srilanka = 'sri_lanka', india = 'india';
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/data/sri_lanka', (req, res) => {
-    const data = require('./client/src/data/sri_lanka');
-    res.send({ express: data });
-});
-
-let query = new GraphQuery(india, ind);
-query.request();
+var seconds = 1000;
+setInterval(function() {
+    seconds = seconds + 1000;
+    console.log(seconds);
+    if(seconds === (5000)){
+        let query = new GraphQuery(china, chn);
+        query.request();
+    } else if(seconds === (60000)){
+        let query = new GraphQuery(india, ind);
+        query.request();
+    } else if(seconds === (120000)){
+        let query = new GraphQuery(srilanka, lka);
+        query.request();
+    }  else if(seconds === (180000)){
+        seconds = 1000;
+    }
+}, seconds);
 
 
 
