@@ -15,7 +15,7 @@ module.exports = class GraphQuery {
         this.path = './client/src/data/'+country+'.json';
         this.key = '';
         this.per = 10;
-        this.num = 2;
+        this.num = 100;
 
         this.query = `
         query {
@@ -73,7 +73,7 @@ module.exports = class GraphQuery {
                     query: util.parse(this.query, util.locations(this.cities), this.per, this.cursor)
                 })
                 .then(({data}) => {
-                    console.log(data);
+                    //console.log(data);
                     var jsonStr = data.data.search.edges;
                     var jsonAr = this.jsonAr;
                     this.cursor = "\"" + data.data.search.pageInfo.endCursor + "\"";

@@ -4,8 +4,10 @@ const GraphQuery = require('./GraphQuery');
 var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
 var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
 var china = ["china", "chengdu", "shenzen", "tianjin", "guangzhou", "shanghai", "beijing", "hangzhou"];
+var hongkong = ["hongkong"];
+var taiwan = ["taiwan", "taipei"];
 var albania = ["albania", "tirana", "durres", "vlore", "elbasan", "shkoder"];
-var algeria = ["algeria", "algiers", "oran", "constantine", "annaba", "blida", "batna", "djelfa", "setif", "biskra", "tiaret", "relizane", "mostaganem", "tlemcen", "chlef", "jijel"];
+var unitedstates = ["paloalto", "newyork", "california", "lasvegas", "sanfrancisco", "massachusetts", "boston", "illinois", "sunnyvale", "sanjose", "texas", "losangeles", "nyc", "georgia", "carolina", "santaclara"];
 var argentina = ["argentina", "buenosaires", "cordoba", "rosario", "mendoza", "la%2Bplata", "tucuman", "salta", "resistencia"];
 var australia = ["australia", "sydney", "melbourne", "brisbane", "perth", "adelaide", "canberra", "hobart"];
 var austria = ["austria", "%C3%B6sterreich", "vienna", "wien", "linz", "salzburg", "graz", "innsbruck", "klagenfurt", "wels", "dornbirn"];
@@ -49,130 +51,136 @@ var seconds = 1000;
 setInterval(function() {
     seconds = seconds + 1000;
     console.log(seconds);
-    if(seconds === (5000)){
+    if(seconds === ( 5 * 1000)){
         let query = new GraphQuery('china', china);
         query.request();
-    } else if(seconds === (10000)){
+    } else if(seconds === (5 * 60 * 1000)){
+        let query = new GraphQuery('hongkong', hongkong);
+        query.request();
+    } else if(seconds === (10 * 60 * 1000)){
+        let query = new GraphQuery('taiwan', taiwan);
+        query.request();
+    } else if(seconds === (15 * 60 * 1000)){
+        let query = new GraphQuery('unitedstates', unitedstates);
+        query.request();
+    } else if(seconds === (20 * 60 * 1000)){
         let query = new GraphQuery('india', india);
         query.request();
-    } else if(seconds === (15000)){
+    } else if(seconds === (25 * 60 * 1000)){
         let query = new GraphQuery('srilanka', srilanka);
         query.request();
-    } else if(seconds === (25000)){
+    } else if(seconds === (30 * 60 * 1000)){
         let query = new GraphQuery('albania', albania);
         query.request();
-    } else if(seconds === (30000)){
-        let query = new GraphQuery('algeria', algeria);
-        query.request();
-    } else if(seconds === (40000)){
+    }  else if(seconds === (35 * 60 * 1000)){
         let query = new GraphQuery('argentina', argentina);
         query.request();
-    } else if(seconds === (45000)){
+    } else if(seconds === (40 * 60 * 1000)){
         let query = new GraphQuery('australia', australia);
         query.request();
-    } else if(seconds === (50000)){
+    } else if(seconds === (45 * 60 * 1000)){
         let query = new GraphQuery('austria', austria);
         query.request();
-    } else if(seconds === (55000)){
+    } else if(seconds === (50 * 60 * 1000)){
         let query = new GraphQuery('finland', finland);
         query.request();
-    } else if(seconds === (60000)){
+    } else if(seconds === (55 * 60 * 1000)){
         let query = new GraphQuery('sweden', sweden);
         query.request();
-    } else if(seconds === (65000)){
+    } else if(seconds === (60 * 60 * 1000)){
         let query = new GraphQuery('norway', norway);
         query.request();
-    } else if(seconds === (70000)){
+    } else if(seconds === (65 * 60 * 1000)){
         let query = new GraphQuery('germany', germany);
         query.request();
-    } else if(seconds === (75000)){
+    } else if(seconds === (70 * 60 * 1000)){
         let query = new GraphQuery('netherlands', netherlands);
         query.request();
-    } else if(seconds === (80000)){
+    } else if(seconds === (75 * 60 * 1000)){
         let query = new GraphQuery('ukraine', ukraine);
         query.request();
-    } else if(seconds === (85000)){
+    } else if(seconds === (80 * 60 * 1000)){
         let query = new GraphQuery('japan', japan);
         query.request();
-    } else if(seconds === (90000)){
+    } else if(seconds === (85 * 60 * 1000)){
         let query = new GraphQuery('russia', russia);
         query.request();
-    } else if(seconds === (95000)){
+    } else if(seconds === (90 * 60 * 1000)){
         let query = new GraphQuery('estonia', estonia);
         query.request();
-    } else if(seconds === (100000)){
+    } else if(seconds === (95 * 60 * 1000)){
         let query = new GraphQuery('denmark', denmark);
         query.request();
-    } else if(seconds === (105000)){
+    } else if(seconds === (100 * 60 * 1000)){
         let query = new GraphQuery('portugal', portugal);
         query.request();
-    } else if(seconds === (110000)){
+    } else if(seconds === (105 * 60 * 1000)){
         let query = new GraphQuery('france', france);
         query.request();
-    } else if(seconds === (115000)){
+    } else if(seconds === (110 * 60 * 1000)){
         let query = new GraphQuery('spain', spain);
         query.request();
-    } else if(seconds === (120000)){
+    } else if(seconds === (115 * 60 * 1000)){
         let query = new GraphQuery('italy', italy);
         query.request();
-    } else if(seconds === (125000)){
+    } else if(seconds === (120 * 60 * 1000)){
         let query = new GraphQuery('unitedkingdom', unitedkingdom);
         query.request();
-    } else if(seconds === (130000)){
+    } else if(seconds === (125 * 60 * 1000)){
         let query = new GraphQuery('croatia', croatia);
         query.request();
-    } else if(seconds === (135000)){
+    } else if(seconds === (130 * 60 * 1000)){
         let query = new GraphQuery('israel', israel);
         query.request();
-    } else if(seconds === (140000)){
+    } else if(seconds === (135 * 60 * 1000)){
         let query = new GraphQuery('indonesia', indonesia);
         query.request();
-    } else if(seconds === (145000)){
+    } else if(seconds === (140 * 60 * 1000)){
         let query = new GraphQuery('pakistan', pakistan);
         query.request();
-    } else if(seconds === (150000)){
+    } else if(seconds === (145 * 60 * 1000)){
         let query = new GraphQuery('brazil', brazil);
         query.request();
-    } else if(seconds === (155000)){
+    } else if(seconds === (150 * 60 * 1000)){
         let query = new GraphQuery('mexico', mexico);
         query.request();
-    } else if(seconds === (160000)){
+    } else if(seconds === (155 * 60 * 1000)){
         let query = new GraphQuery('philippines', philippines);
         query.request();
-    } else if(seconds === (165000)){
+    } else if(seconds === (160 * 60 * 1000)){
         let query = new GraphQuery('luxembourg', luxembourg);
         query.request();
-    } else if(seconds === (170000)){
+    } else if(seconds === (165 * 60 * 1000)){
         let query = new GraphQuery('canada', canada);
         query.request();
-    } else if(seconds === (175000)){
+    } else if(seconds === (170 * 60 * 1000)){
         let query = new GraphQuery('newzealand', newzealand);
         query.request();
-    } else if(seconds === (180000)){
+    } else if(seconds === (175 * 60 * 1000)){
         let query = new GraphQuery('belgium', belgium);
         query.request();
-    } else if(seconds === (185000)){
+    } else if(seconds === (180 * 60 * 1000)){
         let query = new GraphQuery('greece', greece);
         query.request();
-    } else if(seconds === (190000)){
+    } else if(seconds === (185 * 60 * 1000)){
         let query = new GraphQuery('singapore', singapore);
         query.request();
-    } else if(seconds === (195000)){
+    } else if(seconds === (190 * 60 * 1000)){
         let query = new GraphQuery('latvia', latvia);
         query.request();
-    } else if(seconds === (200000)){
+    } else if(seconds === (195 * 60 * 1000)){
         let query = new GraphQuery('romania', romania);
         query.request();
-    } else if(seconds === (205000)){
+    } else if(seconds === (200 * 60 * 1000)){
         let query = new GraphQuery('malaysia', malaysia);
         query.request();
-    } else if(seconds === (210000)){
+    } else if(seconds === (205 * 60 * 1000)){
         let query = new GraphQuery('bangladesh', bangladesh);
         query.request();
-    } else if(seconds === (215000)){
+    } else if(seconds === (210 * 60 * 1000)){
         let query = new GraphQuery('thailand', thailand);
         query.request();
-    } else if(seconds === (220000)){
+    } else if(seconds === (24 * 60 * 60 * 1000)){
         seconds = 1000;
     }
 }, seconds);

@@ -1,7 +1,7 @@
 import React  from 'react';
-import data from '../data/sweden';
+import data from '../data/unitedstates';
 
-const country_name = "Sweden";
+const country_name = "United States";
 
 function compare( a, b ) {
     if ( a.contribution < b.contribution ){

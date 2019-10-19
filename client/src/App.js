@@ -41,6 +41,9 @@ import Sweden from './country/Sweden';
 import Thailand from './country/Thailand';
 import Ukraine from './country/Ukraine';
 import UnitedKingdom from './country/UnitedKingdom';
+import UnitedStates from './country/UnitedStates';
+import HongKong from './country/HongKong';
+import Taiwan from './country/Taiwan';
 
 import Home from './components/home';
 
@@ -92,6 +95,7 @@ function App() {
                         <span className="nav-link"><Link to="/country/france">France</Link></span>
                         <span className="nav-link"><Link to="/country/germany">Germany</Link></span>
                         <span className="nav-link"><Link to="/country/greece">Greece</Link></span>
+                        <span className="nav-link"><Link to="/country/hongkong">Hong Kong</Link></span>
                         <span className="nav-link"><Link to="/country/india">India</Link></span>
                         <span className="nav-link"><Link to="/country/indonesia">Indonesia</Link></span>
                         <span className="nav-link"><Link to="/country/israel">Israel</Link></span>
@@ -113,9 +117,11 @@ function App() {
                         <span className="nav-link"><Link to="/country/spain">Spain</Link></span>
                         <span className="nav-link"><Link to="/country/srilanka">Sri Lanka</Link></span>
                         <span className="nav-link"><Link to="/country/sweden">Sweden</Link></span>
+                        <span className="nav-link"><Link to="/country/taiwan">Taiwan</Link></span>
                         <span className="nav-link"><Link to="/country/thailand">Thailand</Link></span>
                         <span className="nav-link"><Link to="/country/ukraine">Ukraine</Link></span>
                         <span className="nav-link"><Link to="/country/unitedkingdom">United Kingdom</Link></span>
+                        <span className="nav-link"><Link to="/country/unitedstates">United States</Link></span>
                     </nav>
                 </div>
                 <div className="d-flex align-items-center p-3 mb-4 rounded shadow-sm mt-3">
@@ -171,6 +177,7 @@ function App() {
                         <Route path="/country/france" component={France}/>
                         <Route path="/country/germany" component={Germany}/>
                         <Route path="/country/greece" component={Greece}/>
+                        <Route path="/country/hongkong" component={HongKong}/>
                         <Route path="/country/india" component={India}/>
                         <Route path="/country/indonesia" component={Indonesia}/>
                         <Route path="/country/israel" component={Israel}/>
@@ -192,9 +199,12 @@ function App() {
                         <Route path="/country/spain" component={Spain}/>
                         <Route path="/country/srilanka" component={SriLanka}/>
                         <Route path="/country/sweden" component={Sweden}/>
+                        <Route path="/country/taiwan" component={Taiwan}/>
                         <Route path="/country/thailand" component={Thailand}/>
                         <Route path="/country/ukraine" component={Ukraine}/>
                         <Route path="/country/unitedkingdom" component={UnitedKingdom}/>
+                        <Route path="/country/unitedstates" component={UnitedStates}/>
+
                     </Switch>
                 </main>
             </div>
