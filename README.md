@@ -2,6 +2,10 @@
 
 [Go to the website](http://104.198.135.184:3000/)
 
+Inline-style: 
+![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-1.PNG "GitHub Stats")
+
+
 The project queries the list of active users in GitHub by country using GitHub Graph API on Node.js and the UI is created by using React.js.
 
 ## How it works?
