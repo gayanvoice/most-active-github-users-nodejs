@@ -1,4 +1,7 @@
 # GitHubStats
+
+[Go to the website](http://104.198.135.184:3000/)
+
 The project queries the list of active users in GitHub by country using GitHub Graph API on Node.js and the UI is created by using React.js.
 
 ## How it works?
