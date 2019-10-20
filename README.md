@@ -1,4 +1,5 @@
 # GitHubStats
+[![Build Status](https://travis-ci.org/gayanvoice/GitHubStats.svg?branch=master)](https://travis-ci.org/gayanvoice/GitHubStats)
 ![GitHub](https://img.shields.io/github/license/gayanvoice/GitHubStats)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gayanvoice/GitHubStats)
 
