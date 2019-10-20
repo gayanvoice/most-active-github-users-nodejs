@@ -9,9 +9,9 @@ The project queries the list of active users in GitHub by country using GitHub G
 ![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-1.PNG "GitHub Stats")
 ### United States
 ![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-2.PNG "GitHub Stats")
-### United States
+### Australia
 ![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-3.PNG "GitHub Stats")
-### United States
+### China
 ![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-4.PNG "GitHub Stats")
 
 
