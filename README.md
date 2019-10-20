@@ -1,5 +1,7 @@
 # GitHubStats
 [![Build Status](https://travis-ci.org/gayanvoice/GitHubStats.svg?branch=master)](https://travis-ci.org/gayanvoice/GitHubStats)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/gayanvoice/GitHubStats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/GitHubStats/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/gayanvoice/GitHubStats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/GitHubStats/alerts/)
 ![GitHub](https://img.shields.io/github/license/gayanvoice/GitHubStats)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gayanvoice/GitHubStats)
 
