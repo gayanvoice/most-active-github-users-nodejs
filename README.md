@@ -23,3 +23,6 @@ Users need to create a GitHub token to fetch the results from GitHub Graph API. 
 
 ## Contribute
 Contributions are accepted and create a PR for contributions.
+
+## Feature
+1. Inside DevInside Dev (Oct 21st, 2019) https://inside.com/campaigns/inside-dev-2019-10-21-18599
