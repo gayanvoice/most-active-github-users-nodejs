@@ -5,7 +5,8 @@
 ![GitHub](https://img.shields.io/github/license/gayanvoice/GitHubStats)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gayanvoice/GitHubStats)
 
-[Go to the website](http://104.198.135.184:3000/)
+Go to HTTP [http://www.githubstats.com/](http://www.githubstats.com/)
+Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-com.herokuapp.com/)
 
 The project queries the list of active users in GitHub by country using GitHub Graph API on Node.js and the UI is created by using React.js. The app updates in every 24 hours and displays 256 top contributers.
 
