@@ -76,6 +76,7 @@ var kuwait = ["Kuwait", "AlJahra"];
 const app = express();
 
 var seconds = 1000;
+
 setInterval(function() {
     seconds = seconds + 1000;
     if(seconds === ( 5 * 1000)){
