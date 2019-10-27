@@ -1,5 +1,6 @@
 const express = require("express");
 const GraphQuery = require('./GraphQuery');
+const fs = require('fs');
 
 var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
 var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
@@ -185,7 +186,7 @@ setInterval(function() {
 }, seconds);
 
 app.get('/api/:country', (req, res) => {
-    res.send(require('./data/' + req.params.country))
+    res.send(fs.readFileSync('./data/' + req.params.country + '.json'));
 });
 
 const API_PORT = process.env.PORT || 4000;
