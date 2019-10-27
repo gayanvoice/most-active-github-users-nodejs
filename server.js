@@ -2,7 +2,7 @@ const express = require("express");
 const GraphQuery = require('./GraphQuery');
 const fs = require('fs');
 
-var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna"];
+var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna", "matara"];
 var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
 var china = ["china", "chengdu", "shenzen", "tianjin", "guangzhou", "shanghai", "beijing", "hangzhou"];
 var hongkong = ["hongkong"];
@@ -45,6 +45,33 @@ var romania = ["romania", "bucharest", "cluj", "iasi", "timisoara", "craiova", "
 var malaysia = ["malaysia", "kualalumpur", "kajang", "klang", "subang", "penang", "ipoh", "selangor", "melaka", "johor", "sabah"];
 var bangladesh  = ["bangladesh", "dhaka", "chittagong", "khulna", "rajshahi", "barisal", "sylhet", "rangpur", "comilla", "gazipur"];
 var thailand = ["thailand", "bangkok", "nonthaburi", "nakhon", "phuket", "pattaya"];
+var nepal = ["Nepal", "kathmandu", "pokhara", "lalitpur", "bhaktapur", "birgunj", "bharatpur", "janakpur", "hetauda"];
+var poland = ["Poland", "warsaw", "Kraków", "Wrocław", "Gdańsk", "Poznań", "Katowice", "Łódź", "Lublin"];
+var bulgaria = ["Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Pleven", "StaraZagora", "Dobrich", "Sandanski"];
+var ireland = ["Ireland", "Dublin", "Galway", "Cork", "Limerick", "Belfast", "Waterford", "Londonderry", "Drogheda"];
+var czechrepublic = ["CzechRepublic", "Czechia", "Prague", "Brno", "Olomouc", "Plzeň", "Ostrava", "Liberec", "CeskeBudejovice"];
+var hungary = ["Hungary", "Budapest", "Pécs", "Debrecen", "Szeged", "Miskolc", "Győr", "Eger", "Székesfehérvár"];
+var malta = ["Malta", "Valletta", "SaintPaul'sBay", "Mdina", "Birgu"];
+var cyprus = ["Cyprus", "Nicosia", "Limassol", "Larnaca", "Farmagusta", "Paphos", "Kyrenia"];
+var lithuania = ["Lithuania", "Vilnius", "Kaunas", "Klaipėda", "Šiauliai", "Panevėžys", "Alytus", "Tauragė", "Telšiai", "Visaginas"];
+var slovenia = ["Slovenia", "Ljubljana", "Maribor", "Koper", "Kranj", "NovoMesto", "Velenje", "Celje", "Ptuj", "Izola"];
+var slovakia = ["Slovakia", "Bratislava", "Košice", "Prešov", "Žilina", "BanskáBystrica", "Trnava", "Martin", "Nitra", "Trenčín"];
+var afghanistan = ["Afghanistan", "Kabul", "Herat", "Jalalabad", "Kandahar", "Kunduz", "Ghazni"];
+var bhutan = ["Bhutan", "Thimpu", "Phuntsholing", "Punakha"];
+var maldives = ["Maldives", "Malé"];
+var vietnam = ["Vietnam", "HoChiMinhCity", "Hanoi", "DaNang", "Hue", "HaiPhong", "BuonMaThuot", "HộiAn", "Pleiku", "Vinh"];
+var cambodia = ["Cambodia", "PhnomPenh", "Battambang", "SiemReap", "KâmpóngCham"];
+var laos = ["Laos", "Vientiane", "Savannakhet", "Pakse", "Thakhek"];
+var myanmar = ["Myanmar", "Burma", "Yangon", "Mandalay", "Naypyitaw", "Pyinmana"];
+var brunei = ["Brunai", "BandarSeriBegawan", "KualaBelait", "Seria", "Tutong", "Bangar"];
+var easttimor = ["EastTimor", "TimorLeste", "Timor", "Dili", "Maliana", "Suai"];
+var southkorea = ["Korea", "SouthKorea", "Seoul", "Busan", "Incheon", "Daegu", "Gwangju", "Suwon", "Ulsan", "Daejeon", "Changwon", "Goyang-si", "Hwaseong", "Bucheon", "Cheongju"];
+var unitedarabemirates = ["UAE", "UnitedArabEmirates", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"];
+var saudiarabia = ["SaudiArabia", "Riyadh", "Jeddah", "Mecca", "Medina", "Dammam", "Dhahran"];
+var iraq = ["Iraq", "Baghdad", "Basrah", "Mosul", "Erbil"];
+var qatar = ["Qatar", "Doha"];
+var kuwait = ["Kuwait", "AlJahra"];
+
 
 const app = express();
 
@@ -52,10 +79,10 @@ var seconds = 1000;
 setInterval(function() {
     seconds = seconds + 1000;
     if(seconds === ( 5 * 1000)){
-        let query = new GraphQuery('china', china);
+        let query = new GraphQuery('southkorea', southkorea);
         query.request();
     } else if(seconds === (5 * 60 * 1000)){
-        let query = new GraphQuery('hongkong', hongkong);
+        let query = new GraphQuery('poland', poland);
         query.request();
     } else if(seconds === (10 * 60 * 1000)){
         let query = new GraphQuery('taiwan', taiwan);
@@ -180,7 +207,88 @@ setInterval(function() {
     } else if(seconds === (210 * 60 * 1000)){
         let query = new GraphQuery('thailand', thailand);
         query.request();
-    } else if(seconds === (24 * 60 * 60 * 1000)){
+    }
+    else if(seconds === (215 * 60 * 1000)){
+        let query = new GraphQuery('china', china);
+        query.request();
+    } else if(seconds === (220 * 60 * 1000)){
+        let query = new GraphQuery('hongkong', hongkong);
+        query.request();
+    } else if(seconds === (225 * 60 * 1000)){
+        let query = new GraphQuery('bulgaria', bulgaria);
+        query.request();
+    } else if(seconds === (230 * 60 * 1000)){
+        let query = new GraphQuery('ireland', ireland);
+        query.request();
+    } else if(seconds === (235 * 60 * 1000)){
+        let query = new GraphQuery('czechrepublic', czechrepublic);
+        query.request();
+    } else if(seconds === (240 * 60 * 1000)){
+        let query = new GraphQuery('hungary', hungary);
+        query.request();
+    } else if(seconds === (245 * 60 * 1000)){
+        let query = new GraphQuery('malta', malta);
+        query.request();
+    } else if(seconds === (250 * 60 * 1000)){
+        let query = new GraphQuery('cyprus', cyprus);
+        query.request();
+    } else if(seconds === (255 * 60 * 1000)){
+        let query = new GraphQuery('lithuania', lithuania);
+        query.request();
+    } else if(seconds === (260 * 60 * 1000)){
+        let query = new GraphQuery('slovenia', slovenia);
+        query.request();
+    } else if(seconds === (265 * 60 * 1000)){
+        let query = new GraphQuery('slovakia', slovakia);
+        query.request();
+    } else if(seconds === (270 * 60 * 1000)){
+        let query = new GraphQuery('afghanistan', afghanistan);
+        query.request();
+    } else if(seconds === (275 * 60 * 1000)){
+        let query = new GraphQuery('bhutan', bhutan);
+        query.request();
+    } else if(seconds === (280 * 60 * 1000)){
+        let query = new GraphQuery('maldives', maldives);
+        query.request();
+    } else if(seconds === (285 * 60 * 1000)){
+        let query = new GraphQuery('vietnam', vietnam);
+        query.request();
+    } else if(seconds === (290 * 60 * 1000)){
+        let query = new GraphQuery('cambodia', cambodia);
+        query.request();
+    } else if(seconds === (295 * 60 * 1000)){
+        let query = new GraphQuery('laos', laos);
+        query.request();
+    } else if(seconds === (300 * 60 * 1000)){
+        let query = new GraphQuery('myanmar', myanmar);
+        query.request();
+    } else if(seconds === (305 * 60 * 1000)){
+        let query = new GraphQuery('brunei', brunei);
+        query.request();
+    } else if(seconds === (310 * 60 * 1000)){
+        let query = new GraphQuery('easttimor', easttimor);
+        query.request();
+    } else if(seconds === (315 * 60 * 1000)){
+        let query = new GraphQuery('nepal', nepal);
+        query.request();
+    } else if(seconds === (320 * 60 * 1000)){
+        let query = new GraphQuery('unitedarabemirates', unitedarabemirates);
+        query.request();
+    } else if(seconds === (325 * 60 * 1000)){
+        let query = new GraphQuery('saudiarabia', saudiarabia);
+        query.request();
+    } else if(seconds === (330 * 60 * 1000)){
+        let query = new GraphQuery('iraq', iraq);
+        query.request();
+    } else if(seconds === (335 * 60 * 1000)){
+        let query = new GraphQuery('qatar', qatar);
+        query.request();
+    } else if(seconds === (340 * 60 * 1000)){
+        let query = new GraphQuery('kuwait', kuwait);
+        query.request();
+    }
+
+    else if(seconds === (24 * 60 * 60 * 1000)){
         seconds = 1000;
     }
 }, seconds);

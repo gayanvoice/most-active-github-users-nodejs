@@ -13,9 +13,9 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.path = './data/'+country+'.json';
-        this.key = ' ';
+        this.key = 'e5a02160866a6ef4840d0fc2febdb3194cae5ef8';
         this.per = 10;
-        this.num = 5;
+        this.num = 100;
 
         this.query = `
         query {
