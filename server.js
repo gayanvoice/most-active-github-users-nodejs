@@ -50,7 +50,6 @@ const app = express();
 var seconds = 1000;
 setInterval(function() {
     seconds = seconds + 1000;
-    console.log(seconds);
     if(seconds === ( 5 * 1000)){
         let query = new GraphQuery('china', china);
         query.request();
@@ -184,6 +183,10 @@ setInterval(function() {
         seconds = 1000;
     }
 }, seconds);
+
+app.get('/api/:country', (req, res) => {
+    res.send(require('./data/' + req.params.country))
+});
 
 const API_PORT = process.env.PORT || 4000;
 app.listen(API_PORT, () => console.log(`PORT ${API_PORT}`));
