@@ -71,6 +71,7 @@ var saudiarabia = ["SaudiArabia", "Riyadh", "Jeddah", "Mecca", "Medina", "Dammam
 var iraq = ["Iraq", "Baghdad", "Basrah", "Mosul", "Erbil"];
 var qatar = ["Qatar", "Doha"];
 var kuwait = ["Kuwait", "AlJahra"];
+var serbia = ["Serbia", "Srbija", "Србија", "Beograd", "NoviSad", "Nis", "Niš", "Kragujevac", "Užice", "Čačak", "Београд", "НовиСад", "Ниш", "Крагујевац", "Ужице", "Чачак"];
 
 
 const app = express();
@@ -207,8 +208,7 @@ setInterval(function() {
     } else if(seconds === (210 * 60 * 1000)){
         let query = new GraphQuery('thailand', thailand);
         query.request();
-    }
-    else if(seconds === (215 * 60 * 1000)){
+    } else if(seconds === (215 * 60 * 1000)){
         let query = new GraphQuery('china', china);
         query.request();
     } else if(seconds === (220 * 60 * 1000)){
@@ -285,6 +285,9 @@ setInterval(function() {
         query.request();
     } else if(seconds === (340 * 60 * 1000)){
         let query = new GraphQuery('kuwait', kuwait);
+        query.request();
+    } else if(seconds === (345 * 60 * 1000)){
+        let query = new GraphQuery('serbia', serbia);
         query.request();
     }
 
