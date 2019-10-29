@@ -13,6 +13,17 @@ You can `clone` your `fork` by using `git clone repository` from the command pro
 using an IDE like Web Storm, Visual Code and etc. After you `clone` the repository you can see the files
 in the directory.
 
+#### Add new country
+##### Server
+1. Create new country variable [server.js#L6](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/server.js#L6).
+The array structure is `var country = ["CountryName", "CityName", "CityName"];` You can add five most populated cities. These cities should be supported by GitHub (Sometimes the native languages may not work).
+2. Add city to the timer fucntion [server.js#L292](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/server.js#L292).
+The query structure is ` let query = new GraphQuery('country', country);` The `var country` variable is used. The country name should be lowercase.
+3. Create the json file of the country in  [data](https://github.com/gayanvoice/githubstats/tree/master/data). Copy an existing json file and rename it to the country name.
+
+**The country name in the above three steps should be same. And the lowercase, remove spaces, or characters like United States in `unitedstats` or Russia `russia`**
+**The names of the cities should be in one word such as Buenos Aires in `BuenosAires` or Český Krumlov in `ČeskýKrumlov`**
+### File system
 #### Server
 The root directory of the repository contains several folders and files. The server is a Node.js app.
 To start the server `node server.js`.
