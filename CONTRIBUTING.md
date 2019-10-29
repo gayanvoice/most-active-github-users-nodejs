@@ -67,7 +67,7 @@ on the locations of the Javascript arrays.
 ##### `util.js`
 This contains some basic functions such as `check_file(path)`, `parse(String)`, and `locations(array)`.
 
-
+---
 #### Client
 The root directory of the client repository contains several folders and files.
 The client app is written using React.js. To start the client app, go to client directory `cd client` and `npm run start`.
