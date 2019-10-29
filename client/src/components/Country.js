@@ -60,19 +60,19 @@ class Country extends Component {
 
                     <div className="nav-scroller bg-white rounded shadow-sm m-2 p-2">
                         <nav className="nav">
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/0/256"}>All (300)</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/0/25"}>0-25</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/25/50"}>25-50</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/50/75"}>50-75</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/75/100"}>75-100</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/100/125"}>100-125</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/125/150"}>125-150</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/150/175"}>150-175</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/175/200"}>175-200</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/200/225"}>200-250</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/225/250"}>225-250</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/250/275"}>250-275</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/275/300"}>275-300</Link></a>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/0/300"}>All (300)</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/0/25"}>0-25</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/25/50"}>25-50</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/50/75"}>50-75</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/75/100"}>75-100</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/100/125"}>100-125</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/125/150"}>125-150</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/150/175"}>150-175</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/175/200"}>175-200</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/200/225"}>200-250</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/225/250"}>225-250</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/250/275"}>250-275</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/275/300"}>275-300</Link>
                         </nav>
                     </div>
                     {this.limit(this.state.data.sort(this.compare)).map((item, key) => {
@@ -91,27 +91,36 @@ class Country extends Component {
                         </div>
                     })}
 
-                    <div className="nav-scroller bg-white rounded shadow-sm m-2 p-2">
+                    <div className="nav-scroller bg-white rounded shadow-sm m-2 mt-4 p-2">
                         <nav className="nav">
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/0/256"}>All (300)</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/0/25"}>0-25</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/25/50"}>25-50</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/50/75"}>50-75</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/75/100"}>75-100</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/100/125"}>100-125</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/125/150"}>125-150</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/150/175"}>150-175</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/175/200"}>175-200</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/200/225"}>200-250</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/225/250"}>225-250</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/250/275"}>250-275</Link></a>
-                            <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/275/300"}>275-300</Link></a>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/0/300"}>All (300)</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/0/25"}>0-25</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/25/50"}>25-50</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/50/75"}>50-75</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/75/100"}>75-100</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/100/125"}>100-125</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/125/150"}>125-150</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/150/175"}>150-175</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/175/200"}>175-200</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/200/225"}>200-250</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/225/250"}>225-250</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/250/275"}>250-275</Link>
+                            <Link className="m-2" to={"/country/" + this.props.match.params.country + "/275/300"}>275-300</Link>
                         </nav>
                     </div>
 
-                    <div className="nav-scroller bg-white rounded shadow-sm m-2 p-2">
-                        <strong className='mt-2'>Click the country from the list. Select the range (0-20) It takes few seconds to fetch the list</strong>
+                    <div className="nav-scroller bg-white rounded shadow-sm m-2 mt-4 p-3">
+                        <strong className='mt-2'>Click the country from the list. Select the range (0-25) It takes few seconds to fetch the list.</strong>
                         <h6>If nothing works refresh the page again.</h6>
+                    </div>
+                    <div className="nav-scroller bg-white rounded shadow-sm m-2 mt-4 p-3">
+                        <h6><span>Contributors</span> <span className="small">How to contribute? <a href={"https://github.com/gayanvoice/githubstats/blob/master/CONTRIBUTING.md"}> Add missing countries</a></span></h6>
+                        <nav className="nav">
+                            <a className="m-1" href={"https://github.com/gayanvoice"}><img alt={"gayanvoice"} src={"https://avatars1.githubusercontent.com/u/30500175?s=48&v=4"} className={"rounded"}/></a>
+                            <a className="m-1" href={"https://github.com/srdjanRakic"}><img alt={"srdjanRakic"} src={"https://avatars1.githubusercontent.com/u/16154503?s=48&v=4"} className={"rounded"} /></a>
+                            <a className="m-1" href={"https://github.com/nikolalukovic"}><img alt={"nikolalukovic"} src={"https://avatars0.githubusercontent.com/u/6897673?s=48&v=4"} className={"rounded"} /></a>
+
+                        </nav>
                     </div>
                 </div>
             </div>

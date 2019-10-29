@@ -2,14 +2,13 @@ import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 import Country from './components/Country';
-
+import GitHubButton from 'react-github-btn';
 import {
     FacebookShareButton,
     LinkedinShareButton,
     TwitterShareButton,
     TelegramShareButton,
     WhatsappShareButton,
-    PinterestShareButton,
     VKShareButton,
     OKShareButton,
     RedditShareButton,
@@ -30,7 +29,6 @@ import {
     TelegramIcon,
     WhatsappIcon,
     LinkedinIcon,
-    PinterestIcon,
     VKIcon,
     OKIcon,
     RedditIcon,
@@ -111,6 +109,13 @@ function App() {
             <span className="nav-link"><Link to="/country/unitedstates/0/25">United States</Link></span>
           </nav>
         </div>
+          <div className={'align-items-center p-3 mb-4 rounded shadow-sm mt-3 text-center'}>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice" data-size="large" data-show-count="true" aria-label="Follow @gayanvoice on GitHub">Follow @gayanvoice</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gayanvoice/githubstats on GitHub">Star</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork gayanvoice/githubstats on GitHub">Fork</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch gayanvoice/githubstats on GitHub">Watch</GitHubButton></span>
+              <div>Like this open-source project? Support it by a Star</div>
+          </div>
           <div className="d-flex align-items-center p-3 mb-4 rounded shadow-sm mt-3">
               <a className="nav-link" href="https://github.com/gayanvoice/GitHubStats"><img className="mr-3" src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="GitHub Logo"  height="48"/></a>
               <div className="lh-100">
@@ -146,11 +151,6 @@ function App() {
                                   <LinkedinShareButton url={window.location.href}>
                                       <LinkedinIcon size={32} round={true}/>
                                   </LinkedinShareButton>
-                              </span>
-                              <span className="nav-link">
-                                  <PinterestShareButton url={window.location.href}>
-                                      <PinterestIcon size={32} round={true}/>
-                                  </PinterestShareButton>
                               </span>
                               <span className="nav-link">
                                   <VKShareButton url={window.location.href}>
@@ -225,10 +225,14 @@ function App() {
               </Switch>
           </main>
           <div className={'align-items-center p-3 mb-4 rounded shadow-sm mt-3 text-center'}>
-              <div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-              <div>Like this open-source project? Support it by a Star</div>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice" data-size="large" data-show-count="true" aria-label="Follow @gayanvoice on GitHub">Follow @gayanvoice</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gayanvoice/githubstats on GitHub">Star</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork gayanvoice/githubstats on GitHub">Fork</GitHubButton></span>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch gayanvoice/githubstats on GitHub">Watch</GitHubButton></span>
+              <div>Like this open-source project? Support it by a Star </div>
               <div>Made by <a href={'https://github.com/gayanvoice'} target={'_blank'}>@gayanvoice</a> See the source on <a href={'https://github.com/gayanvoice/githubstats'} target={'_blank'}>GitHub</a></div>
-              <div>This project is not affiliated with the GitHub company in any way</div>
+              <small>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></small>
+              <div><small>This project is not affiliated with the GitHub company in any way</small></div>
           </div>
       </div>
     </BrowserRouter>
