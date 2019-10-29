@@ -2,6 +2,7 @@ const express = require("express");
 const GraphQuery = require('./GraphQuery');
 const fs = require('fs');
 
+
 var srilanka = ["srilanka", "colombo", "kandy", "gampaha", "galle", "jaffna", "matara"];
 var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
 var china = ["china", "chengdu", "shenzen", "tianjin", "guangzhou", "shanghai", "beijing", "hangzhou"];
