@@ -89,6 +89,7 @@ class Country extends Component {
                             </div>
                         </div>
                     })}
+
                     <div className="nav-scroller bg-white rounded shadow-sm m-2 p-2">
                         <nav className="nav">
                             <a className="m-2"><Link to={"/country/" + this.props.match.params.country + "/0/256"}>All (300)</Link></a>
