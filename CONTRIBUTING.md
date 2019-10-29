@@ -34,7 +34,7 @@ Add the country name to [App.js#L109](https://github.com/gayanvoice/githubstats/
 ##### Testing the client
 Go to the client directory `cd client` and run the React server by `npm run start`
 
-##### After you have done the changes you can create a [Create request](https://github.com/gayanvoice/githubstats/pulls) and name it `Add Country Name`. After the review, if there are no errors your contribution will be displayed with a link to your GitHub profile [GitHub Stats](http://www.githubstats.com/)
+##### After you have done the changes you can create a [Create request](https://github.com/gayanvoice/githubstats/pulls) and name it `Add Country Name`. After the review, if there are no errors your contribution will be displayed with a link to your GitHub profile [GitHubStats](http://www.githubstats.com/)
 
 ### File system
 #### Server
