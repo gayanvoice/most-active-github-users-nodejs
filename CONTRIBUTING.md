@@ -14,6 +14,17 @@ using an IDE like Web Storm, Visual Code and etc. After you `clone` the reposito
 in the directory.
 
 #### Server
-
+The root directory of the repository contains several folders and files.
+`githubstats/
+├── .github/
+├── .idea/
+├── client/
+├── data/
+│   ├── css/
+│   ├── js/
+│   └── fonts/
+└── docs/
+    └── examples/
+`
  
 
