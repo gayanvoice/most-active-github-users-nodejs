@@ -15,16 +15,29 @@ in the directory.
 
 #### Server
 The root directory of the repository contains several folders and files.
-`githubstats/
+<pre>
+githubstats/
 ├── .github/
 ├── .idea/
 ├── client/
+│   ├── public/
+│   └── ...
 ├── data/
-│   ├── css/
-│   ├── js/
-│   └── fonts/
-└── docs/
-    └── examples/
-`
+│   ├── albania.json
+│   └── ...
+├── .gtignore
+├── .travis.yml
+├── CONTRIBUTING.md
+├── GraphQuery.js
+├── LICENCE
+├── README.md
+├── package-lock.json
+├── package.json
+├── server.js
+└── util.js
+</pre>
+##### `data`
+The folder contains the `.json` files, stores the  `JSON array` of the user data which is fetched
+from the Graph API. 
  
 
