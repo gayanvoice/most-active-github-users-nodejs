@@ -57,7 +57,7 @@ function App() {
                 <a className="text-light" href="/">Home <span className="sr-only">(current)</span></a>
                 </span>
                   <span className="nav-link">
-                <a className="text-light" href="https://github.com/gayanvoice/GitHubStats">GitHub</a>
+                <a className="text-light" href="https://github.com/gayanvoice/GitHubStats" target={'_blank'}>GitHub</a>
                   </span>
               </nav>
           </div>
