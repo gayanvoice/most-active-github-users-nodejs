@@ -11,19 +11,16 @@ Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-
 The project queries the list of active users in GitHub by country using GitHub Graph API on Node.js and the UI is created by using React.js. The app updates in every 24 hours and displays 256 top contributers.
 
 ## Images
-### Home
-![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-1.PNG "GitHub Stats")
-### United States
-![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-2.PNG "GitHub Stats")
 ### China
-![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/github-stats-4.PNG "GitHub Stats")
-
+![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/githubstatscom-screenshot-1.PNG "githubstats.com screenshots")
+### India
+![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/githubstats/images/githubstats-screenshot-2.PNG "githubstats.com screenshots")
 
 ## How it works?
 Users need to create a GitHub token to fetch the results from GitHub Graph API. The list of countries and the cities are listed in `server.js` as arrays and `GraphQuery.js` fetches the data from GitHub Graph API. After the fetch was completed, it creates a JSON file in `/client/src/data/` where the React app gets the list of users and the contribution.
 
 ## Contribute
-Contributions are accepted and create a PR for contributions.
+You can contribute to this open-source project by suggestions to the issues of the server and client app. The project needs to improve it's performance, stability, and user interface of both server scripts and client app. Adding more countries to the project helps other to discover it's contribution to the GitHub. [How to the Contribute](https://github.com/gayanvoice/githubstats/blob/master/CONTRIBUTING.md)
 
 ## Feature
 1. Inside DevInside Dev (Oct 21st, 2019) https://inside.com/campaigns/inside-dev-2019-10-21-18599
