@@ -207,7 +207,7 @@ setInterval(function () {
     let query = new GraphQuery('unitedarabemirates', unitedarabemirates);
     query.request();
   } else if (seconds === (24.5 * 60 * 1000)) {
-    let query = new GraphQuery('unitedkingdom', unitedkingdome);
+    let query = new GraphQuery('unitedkingdom', unitedkingdom);
     query.request();
   } else if (seconds === (25 * 60 * 1000)) {
     let query = new GraphQuery('unitedstates', unitedstates);
