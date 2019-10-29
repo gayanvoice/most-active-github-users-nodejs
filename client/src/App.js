@@ -72,6 +72,7 @@ function App() {
             <span className="nav-link"><Link to="/country/canada/0/25">Canada</Link></span>
             <span className="nav-link"><Link to="/country/china/0/25">China</Link></span>
             <span className="nav-link"><Link to="/country/croatia/0/25">Croatia</Link></span>
+              <span className="nav-link"><Link to="/country/czechrepublic/0/25">Czech Republic</Link></span>
             <span className="nav-link"><Link to="/country/denmark/0/25">Denmark</Link></span>
             <span className="nav-link"><Link to="/country/estonia/0/25">Estonia</Link></span>
             <span className="nav-link"><Link to="/country/finland/0/25">Finland</Link></span>
@@ -80,20 +81,23 @@ function App() {
             <span className="nav-link"><Link to="/country/greece/0/25">Greece</Link></span>
             <span className="nav-link"><Link to="/country/hongkong/0/25">Hong Kong</Link></span>
             <span className="nav-link"><Link to="/country/india/0/25">India</Link></span>
-            <span className="nav-link"><Link to="/country/indonesia/0/25">Indonesia</Link></span>
-            <span className="nav-link"><Link to="/country/israel/0/25">Israel</Link></span>
+              <span className="nav-link"><Link to="/country/indonesia/0/25">Indonesia</Link></span>
+              <span className="nav-link"><Link to="/country/ireland/0/25">Ireland</Link></span>
+              <span className="nav-link"><Link to="/country/israel/0/25">Israel</Link></span>
             <span className="nav-link"><Link to="/country/italy/0/25">Italy</Link></span>
             <span className="nav-link"><Link to="/country/japan/0/25">Japan</Link></span>
             <span className="nav-link"><Link to="/country/latvia/0/25">Latvia</Link></span>
             <span className="nav-link"><Link to="/country/luxembourg/0/25">Luxembourg</Link></span>
+              <span className="nav-link"><Link to="/country/macedonia/0/25">Macedonia</Link></span>
             <span className="nav-link"><Link to="/country/malaysia/0/25">Malaysia</Link></span>
             <span className="nav-link"><Link to="/country/mexico/0/25">Mexico</Link></span>
-            <span className="nav-link"><Link to="/country/macedonia/0/25">Macedonia</Link></span>
+            <span className="nav-link"><Link to="/country/nepal/0/25">Nepal</Link></span>
             <span className="nav-link"><Link to="/country/netherlands/0/25">Netherlands</Link></span>
             <span className="nav-link"><Link to="/country/newzealand/0/25">New Zealand</Link></span>
             <span className="nav-link"><Link to="/country/norway/0/25">Norway</Link></span>
             <span className="nav-link"><Link to="/country/pakistan/0/25">Pakistan</Link></span>
             <span className="nav-link"><Link to="/country/philippines/0/25">Philippines</Link></span>
+              <span className="nav-link"><Link to="/country/poland/0/25">Poland</Link></span>
             <span className="nav-link"><Link to="/country/portugal/0/25">Portugal</Link></span>
             <span className="nav-link"><Link to="/country/romania/0/25">Romania</Link></span>
             <span className="nav-link"><Link to="/country/russia/0/25">Russia</Link></span>
