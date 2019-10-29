@@ -14,7 +14,8 @@ using an IDE like Web Storm, Visual Code and etc. After you `clone` the reposito
 in the directory.
 
 #### Server
-The root directory of the repository contains several folders and files.
+The root directory of the repository contains several folders and files. The server is a Node.js app.
+To start the server `node server.js`.
 <pre>
 githubstats/
 ├── client/
@@ -39,6 +40,25 @@ on the locations of the Javascript arrays.
 ##### `util.js`
 This contains some basic functions such as `check_file(path)`, `parse(String)`, and `locations(array)`.
 
+
+#### Client
+The root directory of the client repository contains several folders and files.
+The client app is written using React.js. To start the client app Go to client directory `cd client` and `npm run start`.
+<pre>
+githubstats/
+├── client/
+│   ├── public/
+│   └── ...
+├── data/
+│   ├── albania.json
+│   └── ...
+├── GraphQuery.js
+├── server.js
+└── util.js
+</pre>
+##### `data`
+The folder contains the `.json` files, stores the  `JSON array` of the user data which is fetched
+from the Graph API. 
 
  
 
