@@ -1,6 +1,7 @@
 const express = require("express");
 const GraphQuery = require('./GraphQuery');
 const fs = require('fs');
+const util = require('./util');
 
 var albania = ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"];
 var argentina = ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"];
@@ -220,7 +221,12 @@ setInterval(function () {
 }, seconds);
 
 app.get('/api/:country', (req, res) => {
-  res.send(fs.readFileSync('./data/' + req.params.country + '.json'));
+    try{
+        res.send(fs.readFileSync('./data/' + req.params.country + '.json'));
+    } catch (e) {
+        console.log(util.getDateTime(), req.params.country, "does not exist");
+    }
+
 });
 
 const API_PORT = process.env.PORT || 4000;

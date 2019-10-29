@@ -54,13 +54,13 @@ module.exports = class GraphQuery {
     }
 
     request(){
-        console.log(util.locations(this.cities));
+        //console.log(util.locations(this.cities));
         if (!(this.re < this.num)){
             this.next = false;
         } else {
             this.re = this.re + 1;
         }
-        console.log(this.re);
+        //console.log(this.re);
         if(this.next) {
             axios
                 .create({
@@ -82,7 +82,7 @@ module.exports = class GraphQuery {
                     Object.keys(jsonStr).forEach(function (index, key) {
                         if (jsonStr[key].node.__typename === "User") {
                             // "__typename": "User",
-                            console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
+                            //console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
                             var b = {
                                 'id': key,
                                 'avatar_url': jsonStr[key].node.avatarUrl,
@@ -93,25 +93,25 @@ module.exports = class GraphQuery {
                             };
                             jsonAr.push(b);
                         } else {
-                            console.log(jsonStr[key].node.__typename);
+                            //console.log(jsonStr[key].node.__typename);
                         }
 
                     });
                     this.request();
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    console.log(util.getDateTime() + " Error occurred in axios response");
                 });
         } else {
             const jsonContent = JSON.stringify(this.jsonAr);
             fs.writeFileSync(this.path, jsonContent, 'utf8', function (err) {
                 if (err) {
-                    return console.log(err);
+                    return console.log(util.getDateTime() +  " Error occurred in file saving");
                 }
             });
-            console.log("The file is saved!");
+
+            console.log(util.getDateTime() + " The file is saved!" + util.locations(this.cities));
         }
         util.check_file(this.path);
-
     }
 };
