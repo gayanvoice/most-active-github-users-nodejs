@@ -17,27 +17,28 @@ in the directory.
 The root directory of the repository contains several folders and files.
 <pre>
 githubstats/
-├── .github/
-├── .idea/
 ├── client/
 │   ├── public/
 │   └── ...
 ├── data/
 │   ├── albania.json
 │   └── ...
-├── .gtignore
-├── .travis.yml
-├── CONTRIBUTING.md
 ├── GraphQuery.js
-├── LICENCE
-├── README.md
-├── package-lock.json
-├── package.json
 ├── server.js
 └── util.js
 </pre>
 ##### `data`
 The folder contains the `.json` files, stores the  `JSON array` of the user data which is fetched
 from the Graph API. 
+##### `GraphQuery.js`
+GraphQuery is a class which is used to fetch data from the GitHub GraphQL API.
+It fetches 1000 users with most followers based on the locations.
+##### `server.js`
+This script is running the server. It calls the API, and requests user data from GitHub based
+on the locations of the Javascript arrays.
+##### `util.js`
+This contains some basic functions such as `check_file(path)`, `parse(String)`, and `locations(array)`.
+
+
  
 
