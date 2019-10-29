@@ -25,8 +25,8 @@ The query structure is ` let query = new GraphQuery('country', country);` The `v
 [tokens](https://github.com/settings/tokens) with permissions to _read:discussion, read:enterprise, read:org, read:packages_ in GitHub.
 2. Run the server by `node server.js`
 
-**The country name is in the above three steps should be same. And it should be in lowercase, remove spaces, or characters like United States in `unitedstats` or Russia `russia`**
-**The names of the cities should be in one word such as Buenos Aires in `BuenosAires` or Český Krumlov in `ČeskýKrumlov`**
+##### The country name is in the above three steps should be same. And it should be in lowercase, remove spaces, or characters like United States in `unitedstats` or Russia `russia`
+##### The names of the cities should be in one word such as Buenos Aires in `BuenosAires` or Český Krumlov in `ČeskýKrumlov`
 
 ##### Client
 Add the country name to [App.js#L109](https://github.com/gayanvoice/githubstats/blob/a7e8283fdf933717fbef6dfadea754cf47176a98/client/src/App.js#L109). The structure is `<span className="nav-link"><Link to="/country/countryname/0/25">Country Name</Link></span>`
