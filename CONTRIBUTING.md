@@ -13,6 +13,7 @@ You can `clone` your `fork` by using `git clone repository` from the command pro
 using an IDE like Web Storm, Visual Code and etc. After you `clone` the repository you can see the files
 in the directory.
 
+---
 #### Add new country
 ##### Server
 1. Create new country variable [server.js#L6](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/server.js#L6).
@@ -28,6 +29,7 @@ The query structure is ` let query = new GraphQuery('country', country);` The `v
 ##### The country name is in the above three steps should be same. And it should be in lowercase, remove spaces, or characters like United States in `unitedstats` or Russia `russia`
 ##### The names of the cities should be in one word such as Buenos Aires in `BuenosAires` or Český Krumlov in `ČeskýKrumlov`
 
+---
 ##### Client
 Add the country name to [App.js#L109](https://github.com/gayanvoice/githubstats/blob/a7e8283fdf933717fbef6dfadea754cf47176a98/client/src/App.js#L109). The structure is `<span className="nav-link"><Link to="/country/countryname/0/25">Country Name</Link></span>`
 
@@ -36,6 +38,7 @@ Go to the client directory `cd client` and run the React server by `npm run star
 
 ##### After you have done the changes you can create a [Create request](https://github.com/gayanvoice/githubstats/pulls) and name it `Add Country Name`. After the review, if there are no errors your contribution will be displayed in [GitHubStats](http://www.githubstats.com/) with a link to your GitHub profile.
 
+---
 ### File system
 #### Server
 The root directory of the repository contains several folders and files. The server is a Node.js app.
