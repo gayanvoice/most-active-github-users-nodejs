@@ -68,7 +68,13 @@ githubstats/
 The folder contains the `.ico` files, and index.html file.
 ##### `src`
 The folder contains the `components` folder which contains `Country.js` file.
- 
+##### `components/Country.js`
+This React Component fetches the list of users and render the list as a range.
+It has several methods like `compare(a, b)`, `check_username(value)`, `limit(value)`, and `renderMyData(param)`.
+##### `App.js`
+The main React App component which is used to display the content of the React Component and the UI.
+##### `setupProxy.js`
+The app connects to the server through the API.
 
  
 
