@@ -43,22 +43,32 @@ This contains some basic functions such as `check_file(path)`, `parse(String)`, 
 
 #### Client
 The root directory of the client repository contains several folders and files.
-The client app is written using React.js. To start the client app Go to client directory `cd client` and `npm run start`.
+The client app is written using React.js. To start the client app, go to client directory `cd client` and `npm run start`.
 <pre>
 githubstats/
 ├── client/
 │   ├── public/
-│   └── ...
-├── data/
-│   ├── albania.json
-│   └── ...
-├── GraphQuery.js
-├── server.js
-└── util.js
+│   │   ├── favicon.ico
+│   │   ├── github-log64.ico
+│   │   ├── index.html
+│   │   └── ...
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Country.js
+│   │   ├── App.js
+│   │   ├── setupProxy.js
+│   │   └── ...
+│   ├── .gitignore
+│   ├── README.md
+│   ├── package-lock.json
+│   └── package.json
+└── ...
 </pre>
-##### `data`
-The folder contains the `.json` files, stores the  `JSON array` of the user data which is fetched
-from the Graph API. 
+##### `public`
+The folder contains the `.ico` files, and index.html file.
+##### `src`
+The folder contains the `components` folder which contains `Country.js` file.
+ 
 
  
 
