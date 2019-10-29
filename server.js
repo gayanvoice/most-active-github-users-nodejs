@@ -8,6 +8,7 @@ var india = ["india", "bangalore", "mumbai", "delhi", "kolkata", "chennai"];
 var china = ["china", "chengdu", "shenzen", "tianjin", "guangzhou", "shanghai", "beijing", "hangzhou"];
 var hongkong = ["hongkong"];
 var taiwan = ["taiwan", "taipei"];
+
 var albania = ["albania", "tirana", "durres", "vlore", "elbasan", "shkoder"];
 var unitedstates = ["paloalto", "newyork", "california", "lasvegas", "sanfrancisco", "massachusetts", "boston", "illinois", "sunnyvale", "sanjose", "texas", "losangeles", "nyc", "georgia", "carolina", "santaclara"];
 var argentina = ["argentina", "buenosaires", "cordoba", "rosario", "mendoza", "la%2Bplata", "tucuman", "salta", "resistencia"];
