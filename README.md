@@ -8,7 +8,8 @@
 Go to HTTP [http://www.githubstats.com/](http://www.githubstats.com/)
 Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-com.herokuapp.com/)
 
-The project queries the list of active users in GitHub by country using GitHub Graph API on Node.js and the UI is created by using React.js. The app updates in every 24 hours and displays 256 top contributers.
+The app is updated at every 24 hours. This React.js app fetches active users from GitHub GraphQL API using Express.js in Node.js. The app uses the number of public contributions
+you have done in the year.
 
 ## Images
 ### China
