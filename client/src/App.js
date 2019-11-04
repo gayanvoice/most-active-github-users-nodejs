@@ -103,6 +103,7 @@ function App() {
             <span className="nav-link"><Link to="/country/russia/0/25">Russia</Link></span>
             <span className="nav-link"><Link to="/country/serbia/0/25">Serbia</Link></span>
             <span className="nav-link"><Link to="/country/singapore/0/25">Singapore</Link></span>
+            <span className="nav-link"><Link to="/country/southkorea/0/25">South Korea</Link></span>
             <span className="nav-link"><Link to="/country/spain/0/25">Spain</Link></span>
             <span className="nav-link"><Link to="/country/srilanka/0/25">Sri Lanka</Link></span>
             <span className="nav-link"><Link to="/country/sweden/0/25">Sweden</Link></span>
