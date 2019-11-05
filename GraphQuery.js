@@ -5,17 +5,18 @@ const util = require('./util');
 
 module.exports = class GraphQuery {
 
-    constructor(country, cities){
+    constructor(cities){
+        console.log(cities[0].toLowerCase(), cities);
         this.jsonAr=[];
         this.b={};
         this.re = 0;
         this.next = true;
         this.cursor = null;
         this.cities = cities;
-        this.path = './data/' + country + '.json';
-        this.key = '';
+        this.path = './data/' + cities[0].toLowerCase() + '.json';
+        this.key = '7070580c3747b878dbd62f3ccc1efaa99dca8919';
         this.per = 10;
-        this.num = 100;
+        this.num = 5;
 
         this.query = `
         query {
@@ -54,7 +55,6 @@ module.exports = class GraphQuery {
     }
 
     request(){
-        //console.log(util.locations(this.cities));
         if (!(this.re < this.num)){
             this.next = false;
         } else {
@@ -99,7 +99,7 @@ module.exports = class GraphQuery {
                     });
                     this.request();
                 })
-                .catch(function (error) {
+                .catch(function () {
                     console.log(util.getDateTime() + " Error occurred in axios response");
                 });
         } else {

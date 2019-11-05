@@ -3,6 +3,47 @@ const GraphQuery = require('./GraphQuery');
 const fs = require('fs');
 const util = require('./util');
 
+var country = [
+    {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
+    {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
+    {city: ["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"]},
+    {city: ["Austria", "Vienna", "Wien", "Linz", "Salzburg", "Graz", "Innsbruck"]},
+    {city: ["Austria", "Vienna", "Wien", "Linz", "Salzburg", "Graz", "Innsbruck"]},
+    {city: ["Bangladesh", "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Barisal"]},
+    {city: ["Belgium", "Antwerp", "Ghent", "Charleroi", "Liege", "Brussels", "Belgique"]},
+    {city: ["Brazil", "Brasil", "SaoPaulo", "Salvador", "Fortaleza", "Recife"]},
+    {city: ["Canada", "Ottawa", "Edmonton", "Winnipeg", "Vancouver", "Toronto", "Quebec", "Montreal", "Mississauga", "Calgary"]},
+    {city: ["China", "Chengdu", "Shenzen", "Tianjin", "Guangzhou", "Shanghai", "Beijing", "Hangzhou"]},
+    {city: ["croatia", "Hrvatska", "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Pula"]},
+    {city: ["CzechRepublic", "Czechia", "Prague", "Brno", "Olomouc", "Plzeň", "Ostrava", "Liberec"]},
+    {city: ["Denmark", "Copenhagen", "Aarhus", "Odense", "Aalborg"]},
+    {city: ["Estonia", "Eesti", "Tallinn", "Tartu", "Narva"]},
+    {city: ["Finland", "Suomi", "Helsinki", "Tampere", "Oulu", "Espoo", "Vantaa", "Turku"]},
+    {city: ["France", "Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims"]},
+    {city: ["Germany", "Deutschland", "Berlin", "Frankfurt", "Munich", "München", "Hamburg", "Cologne"]},
+    {city: ["Greece", "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Crete"]},
+    {city: ["HongKong"]},
+
+
+
+
+];
+
+(async() => {
+  const delay = 15000;
+  /*
+    Rate limit https://developer.github.com/v4/guides/resource-limitations/
+   */
+  const fx = ({city}) =>
+      new Promise(resolve => setTimeout(resolve, delay, city))
+          .then(data => new GraphQuery(data).request());
+  for (let {city} of country) {
+    await fx({city});
+  }
+})();
+
+
+/*
 var albania = ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"];
 var argentina = ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"];
 var australia = ["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"];
@@ -54,7 +95,7 @@ var ukraine = ["Ukraine", "Kiev", "Kyiv", "Kharkiv", "Dnipro", "Odesa", "Donetsk
 var unitedarabemirates = ["UAE", "UnitedArabEmirates", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"];
 var unitedkingdom = ["UnitedKingdom", "UK", "London", "Birmingham", "Leeds", "Glasgow", "Sheffield", "Bradford", "Manchester", "Edinburgh", "Liverpool", "Bristol", "Cardiff", "Belfast", "Leicester", "Wakefield", "Coventry", "Nottingham", "NewCastle"];
 var unitedstates = ["UnitedStates", "USA", "PaloAlto", "NewYork", "NY", "California", "Ca", "LasVegas", "SanFrancisco", "Massachusetts", "Boston", "Illinois", "SunnyVale", "SanJose", "Texas", "LosAngeles", "LA", "Georgia", "Carolina", "SantaClara"];
-
+*/
 const app = express();
 
 // NEEDS SOME MODIFICATION OVER HERE REPLACE THE INTERVAL
@@ -69,6 +110,8 @@ const app = express();
   MACHINE CLOCK CAN NOT BE TRUSTED AND THE BELOW METHOD IS NOT RELIABLE
 */
 
+
+/*
 var seconds = 1000;
 setInterval(function () {
   seconds = seconds + 1000;
@@ -231,7 +274,7 @@ setInterval(function () {
     seconds = 1000;
   }
 }, seconds);
-
+*/
 app.get('/api/:country', (req, res) => {
     try{
         res.send(fs.readFileSync('./data/' + req.params.country + '.json'));
