@@ -1,7 +1,7 @@
 # GitHubStats
-[![Build Status](https://travis-ci.org/gayanvoice/githubstats-github-graphql.svg?branch=master)](https://travis-ci.org/gayanvoice/githubstats-github-graphql)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/gayanvoice/githubstats-github-graphql.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats-github-graphql/context:javascript)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/gayanvoice/GitHubStats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/GitHubStats/alerts/)
+[![Build Status](https://travis-ci.org/gayanvoice/githubstats-github-graphql-api-v4.svg?branch=master)](https://travis-ci.org/gayanvoice/githubstats-github-graphql-api-v4)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/gayanvoice/githubstats-github-graphql-api-v4.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats-github-graphql-api-v4/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/gayanvoice/githubstats-github-graphql-api-v4.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats-github-graphql-api-v4/alerts/)
 ![GitHub](https://img.shields.io/github/license/gayanvoice/GitHubStats)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gayanvoice/GitHubStats)
 
