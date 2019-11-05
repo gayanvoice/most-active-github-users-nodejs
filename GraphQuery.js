@@ -6,7 +6,7 @@ const util = require('./util');
 module.exports = class GraphQuery {
 
     constructor(cities){
-        console.log(cities[0].toLowerCase(), cities);
+        //console.log(cities[0].toLowerCase(), cities);
         this.jsonAr=[];
         this.b={};
         this.re = 0;
@@ -14,9 +14,9 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.path = './data/' + cities[0].toLowerCase() + '.json';
-        this.key = '7070580c3747b878dbd62f3ccc1efaa99dca8919';
+        this.key = '';
         this.per = 10;
-        this.num = 5;
+        this.num = 2;
 
         this.query = `
         query {
