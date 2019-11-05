@@ -57,6 +57,13 @@ var unitedstates = ["UnitedStates", "USA", "PaloAlto", "NewYork", "NY", "Califor
 
 const app = express();
 
+// NEEDS SOME MODIFICATION OVER HERE REPLACE THE INTERVAL
+
+// GitHub GraphQL API only take 5000 requests per hour
+// GitHub API takes average 3 minutes in the server to get 100 requests with 10 results
+// The API crashes if you increase the number more than 10
+
+
 var seconds = 1000;
 setInterval(function () {
   seconds = seconds + 1000;
