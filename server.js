@@ -30,7 +30,7 @@ var country = [
 ];
 
 (async() => {
-  const delay = 15000;
+  const delay = 10000;
   /*
     Rate limit https://developer.github.com/v4/guides/resource-limitations/
    */
