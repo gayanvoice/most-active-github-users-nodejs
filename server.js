@@ -59,20 +59,22 @@ var country = [
 ];
 
 const app = express();
-
-(async() => {
-  const delay = 10000;
-  /*
-    Rate limit https://developer.github.com/v4/guides/resource-limitations/
-   */
-  const fx = ({city}) =>
-      new Promise(resolve => setTimeout(resolve, delay, city))
-          .then(data => new GraphQuery(data).request());
-  for (let {city} of country) {
-    await fx({city});
-  }
-})();
-
+try {
+    (async () => {
+        const delay = 300000;
+        /*
+          Rate limit https://developer.github.com/v4/guides/resource-limitations/
+         */
+        const fx = ({city}) =>
+            new Promise(resolve => setTimeout(resolve, delay, city))
+                .then(data => new GraphQuery(data).request());
+        for (let {city} of country) {
+            await fx({city});
+        }
+    })();
+} catch (e) {
+    console.log("Error in Async");
+}
 app.get('/api/:country', (req, res) => {
     try{
         res.send(fs.readFileSync('./data/' + req.params.country + '.json'));
