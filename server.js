@@ -3,6 +3,11 @@ const GraphQuery = require('./GraphQuery');
 const fs = require('fs');
 const util = require('./util');
 
+/*
+    Sorry folks, I removed if else sh#t I used it to save some time during exams days. Still this is experimental.
+    Because I wrote this like in two or three days and this is my first node project :)
+*/
+
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
