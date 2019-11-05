@@ -51,6 +51,11 @@ class Country extends Component {
         this.renderMyData(param);
     }
 
+    componentDidUpdate(prevProps) {
+        var param = this.props.match.params.country;
+        if (param !== prevProps.match.params.country)
+            this.renderMyData(param);
+      }
 
     render() {
         return (
