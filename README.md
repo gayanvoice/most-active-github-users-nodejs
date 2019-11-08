@@ -8,8 +8,7 @@
 Go to HTTP [http://www.githubstats.com/](http://www.githubstats.com/)
 Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-com.herokuapp.com/)
 
-### The app is experimental and needs review on the code.
-### Please contribute or raise an issue to look in to it.
+### The app is experimental and needs review on the code. Please contribute or raise an issue to look in to it.
 
 The app is updated at every 24 hours. This React.js app fetches active users from GitHub GraphQL API using Express.js in Node.js. The app uses the number of public contributions
 you have done in the year.
