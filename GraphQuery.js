@@ -1,7 +1,25 @@
 var fs = require('fs');
 const axios = require('axios');
 const util = require('./util');
-
+var mongo = require('mongodb').MongoClient;
+const assert = require('assert');
+const url = "mongodb+srv://user:password@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+var Country = {
+    country: null,
+    cities : null,
+    set setCountry(country) {
+        this.country = country;
+    },
+    set setCities(cities) {
+        this.cities = cities;
+    },
+    get getCountry() {
+        return this.country;
+    },
+    get getCities() {
+        return this.cities;
+    }
+};
 
 module.exports = class GraphQuery {
 
@@ -13,8 +31,8 @@ module.exports = class GraphQuery {
         this.next = true;
         this.cursor = null;
         this.cities = cities;
-        this.path = './data/' + cities[0].toLowerCase() + '.json';
-        this.key = '';
+        this.country = cities[0].toLowerCase();
+        this.key = 'key';
         this.per = 10;
         this.num = 2;
 
@@ -26,9 +44,10 @@ module.exports = class GraphQuery {
                 __typename
                 ... on User {
                   login,
-                  avatarUrl,
+                  avatarUrl(size: 72),
                   name,
                   company,
+                  location,
                   organizations(first: 1) {
                     nodes {
                       login
@@ -88,6 +107,7 @@ module.exports = class GraphQuery {
                                 'avatar_url': jsonStr[key].node.avatarUrl,
                                 'login': jsonStr[key].node.login,
                                 'name': jsonStr[key].node.name,
+                                'location': jsonStr[key].node.location,
                                 'followers': jsonStr[key].node.followers.totalCount,
                                 'contribution': jsonStr[key].node.contributionsCollection.contributionCalendar.totalContributions
                             };
@@ -95,7 +115,6 @@ module.exports = class GraphQuery {
                         } else {
                             //console.log(jsonStr[key].node.__typename);
                         }
-
                     });
                     this.request();
                 })
@@ -103,11 +122,22 @@ module.exports = class GraphQuery {
                     console.log(util.getDateTime() + " Error occurred in axios response");
                 });
         } else {
-            const jsonContent = JSON.stringify(this.jsonAr);
-            fs.writeFileSync(this.path, jsonContent, 'utf8', function (err) {
-                if (err) {
-                    return console.log(util.getDateTime() +  " Error occurred in file saving");
-                }
+            var data  = {
+                country: this.country,
+                dataset: this.jsonAr,
+                modified: util.getDateTime()
+        };
+           mongo.connect(url, {useUnifiedTopology: true}, function(err, client) {
+                assert.equal(null, err);
+                const collection = client.db("database").collection("countries");
+                collection.updateOne(
+                    {_country: data.country},
+                    {$set:data},
+                    {upsert: true})
+                    .then(function(result) {
+                    // process result
+                    client.close();
+                });
             });
 
             console.log(util.getDateTime() + " The file is saved!" + util.locations(this.cities));
