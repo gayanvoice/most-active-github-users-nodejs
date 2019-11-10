@@ -6,6 +6,11 @@ var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const url = "mongodb+srv://root:Fib1eHYE1HJa6yPz@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
+/*
+    Sorry folks, I removed if else sh#t I used it to save some time during exams days. Still this is experimental.
+    Because I wrote this like in two or three days and this is my first node project :)
+*/
+
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
