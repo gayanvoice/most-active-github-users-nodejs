@@ -5,7 +5,7 @@ const util = require('./util');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const url = "mongodb+srv://root:Fib1eHYE1HJa6yPz@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
-
+const axios = require('axios');
 /*
     Sorry folks, I removed if else sh#t I used it to save some time during exams days. Still this is experimental.
     Because I wrote this like in two or three days and this is my first node project :)
@@ -83,23 +83,55 @@ try {
     console.log("Error in Async");
 }
 
-// http://localhost:4000/get/China
-app.get('/get/:country', (req, res) => {
-    try{
-        var country =  req.params.country;
-        mongo.connect(url, {useUnifiedTopology: true}, function(err, client) {
-            assert.equal(null, err);
-            const collection = client.db("database").collection("countries");
-            collection.find({
-                "country": { $regex: country }
-            }).toArray(function(error, doc) {
-                res.send(doc);
+// http://localhost:4000/country/China
+app.get('/country/:country', (req, res) => {
+        try {
+            var country = req.params.country;
+            console.log(country);
+            mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
+                assert.equal(null, err);
+                const collection = client.db("database").collection("countries");
+                collection.find({
+                    "country": {$regex: country}
+                }).toArray(function (error, doc) {
+
+                    res.send(doc);
+                });
+                client.close();
             });
-            client.close();
-        });
+        } catch (e) {
+            console.log(e);
+            // res.send(e.toString());
+        }
+
+});
+
+// http://localhost:4000/user/gayanvoice
+
+app.get('/user/:name', (req, res) => {
+    try{
+        var user =  req.params.name;
+        axios
+            .create({
+                baseURL: 'https://api.github.com/v3',
+                headers: {
+                    Authorization: `bearer  `
+                },
+            })
+            .get('https://api.github.com/users/' + user + '/repos')
+            .then(({data}) => {
+                console.log(data);
+                res.send(JSON.stringify(data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+
     } catch (e) {
         console.log(e);
-        // res.send(e.toString());
     }
 });
 
@@ -118,20 +150,6 @@ app.get('/admin/delete/all', (req, res) => {
     }
 });
 
-
-/*
-mongo.connect(url, function(err, client) {
-    assert.equal(null, err);
-    const collection = client.db("database").collection("countries");
-    collection.insertOne({
-        country: "Albania",
-        dataset: "data"
-    }).then(function(result) {
-        // process result
-        client.close();
-    });
-});
-*/
 
 
 

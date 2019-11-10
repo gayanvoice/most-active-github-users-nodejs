@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Country from './components/Country';
 import Home from './components/Home';
 import About from './components/About';
+import User from './components/User';
 import GitHubButton from 'react-github-btn';
 
 function App() {
@@ -14,13 +15,18 @@ function App() {
           <div className="navbar-collapse" id="navbarsExampleDefault">
               <nav className="nav nav-underline">
                 <span className="nav-link">
-                    <Link to="/home"><img src={'https://image.flaticon.com/icons/svg/25/25231.svg'} height='24'/></Link>
+                    <Link to="/home"><img src={'https://image.flaticon.com/icons/svg/25/25231.svg'} alt={'go to home'} height='24'/></Link>
                 </span>
 
               </nav>
               <nav className="nav nav-underline">
               <span className="nav-link">
-                    <Link to="/about"><img src={'https://image.flaticon.com/icons/svg/2188/2188563.svg'} height='24'/></Link>
+                    <Link to="/about"><img src={'https://image.flaticon.com/icons/svg/2188/2188563.svg'}  alt={'go to about'} height='24'/></Link>
+                </span>
+              </nav>
+              <nav className="nav nav-underline">
+              <span className="nav-link">
+                    <Link to="/user"><img src={'https://image.flaticon.com/icons/svg/138/138351.svg'}  alt={'user'} height='24'/></Link>
                 </span>
               </nav>
           </div>
@@ -29,8 +35,8 @@ function App() {
 
           <main role="main" className="container pt-2 pb-2 mb-5">
               <Switch>
-                  <Route path="/country/:country/:from/:to" component={Country} exact/>
-                  <Route path="/country/:country/top" component={Country} exact/>
+                  <Route path="/country/:name/:from/:to" component={Country} exact/>
+                  <Route path="/user/:name" component={User} exact/>
                   <Route path="/about" component={About} exact/>
                   <Route path="/home" component={Home} exact/>
                   <Route path="/" component={Home} exact/>

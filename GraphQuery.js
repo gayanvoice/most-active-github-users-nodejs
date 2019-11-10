@@ -3,23 +3,7 @@ const axios = require('axios');
 const util = require('./util');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
-const url = "mongodb+srv://user:password@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
-var Country = {
-    country: null,
-    cities : null,
-    set setCountry(country) {
-        this.country = country;
-    },
-    set setCities(cities) {
-        this.cities = cities;
-    },
-    get getCountry() {
-        return this.country;
-    },
-    get getCities() {
-        return this.cities;
-    }
-};
+const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
 module.exports = class GraphQuery {
 
@@ -32,9 +16,9 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.country = cities[0].toLowerCase();
-        this.key = 'key';
+        this.key = '';
         this.per = 10;
-        this.num = 2;
+        this.num = 6;
 
         this.query = `
         query {
