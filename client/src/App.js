@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Country from './components/Country';
 import Home from './components/Home';
 import About from './components/About';
-import User from './components/User';
 import GitHubButton from 'react-github-btn';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
           <main role="main" className="container pt-2 pb-2 mb-5">
               <Switch>
                   <Route path="/country/:name/:from/:to" component={Country} exact/>
-                  <Route path="/user/:name" component={User} exact/>
                   <Route path="/about" component={About} exact/>
                   <Route path="/home" component={Home} exact/>
                   <Route path="/" component={Home} exact/>
