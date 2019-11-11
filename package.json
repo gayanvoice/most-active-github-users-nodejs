@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "create-app": "npm install && cd client && npm install",
-    "server": "node server.js",
+    "create-install": "npm install npm install --prefix client",
+    "start": "node server.js",
     "client": "npm start --prefix client",
-    "start": "concurrently \" npm run server\" \"npm run client\" "
-  },
+    "dev": "concurrently \" npm run server\" \"npm run client\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

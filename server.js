@@ -66,7 +66,7 @@ const app = express();
 
 try {
     (async () => {
-        const delay = 25000;
+        const delay = 300000;
         // Rate limit https://developer.github.com/v4/guides/resource-limitations/
         const fx = ({city}) =>
             new Promise(resolve => setTimeout(resolve, delay, city))
