@@ -1,15 +1,8 @@
 const express = require("express");
 const GraphQuery = require('./GraphQuery');
-const fs = require('fs');
-const util = require('./util');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
-const url = "mongodb+srv://root:Fib1eHYE1HJa6yPz@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
-const axios = require('axios');
-/*
-    Sorry folks, I removed if else sh#t I used it to save some time during exams days. Still this is experimental.
-    Because I wrote this like in two or three days and this is my first node project :)
-*/
+const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
@@ -67,7 +60,7 @@ var country = [
 ];
 
 const app = express();
-/*
+
 try {
     (async () => {
         const delay = 15000;
@@ -82,7 +75,7 @@ try {
 } catch (e) {
     console.log("Error in Async");
 }
-*/
+
 // http://localhost:4000/country/China
 app.get('/country/:country', (req, res) => {
         try {
