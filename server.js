@@ -67,7 +67,7 @@ var country = [
 ];
 
 const app = express();
-
+/*
 try {
     (async () => {
         const delay = 15000;
@@ -82,7 +82,7 @@ try {
 } catch (e) {
     console.log("Error in Async");
 }
-
+*/
 // http://localhost:4000/country/China
 app.get('/country/:country', (req, res) => {
         try {
@@ -94,7 +94,6 @@ app.get('/country/:country', (req, res) => {
                 collection.find({
                     "country": {$regex: country}
                 }).toArray(function (error, doc) {
-
                     res.send(doc);
                 });
                 client.close();
@@ -115,13 +114,55 @@ app.get('/user/:name', (req, res) => {
             .create({
                 baseURL: 'https://api.github.com/v3',
                 headers: {
-                    Authorization: `bearer  `
+                    Authorization: `bearer`
                 },
             })
-            .get('https://api.github.com/users/' + user + '/repos')
+            .get('https://api.github.com/users/' + user + '/repos?sort=updated')
             .then(({data}) => {
-                console.log(data);
-                res.send(JSON.stringify(data));
+                var array = [], sort = [];
+                Object.entries(data).forEach(([key, val]) => {
+                    var row = {
+                        'id': val.id,
+                        'name': val.name,
+                        'stargazers_count': val.stargazers_count,
+                        'watchers_count': val.watchers_count,
+                        'forks_count': val.forks_count,
+                    };
+                    array.push(row);
+                });
+
+                for (var i = 0; i < array.length; i++) {
+                    for (var j = 0; j < i; j++) {
+                        if (array[i].stargazers_count > array[j].stargazers_count) {
+                            var k = array[i].stargazers_count;
+                            array[i].stargazers_count = array[j].stargazers_count;
+                            array[j].stargazers_count = k;
+                        }
+                   }
+                }
+                //console.log(array);
+                for (var x = 0; x < array.length; x++) {
+                    if (array[x].stargazers_count > 0){
+                        if(x===5){
+                            break
+                        } else {
+                            var row = {
+                                'id': array[x].id,
+                                'name': array[x].name,
+                                'stargazers_count': array[x].stargazers_count,
+                                'watchers_count': array[x].watchers_count,
+                                'forks_count': array[x].forks_count,
+                            };
+                            sort.push(row);
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                console.log(getTraffic(user, sort));
+                res.send(getTraffic(user, sort));
+
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -134,6 +175,28 @@ app.get('/user/:name', (req, res) => {
         console.log(e);
     }
 });
+
+function getTraffic(user, sort){
+    //return sort;
+    axios
+        .create({
+            baseURL: 'https://api.github.com/v3',
+            headers: {
+                Authorization: `bearer `
+            },
+        })
+        .get('https://api.github.com/repos/' + user + '/' + 'notepad2-mod' + '/traffic/views')
+        .then(({data}) => {
+            return data
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+}
+
 
 app.get('/admin/delete/all', (req, res) => {
     try{

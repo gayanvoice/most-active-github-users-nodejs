@@ -10,10 +10,10 @@ class User extends Component {
         };
     }
 
-    renderMyData(param){
+    renderUser(param){
         fetch('/user/'+ param)
+            .then( res => res.json() )
             .then((response) => {
-                console.log(response);
                 this.setState({ data : response, render: true});
             })
             .catch((error) => {
@@ -23,14 +23,14 @@ class User extends Component {
 
     componentDidMount(){
         var param = this.props.match.params.name;
-        this.renderMyData(param);
+        this.renderUser(param);
     }
 
 
     componentDidUpdate(prevProps) {
         var param = this.props.match.params.name;
         if (param !== prevProps.match.params.name)
-            this.renderMyData(param);
+            this.renderUser(param);
     }
 
     render() {
@@ -43,8 +43,10 @@ class User extends Component {
                 </div>)
         } else {
             return (
-                <div>
-                   {this.state.data}
+                <div className="App">
+                    <div className=" bg-white w-100">
+
+                    </div>
                 </div>
             );
         }
