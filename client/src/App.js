@@ -23,11 +23,6 @@ function App() {
                     <Link to="/about"><img src={'https://image.flaticon.com/icons/svg/2188/2188563.svg'}  alt={'go to about'} height='24'/></Link>
                 </span>
               </nav>
-              <nav className="nav nav-underline">
-              <span className="nav-link">
-                    <Link to="/user"><img src={'https://image.flaticon.com/icons/svg/138/138351.svg'}  alt={'user'} height='24'/></Link>
-                </span>
-              </nav>
           </div>
         </nav>
 

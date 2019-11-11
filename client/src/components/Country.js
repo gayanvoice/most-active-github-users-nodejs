@@ -113,13 +113,13 @@ class Country extends Component {
                                                                             alt={item.login} width="48" height="48"/>
                                         </td>
                                         <td className="align-middle">
-                                            <Link className="m-2 text-gray-dark text-black-50" to={'/user/' + item.login}>
+                                            <a className="m-2 text-gray-dark text-black-50" href={'https://github.com/' + item.login}>
                                             <strong>{this.check_username(item.name)}</strong>
 
                                             <span className="d-block">
                                                 @{item.login} ({item.followers})
                                             </span>
-                                            </Link>
+                                            </a>
                                         </td>
                                         <td className="text-black-50 align-middle">{item.location}</td>
                                         <td className="font-weight-bold align-middle">{item.contribution}</td>
