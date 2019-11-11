@@ -2,6 +2,9 @@ const express = require("express");
 const GraphQuery = require('./GraphQuery');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
+
+
+// mongo auth
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
 var country = [
@@ -63,7 +66,7 @@ const app = express();
 
 try {
     (async () => {
-        const delay = 15000;
+        const delay = 25000;
         // Rate limit https://developer.github.com/v4/guides/resource-limitations/
         const fx = ({city}) =>
             new Promise(resolve => setTimeout(resolve, delay, city))
@@ -98,23 +101,38 @@ app.get('/country/:country', (req, res) => {
 
 });
 
-app.get('/admin/delete/all', (req, res) => {
+app.get('/admin/delete', (req, res) => {
     try{
-        var country =  req.params.country;
         mongo.connect(url, {useUnifiedTopology: true}, function(err, client) {
             assert.equal(null, err);
             const collection = client.db("database").collection("countries");
             collection.deleteMany();
-            res.send("deleted all the records");
+            res.send("Deleted all the records");
             client.close();
         });
     } catch (e) {
-        console.log(e);
+        res.send(e);
     }
 });
 
 
-
+app.get('/admin/start', (req, res) => {
+    try {
+        (async () => {
+            const delay = 25000;
+            // Rate limit https://developer.github.com/v4/guides/resource-limitations/
+            const fx = ({city}) =>
+                new Promise(resolve => setTimeout(resolve, delay, city))
+                    .then(data => new GraphQuery(data).request());
+            for (let {city} of country) {
+                await fx({city});
+            }
+        })();
+        res.send('Started the refresh');
+    } catch (e) {
+        res.send("Error in Async");
+    }
+});
 
 const API_PORT = process.env.PORT || 4000;
 app.listen(API_PORT, () => console.log(`PORT ${API_PORT}`));

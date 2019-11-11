@@ -1,8 +1,9 @@
-var fs = require('fs');
 const axios = require('axios');
 const util = require('./util');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
+
+// mongo auth
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
 module.exports = class GraphQuery {
@@ -44,6 +45,7 @@ module.exports = class GraphQuery {
                     contributionCalendar {
                       totalContributions
                     }
+                    restrictedContributionsCount
                   }
                 }
               }
@@ -93,7 +95,8 @@ module.exports = class GraphQuery {
                                 'name': jsonStr[key].node.name,
                                 'location': jsonStr[key].node.location,
                                 'followers': jsonStr[key].node.followers.totalCount,
-                                'contribution': jsonStr[key].node.contributionsCollection.contributionCalendar.totalContributions
+                                'public_contributions': jsonStr[key].node.contributionsCollection.contributionCalendar.totalContributions,
+                                'private_contributions': jsonStr[key].node.contributionsCollection.restrictedContributionsCount
                             };
                             jsonAr.push(b);
                         } else {
@@ -102,8 +105,8 @@ module.exports = class GraphQuery {
                     });
                     this.request();
                 })
-                .catch(function () {
-                    console.log(util.getDateTime() + " Error occurred in axios response");
+                .catch(function (e) {
+                    console.log(util.getDateTime() + e + " Error occurred in axios response");
                 });
         } else {
             var data  = {
@@ -118,7 +121,7 @@ module.exports = class GraphQuery {
                     {_country: data.country},
                     {$set:data},
                     {upsert: true})
-                    .then(function(result) {
+                    .then(function() {
                     // process result
                     client.close();
                 });

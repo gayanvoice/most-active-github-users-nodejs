@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <nav className="navbar navbar-expand-lg  shadow-lg">
+        <nav className="navbar  navbar-expand-lg  shadow-lg">
           <div className="navbar-collapse" id="navbarsExampleDefault">
               <nav className="nav nav-underline">
                 <span className="nav-link">
@@ -18,16 +18,11 @@ function App() {
                 </span>
 
               </nav>
-              <nav className="nav nav-underline">
-              <span className="nav-link">
-                    <Link to="/about"><img src={'https://image.flaticon.com/icons/svg/2188/2188563.svg'}  alt={'go to about'} height='24'/></Link>
-                </span>
-              </nav>
           </div>
         </nav>
 
 
-          <main role="main" className="container pt-2 pb-2 mb-5">
+          <main role="main" className="container pt-5 pb-2 mb-5">
               <Switch>
                   <Route path="/country/:name/:from/:to" component={Country} exact/>
                   <Route path="/about" component={About} exact/>
@@ -36,8 +31,16 @@ function App() {
               </Switch>
           </main>
 
-          <div className="nav-scroller bg-white col-8 p-3 m-auto table-responsive">
-              <h6>Contributors</h6>
+          <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
+              <h5>How it works?</h5>
+              <h6 className="small">This is a list of most active GitHub users in the country over the past year.
+                  This list contains public and private contributions of each user. The app refreshes in every 24 hours.
+                  The contributors get their link to the profile as shown below. Create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
+              </h6>
+          </div>
+
+          <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
+              <h5>Contributors</h5>
               <nav className="nav mb-1">
                   <a className="m-1" href={"https://github.com/gayanvoice"}><img alt={"gayanvoice"}
                                                                                  src={"https://avatars1.githubusercontent.com/u/30500175?s=48&v=4"}
@@ -61,6 +64,7 @@ function App() {
           <div className={'align-items-center p-3 mb-4 mt-3 text-center'}>
               <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice" data-size="large" data-show-count="true" aria-label="Follow @gayanvoice on GitHub">Follow @gayanvoice</GitHubButton></span>
               <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gayanvoice/githubstats on GitHub">Star</GitHubButton></span>
+              <div><small>Like this project? Go to <a href={'https://github.com/gayanvoice/githubstats-github-graphql'}>gayanvoice/githubstats-github-graphql</a></small></div>
               <div><small>This project is not affiliated with the GitHub company in any way</small></div>
           </div>
       </div>

@@ -15,10 +15,10 @@ class Country extends Component {
     }
 
     compare( a, b ) {
-        if ( a.contribution < b.contribution ){
+        if ( a.public_contributions + a.private_contributions < b.public_contributions + b.private_contributions ){
             return 1;
         }
-        if ( a.contribution > b.contribution ){
+        if ( a.public_contributions + a.private_contributions > b.public_contributions + b.private_contributions ){
             return -1;
         }
         return 0;
@@ -48,9 +48,12 @@ class Country extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);
-                this.setState({ data : responseJson[0].dataset, modified: responseJson[0].modified, render: true});
-            })
-            .catch((error) => {
+                try {
+                    this.setState({data: responseJson[0].dataset, modified: responseJson[0].modified, render: true});
+                } catch (e) {
+                    console.log(e);
+                }
+            }).catch((error) => {
                 console.error(error);
             });
     }
@@ -89,8 +92,8 @@ class Country extends Component {
             return (
                 <div className="App">
                     <div className="bg-white rounded w-100">
-                        <h2>Active users from {this.titleCase(this.props.match.params.name)}</h2>
-
+                        <h6 className="mb-4"><Link className="font-weight-bold" to="/home">← Choose a country</Link></h6>
+                        <h2 className="mb-2">Active users from {this.titleCase(this.props.match.params.name)}</h2>
                         <div className="table-responsive">
 
                             <table className="table table-borderless">
@@ -101,7 +104,7 @@ class Country extends Component {
                                     <th scope="col">Image</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Location</th>
-                                    <th scope="col">Contribution</th>
+                                    <th scope="col">Total Contributions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -109,11 +112,11 @@ class Country extends Component {
                                     return <tr key={key} className="border-bottom">
                                         <td className="align-middle">{parseInt(this.props.match.params.from) + key + 1}</td>
                                         <td className={"align-middle"}>
-                                            <img className="rounded" src={item.avatar_url}
+                                            <img className="rounded shadow" src={item.avatar_url}
                                                                             alt={item.login} width="48" height="48"/>
                                         </td>
                                         <td className="align-middle">
-                                            <a className="m-2 text-gray-dark text-black-50" href={'https://github.com/' + item.login}>
+                                            <a className="text-gray-dark text-black-50" target={'_blank'} href={'https://github.com/' + item.login}>
                                             <strong>{this.check_username(item.name)}</strong>
 
                                             <span className="d-block">
@@ -121,42 +124,58 @@ class Country extends Component {
                                             </span>
                                             </a>
                                         </td>
-                                        <td className="text-black-50 align-middle">{item.location}</td>
-                                        <td className="font-weight-bold align-middle">{item.contribution}</td>
+                                        <td className="text-black-50 align-middle text-break">{item.location}</td>
+                                        <td className="font-weight-bold align-middle">{item.public_contributions + item.private_contributions}</td>
                                     </tr>
                                 })}
                                 </tbody>
                             </table>
                         </div>
 
-                        <div className="nav-scroller bg-white rounded col-8 m-auto">
-                            <nav className="nav">
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.name + "/0/300"}>All</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/0/25"}>25</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/25/50"}>50</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/50/75"}>75</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/75/100"}>100</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/100/125"}>125</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/125/150"}>150</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/150/175"}>175</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/175/200"}>200</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/200/225"}>225</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/225/250"}>250</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/250/275"}>275</Link>
-                                <Link className="m-2"
-                                      to={"/country/" + this.props.match.params.country + "/275/300"}>300</Link>
+
+                        <div className="bg-white rounded">
+                            <nav className="nav pt-4 pb-2 table-responsive">
+                                <ul className="pagination m-auto">
+                                    <li className={"page-item " + (this.props.match.params.to === '300' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/300"}>All</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '25' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/25"}>25</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '50' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/50"}>50</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '75' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/75"}>75</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '100' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/100"}>100</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '125' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/125"}>125</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '150' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/150"}>150</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '175' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/175"}>175</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '200' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/200"}>200</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '225' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/225"}>225</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '250' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/250"}>250</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '275' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/275"}>275</Link>
+                                    </li>
+                                    <li className={"page-item " + (this.props.match.params.to === '300' ? "active" : null)}>
+                                        <Link className="page-link" to={"/country/" + this.props.match.params.name + "/0/300"}>300</Link>
+                                    </li>
+                                </ul>
                             </nav>
                         </div>
 
