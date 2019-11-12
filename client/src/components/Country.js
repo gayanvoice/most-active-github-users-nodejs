@@ -116,7 +116,7 @@ class Country extends Component {
                                                                             alt={item.login} width="48" height="48"/>
                                         </td>
                                         <td className="align-middle">
-                                            <a className="text-gray-dark text-black-50" target={'_blank'} rel="noopener"  href={'https://github.com/' + item.login}>
+                                            <a className="text-gray-dark text-black-50" target={'_blank'} rel="noopener" href={'https://github.com/' + item.login}>
                                             <strong>{this.check_username(item.name)}</strong>
 
                                             <span className="d-block">
