@@ -14,10 +14,10 @@ The app is updated at every 24 hours. This React.js app fetches active users fro
 you have done in the year.
 
 ## Images
-### China
-![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/GitHubStats/images/githubstatscom-screenshot-1.PNG "githubstats.com screenshots")
-### India
-![GitHub Stats](https://raw.githubusercontent.com/gayanvoice/githubstats/images/githubstats-screenshot-2.PNG "githubstats.com screenshots")
+### Home page
+![Home page](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-1.PNG "githubstats.com screenshots")
+### Ireland
+![Ireland](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-2.PNG "githubstats.com screenshots")
 
 ## How it works?
 Users need to create a GitHub token to fetch the results from GitHub Graph API. The list of countries and the cities are listed in `server.js` as arrays and `GraphQuery.js` fetches the data from GitHub Graph API. After the fetch was completed, it creates a JSON file in `/client/src/data/` where the React app gets the list of users and the contribution.
