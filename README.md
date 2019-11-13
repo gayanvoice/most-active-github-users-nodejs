@@ -13,7 +13,7 @@ Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-
 ### Frameworks
 ![GraphQL, Express.js, Node.js](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-3.PNG "Frameworks GraphQL, Express.js, Node.js")
 
-The app is updated at every 24 hours. This React.js app fetches active users from GitHub GraphQL API using Express.js in Node.js. The app uses the number of public amd private contributions
+The app is updated at every 24 hours. This React.js app fetches active users from GitHub GraphQL API using Express.js in Node.js. The app uses the number of public and private contributions
 you have done in the year.
 
 ## Images
