@@ -14,9 +14,9 @@ The app is updated at every 24 hours. This React.js app fetches active users fro
 you have done in the year.
 
 ## Images
-### Home page
+### Choose a country
 ![Home page](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-1.PNG "githubstats.com screenshots")
-### Ireland
+### Active users from Ireland
 ![Ireland](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-2.PNG "githubstats.com screenshots")
 
 ## How it works?
