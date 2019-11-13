@@ -16,25 +16,12 @@ in the directory.
 ---
 #### Add new country
 ##### Server
-1. Create new country variable [server.js#L6](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/server.js#L6).
-The array structure is `var country = ["CountryName", "CityName", "CityName"];` You can add five most populated cities. These cities should be supported by GitHub (Sometimes the native languages may not work).
-2. Add city to the timer function [server.js#L292](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/server.js#L292).
-The query structure is ` let query = new GraphQuery('country', country);` The `var country` variable is used. The country name should be lowercase. The timer should have 10 minute intervals.
-3. Create the json file of the country in  [data](https://github.com/gayanvoice/githubstats/tree/master/data). Copy an existing json file and rename it to the country name.
-##### Testing the server
-1. Change the GitHub API key in [GraphQuery.js#L16](https://github.com/gayanvoice/githubstats/blob/ab7bafdc24cef53abd2ec01a7b73a6536172cc65/GraphQuery.js#L16). Replace it by your own API key from
-[tokens](https://github.com/settings/tokens) with permissions to _read:discussion, read:enterprise, read:org, read:packages_ in GitHub.
-2. Run the server by `node server.js`
-
-##### The country name is in the above three steps should be same. And it should be in lowercase, remove spaces, or characters like United States in `unitedstats` or Russia `russia`
-##### The names of the cities should be in one word such as Buenos Aires in `BuenosAires` or Český Krumlov in `ČeskýKrumlov`
+Create new country array object [server.js#L62](https://github.com/gayanvoice/githubstats-github-graphql/blob/d00a177b006cb4d08052f58a9f8415fe504b55f3/server.js#L62).
+The array structure is ` {city: ["Country_Name", "CountryName", "City", "City"]}` You can add five most populated cities. These cities should be supported by GitHub (Sometimes the native languages may not work).
 
 ---
 ##### Client
-Add the country name to [App.js#L109](https://github.com/gayanvoice/githubstats/blob/a7e8283fdf933717fbef6dfadea754cf47176a98/client/src/App.js#L109). The structure is `<span className="nav-link"><Link to="/country/countryname/0/25">Country Name</Link></span>`
-
-##### Testing the client
-Go to the client directory `cd client` and run the React server by `npm run start`
+Add the country name to [Home.js#L122](https://github.com/gayanvoice/githubstats-github-graphql/blob/d00a177b006cb4d08052f58a9f8415fe504b55f3/client/src/components/Home.js#L122).
 
 ##### After you have done the changes you can create a [Create request](https://github.com/gayanvoice/githubstats/pulls) and name it `Add Country Name`. After the review, if there are no errors your contribution will be displayed in [GitHubStats](http://www.githubstats.com/) with a link to your GitHub profile.
 
@@ -48,16 +35,10 @@ githubstats/
 ├── client/
 │   ├── public/
 │   └── ...
-├── data/
-│   ├── albania.json
-│   └── ...
 ├── GraphQuery.js
 ├── server.js
 └── util.js
 </pre>
-##### `data`
-The folder contains the `.json` files, stores the  `JSON array` of the user data which is fetched
-from the Graph API. 
 ##### `GraphQuery.js`
 GraphQuery is a class which is used to fetch data from the GitHub GraphQL API.
 It fetches 1000 users with most followers based on the locations.
@@ -81,7 +62,9 @@ githubstats/
 │   │   └── ...
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── Country.js
+│   │   │   ├── About.js
+│   │   │   ├── Country.js
+│   │   │   └── Home.js
 │   │   ├── App.js
 │   │   ├── setupProxy.js
 │   │   └── ...
@@ -98,6 +81,8 @@ The folder contains the `components` folder which contains `Country.js` file.
 ##### `components/Country.js`
 This React Component fetches the list of users and render the list as a range.
 It has several methods like `compare(a, b)`, `check_username(value)`, `limit(value)`, and `renderMyData(param)`.
+##### `components/Home.js`
+This React Component fetches the list of countries and render it in a table.
 ##### `App.js`
 The main React App component which is used to display the content of the React Component and the UI.
 ##### `setupProxy.js`
