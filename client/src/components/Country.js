@@ -44,7 +44,7 @@ class Country extends Component {
 
     renderCountryData(param){
         console.log(param);
-        fetch('/country/'+ param)
+        fetch('/contributions/'+ param)
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);

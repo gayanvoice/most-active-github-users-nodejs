@@ -2,7 +2,7 @@ const express = require("express");
 const GraphQuery = require('./GraphQuery');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
-
+const path = require('path');
 
 // mongo auth
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
@@ -64,6 +64,7 @@ var country = [
 
 const app = express();
 
+/*
 try {
     (async () => {
         const delay = 300000;
@@ -78,9 +79,9 @@ try {
 } catch (e) {
     console.log("Error in Async");
 }
-
+*/
 // http://localhost:4000/country/China
-app.get('/country/:country', (req, res) => {
+app.get('/contributions/:country', (req, res) => {
         try {
             var country = req.params.country;
             console.log(country);
@@ -119,7 +120,7 @@ app.get('/admin/delete', (req, res) => {
 app.get('/admin/start', (req, res) => {
     try {
         (async () => {
-            const delay = 25000;
+            const delay = 300000;
             // Rate limit https://developer.github.com/v4/guides/resource-limitations/
             const fx = ({city}) =>
                 new Promise(resolve => setTimeout(resolve, delay, city))
@@ -134,5 +135,9 @@ app.get('/admin/start', (req, res) => {
     }
 });
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 const API_PORT = process.env.PORT || 4000;
 app.listen(API_PORT, () => console.log(`PORT ${API_PORT}`));

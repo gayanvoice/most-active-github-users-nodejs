@@ -17,7 +17,7 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.country = cities[0].toLowerCase();
-        this.key = '00752b086f7cc707ea2346f8fde77c5437f07171';
+        this.key = '';
         this.per = 10;
         this.num = 6;
 
