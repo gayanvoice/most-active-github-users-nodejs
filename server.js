@@ -112,7 +112,7 @@ app.get('/admin/delete', (req, res) => {
             client.close();
         });
     } catch (e) {
-        res.send(e);
+        res.send('error');
     }
 });
 
