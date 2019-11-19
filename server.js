@@ -123,23 +123,14 @@ app.get('/contributions/:country', (req, res) => {
         }
 });
 
-app.get('/admin/delete', (req, res) => {
-    try{
-        mongo.connect(url, {useUnifiedTopology: true}, function(err, client) {
-            assert.equal(null, err);
-            const collection = client.db("database").collection("countries");
-            collection.deleteMany();
-            res.send("Deleted all the records");
-            client.close();
-        });
-    } catch (e) {
-        res.send(e);
-    }
-});
-
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    try{
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    } catch (e) {
+        console.log(e);
+    }
+
 });
 const API_PORT = process.env.PORT || 4000;
 app.listen(API_PORT, () => console.log(`PORT ${API_PORT}`));
