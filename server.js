@@ -87,7 +87,7 @@ app.get('/admin/start', (req, res) => {
                     key = keys[1];
                 }
                 increment = increment + 1;
-                delay = 20000;
+                delay = 300000;
             }
 
         })();
