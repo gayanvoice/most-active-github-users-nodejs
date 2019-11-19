@@ -6,7 +6,7 @@ const assert = require('assert');
 module.exports = class GraphQuery {
 
     constructor(cities, key, records, url){
-        //console.log(cities[0].toLowerCase(), cities);
+        process.stdout.write(cities[0].toLowerCase() + ' ');
         this.jsonAr=[];
         this.refresh = 0;
         this.next = true;
@@ -81,9 +81,11 @@ module.exports = class GraphQuery {
                     this.cursor = "\"" + data.data.search.pageInfo.endCursor + "\"";
                     this.next = data.data.search.pageInfo.hasNextPage;
 
+                    process.stdout.write( this.refresh + ' ');
                     Object.keys(jsonStr).forEach(function (index, key) {
                         if (jsonStr[key].node.__typename === "User") {
                             // "__typename": "User",
+                            //process.stdout.write(index + ' ');
                             //console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
                             var record = {
                                 'id': key,

@@ -7,13 +7,12 @@ const path = require('path');
 // mongo auth
 const keys = ['', ''];
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
-const records = [10, 2];
+const records = [10, 100];
 
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
     {city: ["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"]},
-    {city: ["Austria", "Vienna", "Wien", "Linz", "Salzburg", "Graz", "Innsbruck"]},
     {city: ["Austria", "Vienna", "Wien", "Linz", "Salzburg", "Graz", "Innsbruck"]},
     {city: ["Bangladesh", "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Barisal"]},
     {city: ["Belgium", "Antwerp", "Ghent", "Charleroi", "Liege", "Brussels", "Belgique"]},
@@ -61,16 +60,18 @@ var country = [
     {city: ["Ukraine", "Kiev", "Kyiv", "Kharkiv", "Dnipro", "Odesa", "Donetsk", "Zaporizhia"]},
     {city: ["United_Arab_Emirates", "UnitedArabEmirates", "UAE", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"]},
     {city: ["United_Kingdom", "UnitedKingdom", "UK", "London", "Birmingham", "Leeds", "Glasgow", "Sheffield", "Bradford", "Manchester", "Edinburgh", "Liverpool", "Bristol", "Cardiff", "Belfast", "Leicester", "Wakefield", "Coventry", "Nottingham", "NewCastle"]},
-    {city: ["United_States", "UnitedStates", "USA", "PaloAlto", "NewYork", "NY", "California", "Ca", "LasVegas", "SanFrancisco", "Massachusetts", "Boston", "Illinois", "SunnyVale", "SanJose", "Texas", "LosAngeles", "LA", "Georgia", "Carolina", "SantaClara"]}
+    {city: ["United_States", "UnitedStates", "USA", "PaloAlto", "NewYork", "NY", "California", "Ca", "LasVegas", "SanFrancisco", "Massachusetts", "Boston", "Illinois", "SunnyVale", "SanJose", "Texas", "LosAngeles", "LA", "Georgia", "Carolina", "SantaClara"]},
+    {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon"]},
 ];
 
 const app = express();
 
 
 app.get('/admin/start', (req, res) => {
+    console.log(country.length/2);
     try {
         (async () => {
-            var delay = 15000, increment = 0, key = keys[0];
+            var delay = 5000, increment = 0, key = keys[0];
             // Rate limit https://developer.github.com/v4/guides/resource-limitations/
 
             const fx = ({city}) =>
@@ -79,15 +80,14 @@ app.get('/admin/start', (req, res) => {
 
             for (let {city} of country) {
                 await fx({city});
-                if(increment<5){
-                    console.log(increment, key);
+                if(increment<(country.length/2)){
                     key = keys[0];
 
                 } else {
-                    console.log(increment, key);
                     key = keys[1];
                 }
                 increment = increment + 1;
+                delay = 20000;
             }
 
         })();
