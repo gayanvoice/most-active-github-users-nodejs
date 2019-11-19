@@ -33,10 +33,19 @@ function App() {
 
           <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
               <h5>How it works?</h5>
-              <h6 className="small">This is a list of most active GitHub users in the country over the past year.
-                  This list contains public and private contributions of each user. The app refreshes in every 24 hours.
-                  The contributors get their link to the profile as shown below. Create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
+              <h6 className="large">
+                  This is a list of most active GitHub users in the country over the past year based on public and private contributions of each user.
               </h6>
+              <h6 className="large bg-light p-2">
+                  The contributors can get their link to the profile as shown below. Create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
+              </h6>
+          </div>
+
+          <div className="nav-scroller bg-white col-10 p-3 m-auto">
+              <h5>Technologies used</h5>
+              <img alt={"gayanvoice"}
+                   src={"https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-3.PNG"}
+                   className={"img-fluid"}/>
           </div>
 
           <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">

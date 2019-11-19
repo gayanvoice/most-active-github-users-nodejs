@@ -5,19 +5,18 @@ const assert = require('assert');
 
 module.exports = class GraphQuery {
 
-    constructor(cities, key, url){
+    constructor(cities, key, records, url){
         //console.log(cities[0].toLowerCase(), cities);
         this.jsonAr=[];
-        this.b={};
-        this.re = 0;
+        this.refresh = 0;
         this.next = true;
         this.cursor = null;
         this.cities = cities;
         this.country = cities[0].toLowerCase();
         this.key = key;
         this.url = url;
-        this.per = 10;
-        this.num = 5;
+        this.per = records[0];
+        this.num = records[1];
 
         this.query = `
         query {
@@ -58,10 +57,10 @@ module.exports = class GraphQuery {
     }
 
     request(){
-        if (!(this.re < this.num)){
+        if (!(this.refresh < this.num)){
             this.next = false;
         } else {
-            this.re = this.re + 1;
+            this.refresh = this.refresh + 1;
         }
         //console.log(this.re);
         if(this.next) {
@@ -85,8 +84,8 @@ module.exports = class GraphQuery {
                     Object.keys(jsonStr).forEach(function (index, key) {
                         if (jsonStr[key].node.__typename === "User") {
                             // "__typename": "User",
-                            console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
-                            var b = {
+                            //console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
+                            var record = {
                                 'id': key,
                                 'avatar_url': jsonStr[key].node.avatarUrl,
                                 'login': jsonStr[key].node.login,
@@ -96,7 +95,7 @@ module.exports = class GraphQuery {
                                 'public_contributions': jsonStr[key].node.contributionsCollection.contributionCalendar.totalContributions,
                                 'private_contributions': jsonStr[key].node.contributionsCollection.restrictedContributionsCount
                             };
-                            jsonAr.push(b);
+                            jsonAr.push(record);
                         } else {
                             console.log(jsonStr[key].node.__typename);
                         }

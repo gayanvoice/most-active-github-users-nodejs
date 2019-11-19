@@ -5,8 +5,9 @@ const assert = require('assert');
 const path = require('path');
 
 // mongo auth
-var key = '';
-var url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const keys = ['', ''];
+const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const records = [10, 2];
 
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
@@ -65,25 +66,61 @@ var country = [
 
 const app = express();
 
+
+app.get('/admin/start', (req, res) => {
+    try {
+        (async () => {
+            var delay = 15000, increment = 0, key = keys[0];
+            // Rate limit https://developer.github.com/v4/guides/resource-limitations/
+
+            const fx = ({city}) =>
+                new Promise(resolve => setTimeout(resolve, delay, city)).then(data =>
+                    new GraphQuery(data, key, records, url).request());
+
+            for (let {city} of country) {
+                await fx({city});
+                if(increment<5){
+                    console.log(increment, key);
+                    key = keys[0];
+
+                } else {
+                    console.log(increment, key);
+                    key = keys[1];
+                }
+                increment = increment + 1;
+            }
+
+        })();
+        res.send('server.js STARTED REFRESH');
+        console.log("server.js STARTED REFRESH");
+    } catch (e) {
+        res.send("server.js ERROR IN ASYNC");
+    }
+});
+
+
 app.get('/contributions/:country', (req, res) => {
         try {
-            var country = req.params.country;
-            console.log(country);
-            mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
-                assert.equal(null, err);
-                const collection = client.db("database").collection("countries");
-                collection.find({
-                    "country": {$regex: country}
-                }).toArray(function (error, doc) {
-                    res.send(doc);
+            var filter = req.params.country;
+            console.log(filter);
+            if(filter === 'all'){
+                res.send(country);
+            } else {
+                mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
+                    assert.equal(null, err);
+                    const collection = client.db("database").collection("countries");
+                    collection.find({
+                        "country": {$regex: filter}
+                    }).toArray(function (error, doc) {
+                        res.send(doc);
+                    });
+                    client.close();
                 });
-                client.close();
-            });
+            }
         } catch (e) {
             console.log(e);
             // res.send(e.toString());
         }
-
 });
 
 app.get('/admin/delete', (req, res) => {
@@ -97,30 +134,6 @@ app.get('/admin/delete', (req, res) => {
         });
     } catch (e) {
         res.send(e);
-    }
-});
-
-
-app.get('/admin/start', (req, res) => {
-    try {
-        (async () => {
-            const delay = 15000;
-            // Rate limit https://developer.github.com/v4/guides/resource-limitations/
-            const fx = ({city}) =>
-                new Promise(resolve => setTimeout(resolve, delay, city))
-                    .then(data => new GraphQuery(data, key, url).request());
-            for (let {city} of country) {
-                await fx({city});
-            }
-
-
-
-
-        })();
-        res.send('Started the refresh');
-        console.log("Started the refresh");
-    } catch (e) {
-        res.send("Error in Async");
     }
 });
 
