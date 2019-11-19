@@ -3,12 +3,9 @@ const util = require('./util');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 
-// mongo auth
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
-
 module.exports = class GraphQuery {
 
-    constructor(cities){
+    constructor(cities, key, url){
         //console.log(cities[0].toLowerCase(), cities);
         this.jsonAr=[];
         this.b={};
@@ -17,9 +14,10 @@ module.exports = class GraphQuery {
         this.cursor = null;
         this.cities = cities;
         this.country = cities[0].toLowerCase();
-        this.key = '';
+        this.key = key;
+        this.url = url;
         this.per = 10;
-        this.num = 6;
+        this.num = 5;
 
         this.query = `
         query {
@@ -87,7 +85,7 @@ module.exports = class GraphQuery {
                     Object.keys(jsonStr).forEach(function (index, key) {
                         if (jsonStr[key].node.__typename === "User") {
                             // "__typename": "User",
-                            //console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
+                            console.log(key, jsonStr[key].node.__typename, jsonStr[key].node.login, jsonStr[key].node.name, jsonStr[key].node.followers.totalCount);
                             var b = {
                                 'id': key,
                                 'avatar_url': jsonStr[key].node.avatarUrl,
@@ -100,13 +98,13 @@ module.exports = class GraphQuery {
                             };
                             jsonAr.push(b);
                         } else {
-                            //console.log(jsonStr[key].node.__typename);
+                            console.log(jsonStr[key].node.__typename);
                         }
                     });
                     this.request();
                 })
                 .catch(function (e) {
-                    console.log(util.getDateTime() + e + " Error occurred in axios response");
+                    console.log(util.getDateTime() + e);
                 });
         } else {
             var data  = {
@@ -114,7 +112,7 @@ module.exports = class GraphQuery {
                 dataset: this.jsonAr,
                 modified: util.getDateTime()
         };
-           mongo.connect(url, {useUnifiedTopology: true}, function(err, client) {
+           mongo.connect(this.url, {useUnifiedTopology: true}, function(err, client) {
                 assert.equal(null, err);
                 const collection = client.db("database").collection("countries");
                 collection.updateOne(

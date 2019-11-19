@@ -5,7 +5,8 @@ const assert = require('assert');
 const path = require('path');
 
 // mongo auth
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+var key = '';
+var url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 
 var country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
@@ -64,23 +65,6 @@ var country = [
 
 const app = express();
 
-/*
-try {
-    (async () => {
-        const delay = 300000;
-        // Rate limit https://developer.github.com/v4/guides/resource-limitations/
-        const fx = ({city}) =>
-            new Promise(resolve => setTimeout(resolve, delay, city))
-                .then(data => new GraphQuery(data).request());
-        for (let {city} of country) {
-            await fx({city});
-        }
-    })();
-} catch (e) {
-    console.log("Error in Async");
-}
-*/
-// http://localhost:4000/country/China
 app.get('/contributions/:country', (req, res) => {
         try {
             var country = req.params.country;
@@ -112,7 +96,7 @@ app.get('/admin/delete', (req, res) => {
             client.close();
         });
     } catch (e) {
-        res.send('error');
+        res.send(e);
     }
 });
 
@@ -120,16 +104,21 @@ app.get('/admin/delete', (req, res) => {
 app.get('/admin/start', (req, res) => {
     try {
         (async () => {
-            const delay = 300000;
+            const delay = 15000;
             // Rate limit https://developer.github.com/v4/guides/resource-limitations/
             const fx = ({city}) =>
                 new Promise(resolve => setTimeout(resolve, delay, city))
-                    .then(data => new GraphQuery(data).request());
+                    .then(data => new GraphQuery(data, key, url).request());
             for (let {city} of country) {
                 await fx({city});
             }
+
+
+
+
         })();
         res.send('Started the refresh');
+        console.log("Started the refresh");
     } catch (e) {
         res.send("Error in Async");
     }
