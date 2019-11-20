@@ -3,7 +3,7 @@ const GraphQuery = require('./GraphQuery');
 var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const path = require('path');
-
+const http = require("http");
 // mongo auth
 const keys = ['', ''];
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
@@ -66,6 +66,11 @@ var country = [
 
 const app = express();
 
+// app keep alive
+setInterval(function() {
+    http.get("http://githubstats-com.herokuapp.com/home");
+    process.stdout.write('.');
+}, 300000);
 
 app.get('/admin/start', (req, res) => {
     console.log(country.length/2);
@@ -87,7 +92,7 @@ app.get('/admin/start', (req, res) => {
                     key = keys[1];
                 }
                 increment = increment + 1;
-                delay = 300000;
+                delay = 600000;
             }
 
         })();

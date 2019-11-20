@@ -112,7 +112,7 @@ module.exports = class GraphQuery {
                 country: this.country,
                 dataset: this.jsonAr,
                 modified: util.getDateTime()
-        };
+            };
            mongo.connect(this.url, {useUnifiedTopology: true}, function(err, client) {
                 assert.equal(null, err);
                 const collection = client.db("database").collection("countries");
