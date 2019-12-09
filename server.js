@@ -25,7 +25,7 @@ var country = [
     {city: ["Estonia", "Eesti", "Tallinn", "Tartu", "Narva"]},
     {city: ["Finland", "Suomi", "Helsinki", "Tampere", "Oulu", "Espoo", "Vantaa", "Turku"]},
     {city: ["France", "Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Lille"]},
-    {city: ["Germany", "Deutschland", "Berlin", "Frankfurt", "Munich", "München", "Hamburg", "Cologne"]},
+    {city: ["Germany", "Berlin", "Frankfurt", "Munich", "Hamburg", "Cologne"]},
     {city: ["Greece", "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Crete"]},
     {city: ["Hong_Kong", "HongKong"]},
     {city: ["India", "Bangalore", "Mumbai", "Delhi", "Kolkata", "Chennai"]},
@@ -33,7 +33,7 @@ var country = [
     {city: ["Ireland", "Dublin", "Galway", "Cork", "Limerick", "Belfast", "Waterford", "Londonderry", "Drogheda"]},
     {city: ["Israel", "TelAviv", "Jerusalem", "Beersheva", "Netanya", "Haifa", "Herzliya", "Rishon"]},
     {city: ["Italy", "Italia", "Rome", "Milan", "Naples", "Napoli", "Turin", "Torino", "Palermo", "Genoa", "Genova", "Bologna", "Florence", "Firenze", "Bari", "Catania", "Venice", "Verona"]},
-    {city: ["Japan", "Tokyo", "Yokohama", "Osaka", "Nagoya", "Sapporo", "Kobe", "Kyoto", "Fukuoka", "Kawasaki", "Saitama", "Hiroshima", "Sendai"]},
+    {city: ["Japan", "Tokyo", "Yokohama", "Osaka", "Nagoya", "Kyoto", "Hiroshima"]},
     {city: ["Latvia", "Latvija", "Riga", "Kuldiga", "Ventspils", "Liepaja"]},
     {city: ["Luxembourg", "Eifferdange", "Dudelange", "Ettelbruck"]},
     {city: ["Macedonia", "Skopje", "Veles", "Ohrid", "Bitola", "Kumanovo", "Strumica", "Tetovo", "Gostivar", "Struga", "Kichevo", "Kavadarci", "Berovo"]},
@@ -47,7 +47,7 @@ var country = [
     {city: ["Pakistan", "Karachi", "Lahore", "Faisalabad", "Rawalpindi", "Islamabad"]},
     {city: ["Philippines", "Quezon", "Manila", "Davao", "Caloocan", "Cebu"]},
     {city: ["Poland", "warsaw", "Kraków", "Wrocław", "Gdańsk", "Poznań", "Katowice", "Łódź", "Lublin"]},
-    {city: ["Portugal", "Lisbon", "Lisboa", "Braga", "Porto", "Madeira"]},
+    {city: ["Portugal", "Lisbon", "Lisboa", "Braga", "Madeira"]},
     {city: ["Romania", "Bucharest", "Cluj", "Iasi", "Timisoara", "Craiova"]},
     {city: ["Russia", "Moscow", "SaintPetersburg", "Novosibirsk", "Yekaterinburg", "Omsk", "Kazan", "Volgograd"]},
     {city: ["Serbia", "Srbija", "Србија", "Beograd", "NoviSad", "Nis", "Niš", "Kragujevac", "Užice", "Čačak", "Београд", "НовиСад", "Ниш", "Крагујевац", "Ужице", "Чачак"]},
@@ -64,7 +64,7 @@ var country = [
     {city: ["United_States", "UnitedStates", "PaloAlto", "NewYork", "California", "SanFrancisco"]},
     {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon", "DaNang", "NhaTrang", "HaiPhong"]},
 ];
-
+var start = true;
 const app = express();
 
 // app keep alive
@@ -74,31 +74,37 @@ setInterval(function() {
 }, 300000);
 
 app.get('/admin/start', (req, res) => {
-    console.log(country.length/2);
     try {
-        (async () => {
-            var delay = 5000, increment = 0, key = keys[0];
-            // Rate limit https://developer.github.com/v4/guides/resource-limitations/
+        if(start){
+            start = false;
+            (async () => {
+                var delay = 5000, increment = 0, key = keys[0];
+                // Rate limit https://developer.github.com/v4/guides/resource-limitations/
 
-            const fx = ({city}) =>
-                new Promise(resolve => setTimeout(resolve, delay, city)).then(data =>
-                    new GraphQuery(data, key, records, url).request());
+                const fx = ({city}) =>
+                    new Promise(resolve => setTimeout(resolve, delay, city)).then(data =>
+                        new GraphQuery(data, key, records, url).request());
 
-            for (let {city} of country) {
-                await fx({city});
-                if(increment<(country.length/2)){
-                    key = keys[0];
+                for (let {city} of country) {
+                    await fx({city});
+                    if(increment<(country.length/2)){
+                        key = keys[0];
 
-                } else {
-                    key = keys[1];
+                    } else {
+                        key = keys[1];
+                    }
+                    increment = increment + 1;
+                    delay = 600000;
                 }
-                increment = increment + 1;
-                delay = 600000;
-            }
+                start = true;
+            })();
+            res.send('server.js Process is already working');
+        } else {
+            res.send('server.js Process is not working');
+        }
 
-        })();
-        res.send('server.js STARTED REFRESH');
-        console.log("server.js STARTED REFRESH");
+        //res.send('server.js STARTED REFRESH');
+        //console.log("server.js STARTED REFRESH");
     } catch (e) {
         res.send("server.js ERROR IN ASYNC");
     }

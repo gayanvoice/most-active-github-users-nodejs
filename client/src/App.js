@@ -33,36 +33,65 @@ function App() {
 
           <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
               <h5>How it works?</h5>
-              <h6 className="large">
-                  This is a list of most active GitHub users in the country over the past year based on public and private contributions of each user.
+              <h6 className="pl-2 pr-2 pt-2 pb-1">
+                  List of most active GitHub users in the country over the past year based on public contributions of each user.
               </h6>
-              <h6 className="large bg-light p-2">
-                  The contributors can get their link to the profile as shown below. Create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
+              <h6 className="bg-light pl-2 pr-2 pt-1 pb-2">
+                  To contribute, create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
               </h6>
           </div>
 
           <div className="nav-scroller bg-white col-10 p-3 m-auto">
-              <h5>Technologies used</h5>
-              <img alt={"gayanvoice"}
-                   src={"https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-3.PNG"}
-                   className={"img-fluid"}/>
+              <h5>Frameworks</h5>
+              <nav className="nav mb-1">
+                  <a className="m-1" href={"https://github.com/Node.js"}>
+                      <img alt={"Node.js"} src={"https://avatars1.githubusercontent.com/u/9950313?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/expressjs"}>
+                      <img alt={"expressjs"} src={"https://avatars1.githubusercontent.com/u/5658226?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/mongodb"}>
+                      <img alt={"mongodb"} src={"https://avatars1.githubusercontent.com/u/45120?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/facebook/react"}>
+                      <img alt={"facebook"} src={"https://avatars1.githubusercontent.com/u/69631?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/graphql"}>
+                      <img alt={"graphql"} src={"https://avatars1.githubusercontent.com/u/12972006?s=48&v=4"} className={"rounded"}/>
+                  </a>
+              </nav>
+          </div>
+
+          <div className="nav-scroller bg-white col-10 p-3 m-auto">
+              <h5>Deploy</h5>
+              <nav className="nav mb-1">
+                  <a className="m-1" href={"https://heroku.com/"}>
+                      <img alt={"Node.js"} src={"https://avatars1.githubusercontent.com/u/23211?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://www.mongodb.com/cloud/atlas"}>
+                      <img alt={"expressjs"} src={"https://avatars1.githubusercontent.com/u/45120?s=48&v=4"} className={"rounded"}/>
+                  </a>
+              </nav>
           </div>
 
           <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
               <h5>Contributors</h5>
               <nav className="nav mb-1">
-                  <a className="m-1" href={"https://github.com/gayanvoice"}><img alt={"gayanvoice"}
-                                                                                 src={"https://avatars1.githubusercontent.com/u/30500175?s=48&v=4"}
-                                                                                 className={"rounded"}/></a>
-                  <a className="m-1" href={"https://github.com/srdjanRakic"}><img alt={"srdjanRakic"}
-                                                                                  src={"https://avatars1.githubusercontent.com/u/16154503?s=48&v=4"}
-                                                                                  className={"rounded"}/></a>
-                  <a className="m-1" href={"https://github.com/nikolalukovic"}><img alt={"nikolalukovic"}
-                                                                                    src={"https://avatars0.githubusercontent.com/u/6897673?s=48&v=4"}
-                                                                                    className={"rounded"}/></a>
-                  <a className="m-1" href={"https://github.com/Donghoon759"}><img alt={"Donghoon759"}
-                                                                                  src={"https://avatars0.githubusercontent.com/u/32301380?s=48&v=4"}
-                                                                                  className={"rounded"}/></a>
+                  <a className="m-1" href={"https://github.com/gayanvoice"}>
+                      <img alt={"gayanvoice"} src={"https://avatars1.githubusercontent.com/u/30500175?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/srdjanRakic"}>
+                      <img alt={"srdjanRakic"} src={"https://avatars1.githubusercontent.com/u/16154503?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/nikolalukovic"}>
+                      <img alt={"nikolalukovic"} src={"https://avatars0.githubusercontent.com/u/6897673?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/Donghoon759"}>
+                      <img alt={"Donghoon759"} src={"https://avatars0.githubusercontent.com/u/32301380?s=48&v=4"} className={"rounded"}/>
+                  </a>
+                  <a className="m-1" href={"https://github.com/AWIXOR"}>
+                      <img alt={"AWIXOR"} src={"https://avatars0.githubusercontent.com/u/43700517?s=48&v=4"} className={"rounded"}/>
+                  </a>
 
               </nav>
               <h6><span className="small">How to contribute? <a

@@ -15,10 +15,10 @@ class Country extends Component {
     }
 
     compare( a, b ) {
-        if ( a.public_contributions + a.private_contributions < b.public_contributions + b.private_contributions ){
+        if ( a.public_contributions < b.public_contributions ){
             return 1;
         }
-        if ( a.public_contributions + a.private_contributions > b.public_contributions + b.private_contributions ){
+        if ( a.public_contributions > b.public_contributions ){
             return -1;
         }
         return 0;
@@ -125,7 +125,7 @@ class Country extends Component {
                                             </a>
                                         </td>
                                         <td className="text-black-50 align-middle text-break">{item.location}</td>
-                                        <td className="font-weight-bold align-middle">{item.public_contributions + item.private_contributions}</td>
+                                        <td className="font-weight-bold align-middle">{item.public_contributions}</td>
                                     </tr>
                                 })}
                                 </tbody>
