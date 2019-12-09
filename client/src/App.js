@@ -34,10 +34,10 @@ function App() {
           <div className="nav-scroller bg-white col-10 p-3 m-auto table-responsive">
               <h5>How it works?</h5>
               <h6 className="pl-2 pr-2 pt-2 pb-1">
-                  List of most active GitHub users in the country over the past year based on public contributions of each user.
+                  List of most active GitHub users in the country over the past year based on public contributions of each user
               </h6>
               <h6 className="bg-light pl-2 pr-2 pt-1 pb-2">
-                  To contribute, create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/githubstats-github-graphql"}>gayanvoice/githubstats-github-graphql</a>.
+                  To contribute, create your pull request and add changes to the project <a href={"https://github.com/gayanvoice/nodejs-graphql"}>gayanvoice/nodejs-graphql</a>
               </h6>
           </div>
 
@@ -101,8 +101,8 @@ function App() {
 
           <div className={'align-items-center p-3 mb-4 mt-3 text-center'}>
               <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice" data-size="large" data-show-count="true" aria-label="Follow @gayanvoice on GitHub">Follow @gayanvoice</GitHubButton></span>
-              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/githubstats" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gayanvoice/githubstats on GitHub">Star</GitHubButton></span>
-              <div><small>Like this project? Go to <a href={'https://github.com/gayanvoice/githubstats-github-graphql'}>gayanvoice/githubstats-github-graphql</a></small></div>
+              <span className={"ml-2"}><GitHubButton href="https://github.com/gayanvoice/nodejs-graphql" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star gayanvoice/nodejs-graphql on GitHub">Star</GitHubButton></span>
+              <div><small>Like this project? Go to <a href={'https://github.com/gayanvoice/nodejs-graphql'}>gayanvoice/nodejs-graphql</a></small></div>
               <div><small>This project is not affiliated with the GitHub company in any way</small></div>
           </div>
       </div>

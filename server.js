@@ -66,6 +66,12 @@ var country = [
 ];
 var start = true;
 const app = express();
+var RateLimit = require('express-rate-limit');
+var limiter = new RateLimit({
+    windowMs: 60*1000, // 1 minute
+    max: 5
+});
+
 
 // app keep alive
 setInterval(function() {
@@ -135,7 +141,7 @@ app.get('/contributions/:country', (req, res) => {
         }
 });
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(limiter, express.static(path.join(__dirname, 'client/build')));
 app.get('*', function(req, res) {
     try{
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
