@@ -5,8 +5,7 @@ const assert = require('assert');
 const path = require('path');
 const http = require("http");
 // mongo auth
-const keys = ['', ''];
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+
 const records = [10, 100];
 
 var country = [
