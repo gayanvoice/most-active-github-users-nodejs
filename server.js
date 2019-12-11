@@ -61,6 +61,7 @@ var country = [
     {city: ["Sweden", "Sverige", "Stockholm", "Malmo", "Uppsala", "Guteborg", "Gothenburg"]},
     {city: ["Taiwan", "Taipei"]},
     {city: ["Thailand", "bangkok", "Nonthaburi", "Nakhon", "Phuket", "Pattaya"]},
+    {city: ["Tunisia", "Tunis"]},
     {city: ["Ukraine", "Kiev", "Kyiv", "Kharkiv", "Dnipro", "Odesa", "Donetsk", "Zaporizhia"]},
     {city: ["United_Arab_Emirates", "UnitedArabEmirates", "UAE", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"]},
     {city: ["United_Kingdom", "UnitedKingdom", "London", "Birmingham", "Glasgow"]},
