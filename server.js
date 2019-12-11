@@ -4,6 +4,8 @@ var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const path = require('path');
 const http = require("http");
+var RateLimit = require('express-rate-limit');
+
 // mongo auth
 const keys = ['', ''];
 const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
@@ -67,7 +69,7 @@ var country = [
 ];
 var start = true;
 const app = express();
-var RateLimit = require('express-rate-limit');
+
 var limiter = new RateLimit({
     windowMs: 60*1000, // 1 minute
     max: 15
