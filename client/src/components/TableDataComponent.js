@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { UserComponent } from './UserComponent'
-import {Limit } from '../utils/utils'
+import { Limit } from '../utils/utils'
 
-export function TableDataComponent({ data, from}) {
+export function TableDataComponent({ data, from }) {
     return (
         <tbody>
             {Limit(data.sort(this.compare)).map((item, key) => {

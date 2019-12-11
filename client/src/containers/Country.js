@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
-import {TableComponent, TableHeaderComponent, LoadingComponent,FilterComponent,TableDataComponent, DatePipeComponent,ActiveUsersComponent } from '../components/index'
+import { TableComponent, LoadingComponent, FilterComponent, ActiveUsersComponent } from '../components/index'
 
 
 
@@ -47,7 +46,7 @@ export default class Country extends Component {
 
 
     render() {
-        let { isRender, data,modified } = this.state;
+        let { isRender, data, modified } = this.state;
         let { params } = this.props.match
 
         if (!isRender) {
@@ -59,7 +58,7 @@ export default class Country extends Component {
                     <div className="bg-white rounded w-100">
                         <h6 className="mb-4"><Link className="font-weight-bold" to="/home">← Choose a country</Link></h6>
                         <ActiveUsersComponent name={params.name} />
-                        <TableComponent modified={modified} isRender={isRender} data={data} from={params.from}  />
+                        <TableComponent modified={modified} isRender={isRender} data={data} from={params.from} />
                         <FilterComponent matchQuery={this.props.match} />
                     </div>
                 </div>

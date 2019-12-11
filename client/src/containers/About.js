@@ -4,9 +4,9 @@ import { BrowserRouter} from 'react-router-dom';
 function About() {
   return (
     <BrowserRouter>
-      <div>
+      <React.Fragment>
         About Page 
-      </div>
+      </React.Fragment>
     </BrowserRouter>
   );
 }

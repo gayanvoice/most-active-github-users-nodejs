@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-
-
-import { LoadingComponent, ListComponent} from '../components'
+import React from 'react';
+import { LoadingComponent, ListComponent } from '../components'
 
 
 export default class Home extends React.Component {
