@@ -92,6 +92,9 @@ function App() {
                   <a className="m-1" href={"https://github.com/AWIXOR"}>
                       <img alt={"AWIXOR"} src={"https://avatars0.githubusercontent.com/u/43700517?s=48&v=4"} className={"rounded"}/>
                   </a>
+                  <a className="m-1" href={"https://github.com/ronaldaug"}>
+                      <img alt={"ronaldaug"} src={"https://avatars0.githubusercontent.com/u/33022876?s=48&v=4"} className={"rounded"}/>
+                  </a>
 
               </nav>
               <h6><span className="small">How to contribute? <a
