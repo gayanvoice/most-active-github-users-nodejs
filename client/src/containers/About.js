@@ -5,7 +5,7 @@ function About() {
   return (
     <BrowserRouter>
       <div>
-        About
+        About Page 
       </div>
     </BrowserRouter>
   );

@@ -131,17 +131,26 @@ app.get('/contributions/:country', (req, res) => {
                 mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
                     assert.equal(null, err);
                     const collection = client.db("database").collection("countries");
+               
                     collection.find({
-                        "country": {$regex: filter}
-                    }).toArray(function (error, doc) {
-                        res.send(doc);
+                    "country": {$regex: filter}
+                    }).toArray(function (error, docs) {
+                        console.log('doc country'+ JSON.stringify(docs));
+                        if(docs)
+                        {
+                            res.status(200).json(docs)
+                        }else{
+                            res.json([])
+                        }
+
+                      
                     });
                     client.close();
                 });
             }
         } catch (e) {
             console.log(e);
-            // res.send(e.toString());
+             res.status(500).send(e.toString());
         }
 });
 
