@@ -1,7 +1,8 @@
-const axios = require('axios');
-const util = require('./util');
-var mongo = require('mongodb').MongoClient;
-const assert = require('assert');
+const axios = require('axios'),
+utils = require('../utils/utils'),
+mongo = require('mongodb').MongoClient,
+assert = require('assert');
+
 
 module.exports = class GraphQuery {
 
@@ -72,7 +73,7 @@ module.exports = class GraphQuery {
                     },
                 })
                 .post('', {
-                    query: util.parse(this.query, util.locations(this.cities), this.per, this.cursor)
+                    query: utils.parse(this.query, utils.locations(this.cities), this.per, this.cursor)
                 })
                 .then(({data}) => {
                     //console.log(data);
@@ -105,13 +106,13 @@ module.exports = class GraphQuery {
                     this.request();
                 })
                 .catch(function (e) {
-                    console.log(util.getDateTime() + e);
+                    console.log(utils.getDateTime() + e);
                 });
         } else {
             var data  = {
                 country: this.country,
                 dataset: this.jsonAr,
-                modified: util.getDateTime()
+                modified: utils.getDateTime()
             };
            mongo.connect(this.url, {useUnifiedTopology: true}, function(err, client) {
                 assert.equal(null, err);
@@ -126,8 +127,8 @@ module.exports = class GraphQuery {
                 });
             });
 
-            console.log(util.getDateTime() + " The file is saved!" + util.locations(this.cities));
+            console.log(utils.getDateTime() + " The file is saved!" + utils.locations(this.cities));
         }
-        util.check_file(this.path);
+        utils.check_file(this.path);
     }
 };

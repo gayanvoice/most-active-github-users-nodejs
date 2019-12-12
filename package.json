@@ -9,7 +9,7 @@
     "start": "concurrently \"nodemon server.js \" \"cd client && npm start\" ",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "keywords": [],
+  "keywords": ["nodejs","express","Graphql","reactjs","material-ui","github api","open source"],
   "author": "",
   "license": "ISC",
   "dependencies": {
