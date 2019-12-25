@@ -4,9 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:client": "cd client && npm start",
-    "start:server": "node server.js",
-    "start": "concurrently \"nodemon server.js \" \"cd client && npm start\" ",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": ["nodejs","express","Graphql","reactjs","material-ui","github api","open source"],
