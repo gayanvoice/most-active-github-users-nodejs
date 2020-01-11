@@ -44,7 +44,7 @@ function App() {
           <div className="nav-scroller bg-white col-10 p-3 m-auto">
               <h5>Frameworks</h5>
               <nav className="nav mb-1">
-                  <a className="m-1" href={"https://github.com/Node.js"}>
+                  <a className="m-1" href={"https://github.com/Nodejs"}>
                       <img alt={"Node.js"} src={"https://avatars1.githubusercontent.com/u/9950313?s=48&v=4"} className={"rounded"}/>
                   </a>
                   <a className="m-1" href={"https://github.com/expressjs"}>
