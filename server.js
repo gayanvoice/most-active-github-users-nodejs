@@ -8,7 +8,7 @@ var RateLimit = require('express-rate-limit');
 
 // mongo auth
 const keys = ['', ''];
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const url = "mongodb+srv://:@.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
 var country = [
