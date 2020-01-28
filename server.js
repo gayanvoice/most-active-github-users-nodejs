@@ -1,17 +1,17 @@
 const express = require("express");
 const GraphQuery = require('./GraphQuery');
-var mongo = require('mongodb').MongoClient;
+const mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const path = require('path');
 const http = require("http");
-var RateLimit = require('express-rate-limit');
+const RateLimit = require('express-rate-limit');
 
 // mongo auth
 const keys = ['', ''];
 const url = "mongodb+srv://:@.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
-var country = [
+const country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
     {city: ["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"]},
@@ -41,7 +41,7 @@ var country = [
     {city: ["Macedonia", "Skopje", "Veles", "Ohrid", "Bitola", "Kumanovo", "Strumica", "Tetovo", "Gostivar", "Struga", "Kichevo", "Kavadarci", "Berovo"]},
     {city: ["Malaysia", "KualaLumpur", "Kajang", "Klang", "Subang", "Penang", "Johor"]},
     {city: ["Mexico", "Guadalajara", "Puebla", "Tijuana", "Mexicali", "Monterrey", "Hermosillo"]},
-    {city: ["Morocco", "Morocco", "Casablanca", "Rabat", "Marrakesh", "Agadir"]},
+    {city: ["Morocco", "Casablanca", "Rabat", "Marrakesh", "Agadir"]},
     {city: ["Myanmar", "Yangon", "Mandalay", "Taunggyi"]},
     {city: ["Nepal", "Kathmandu", "Pokhara", "Lalitpur", "Bhaktapur", "Birgunj"]},
     {city: ["Netherlands", "Amsterdam", "Rotterdam", "Hague", "Utrecht", "Holland", "Delft"]},
@@ -68,10 +68,10 @@ var country = [
     {city: ["United_States", "UnitedStates", "PaloAlto", "NewYork", "California", "SanFrancisco"]},
     {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon", "DaNang", "NhaTrang", "HaiPhong"]},
 ];
-var start = true;
+const start = true;
 const app = express();
 
-var limiter = new RateLimit({
+const limiter = new RateLimit({
     windowMs: 60*1000, // 1 minute
     max: 15
 });
@@ -88,7 +88,7 @@ app.get('/admin/start', (req, res) => {
         if(start){
             start = false;
             (async () => {
-                var delay = 5000, increment = 0, key = keys[0];
+                let delay = 5000, increment = 0, key = keys[0];
                 // Rate limit https://developer.github.com/v4/guides/resource-limitations/
 
                 const fx = ({city}) =>
@@ -123,7 +123,7 @@ app.get('/admin/start', (req, res) => {
 
 app.get('/contributions/:country', (req, res) => {
         try {
-            var filter = req.params.country;
+            let filter = req.params.country;
             console.log(filter);
             if(filter === 'all'){
                 res.send(country);
