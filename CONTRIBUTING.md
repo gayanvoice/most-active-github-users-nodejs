@@ -16,7 +16,7 @@ in the directory.
 ---
 #### Add new country
 ##### Server
-##### Create new country array object [server.js#L62](https://github.com/gayanvoice/githubstats-github-graphql/blob/d00a177b006cb4d08052f58a9f8415fe504b55f3/server.js#L62).
+##### Create new country array object [country.js](https://github.com/gayanvoice/githubstats-github-graphql/country.js).
 The array structure is ` {city: ["Country_Name", "CountryName", "City", "City"]}` You can add five most populated cities. These cities should be supported by GitHub (Sometimes the native languages may not work).
 
 #### After you have done the changes you can create a [Create request](https://github.com/gayanvoice/githubstats/pulls) and name it `Add Country Name` for an example `Add Austria`. After the review, if there are no errors your contribution will be displayed in [GitHubStats](http://www.githubstats.com/) with a link to your GitHub profile.
