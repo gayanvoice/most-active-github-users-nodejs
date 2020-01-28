@@ -56,7 +56,7 @@ class List extends Component {
                     <h2 className="mb-3">Choose a country</h2>
                     <div className="list-group">
                         {this.state.data.map((item, key) => {
-                            return  <Link key={key} class="list-group-item list-group-item-action" to={"/country/"+ item.city[0].toLowerCase() + "/0/25"}>{this.titleCase(item.city[0])}</Link>
+                            return  <Link key={key} className="list-group-item list-group-item-action" to={"/country/"+ item.city[0].toLowerCase() + "/0/25"}>{this.titleCase(item.city[0])}</Link>
                             })}
                     </div>
                 </div>
