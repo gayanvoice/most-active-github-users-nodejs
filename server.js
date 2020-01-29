@@ -12,7 +12,7 @@ const keys = ['', ''];
 const url = "mongodb+srv://:@.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
-const start = true;
+let start = true;
 const app = express();
 
 const limiter = new RateLimit({
