@@ -12,6 +12,7 @@ const keys = ['', ''];
 const url = "mongodb+srv://:@.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
+
 let start = true;
 const app = express();
 

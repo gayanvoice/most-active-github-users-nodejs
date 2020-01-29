@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.6.0",
     "assert": "^2.0.0",
