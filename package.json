@@ -1,14 +1,63 @@
 {
-  "name": "ghstats-com",
+  "name": "githubstats-com",
   "version": "1.0.0",
-  "description": "",
+  "description": "List of most active users by country using GitHub",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "github",
+    "countries",
+    "githubstats",
+    "github-users"
+  ],
+  "author": {
+    "name": "Gayan Kuruppu",
+    "email": "kuruppu.gayan@gmail.com",
+    "url": "https://gayan.surge.sh/"
+  },
+  "contributors": [
+    {
+      "name": "Srdjan Rakic",
+      "email": "srgjan.rakic@gmail.com",
+      "url": "https://github.com/srdjanRakic"
+    },
+    {
+      "name": "Nikola Lukovic",
+      "email": "nikola.lukovic@live.com",
+      "url": "https://github.com/nikolalukovic"
+    },
+    {
+      "name": "Donghoon Song",
+      "url": "https://github.com/Donghoon759"
+    },
+    {
+      "name": "EL HOUCINE AOUASSAR",
+      "email": "elhd.me@gmail.com",
+      "url": "https://github.com/AWIXOR"
+    },
+    {
+      "name": "ronaldaug",
+      "url": "https://github.com/ronaldaug"
+    },
+    {
+      "name": "Adem Kouki",
+      "email": "ademkingnew@gmail.com",
+      "url": "https://github.com/Ademking" 
+    },
+    {
+      "name": "Shivay Lamba",
+      "email": "shivaylamba@gmail.com",
+      "url": "https://github.com/shivaylamba" 
+    },
+    {
+      "name": "Imed Jaberi",
+      "email": "imed_jebari@hotmail.fr",
+      "url": "https://github.com/3imed-jaberi" 
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.6.0",
@@ -20,5 +69,8 @@
     "express-rate-limit": "^5.0.0",
     "mongodb": "^3.3.3",
     "react-share": "^3.0.1"
+  },
+  "engines": {
+    "node": ">= 8"
   }
 }
