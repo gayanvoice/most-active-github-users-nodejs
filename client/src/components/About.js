@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 function About() {
   return (
@@ -10,5 +10,6 @@ function About() {
     </BrowserRouter>
   );
 }
+
 
 export default About;

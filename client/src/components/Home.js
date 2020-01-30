@@ -15,8 +15,8 @@ class List extends Component {
 
     titleCase(str) {
         str = str.replace(/_/g,' ');
-        var splitStr = str.toLowerCase().split(' ');
-        for (var i = 0; i < splitStr.length; i++) {
+        let splitStr = str.toLowerCase().split(' ');
+        for (let i = 0; i < splitStr.length; i++) {
             splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
         }
         return splitStr.join(' ');
@@ -42,7 +42,7 @@ class List extends Component {
     }
 
     render() {
-        var isRender = this.state.render;
+        let isRender = this.state.render;
         if (!isRender) {
             return (
                 <div className="App">
@@ -56,7 +56,7 @@ class List extends Component {
                     <h2 className="mb-3">Choose a country</h2>
                     <div className="list-group">
                         {this.state.data.map((item, key) => {
-                            return  <Link key={key} class="list-group-item list-group-item-action" to={"/country/"+ item.city[0].toLowerCase() + "/0/25"}>{this.titleCase(item.city[0])}</Link>
+                            return  <Link key={key} className="list-group-item list-group-item-action" to={`/country/${item.city[0].toLowerCase()}/0/25`}>{this.titleCase(item.city[0])}</Link>
                             })}
                     </div>
                 </div>
@@ -64,6 +64,7 @@ class List extends Component {
         }
     }
 }
+
 
 function Home() {
   return (
@@ -74,5 +75,6 @@ function Home() {
       </div>
   );
 }
+
 
 export default Home;
