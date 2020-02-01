@@ -61,7 +61,7 @@ var country = [
     {city: ["Sweden", "Sverige", "Stockholm", "Malmo", "Uppsala", "Guteborg", "Gothenburg"]},
     {city: ["Taiwan", "Taipei"]},
     {city: ["Thailand", "bangkok", "Nonthaburi", "Nakhon", "Phuket", "Pattaya"]},
-    {city: ["Tunisia", "Tunis"]},
+    {city: ["Tunisia", "Tunisia", "Tunis", "Ariana", "Manouba", "Ben Arous", "Nabeul", "Zaghouan", "Bizerte", "Béja", "Jendouba", "Le Kef", "Siliana", "Kairouan", "Kassérine", "Kassérine", "Sousse", "Monastir", "Mahdia", "Sfax", "Gafsa", "Tozeur", "Kébili", "Gabès", "Médenine", "Tataouine"]},
     {city: ["Ukraine", "Kiev", "Kyiv", "Kharkiv", "Dnipro", "Odesa", "Donetsk", "Zaporizhia"]},
     {city: ["United_Arab_Emirates", "UnitedArabEmirates", "UAE", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"]},
     {city: ["United_Kingdom", "UnitedKingdom", "London", "Birmingham", "Glasgow"]},
