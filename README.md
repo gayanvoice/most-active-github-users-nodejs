@@ -1,5 +1,4 @@
 # Node.js + Express.js + GraphQL + MongoDB + React
-[![Build Status](https://travis-ci.org/gayanvoice/nodejs-graphql.svg?branch=master)](https://travis-ci.org/gayanvoice/nodejs-graphql)
 [![CircleCI](https://circleci.com/gh/gayanvoice/nodejs-graphql/tree/master.svg?style=svg)](https://circleci.com/gh/gayanvoice/nodejs-graphql/tree/master)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/gayanvoice/githubstats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/gayanvoice/githubstats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats/alerts/)
