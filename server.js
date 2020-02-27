@@ -20,6 +20,7 @@ var country = [
     {city: ["Bangladesh", "Dhaka", "Chittagong", "Khulna", "Rajshahi", "Barisal"]},
     {city: ["Belgium", "Antwerp", "Ghent", "Charleroi", "Liege", "Brussels", "Belgique"]},
     {city: ["Brazil", "Brasil", "SaoPaulo", "Salvador", "Fortaleza", "Recife"]},
+    {city: ["Bulgaria", "Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Veliko Tarnovo"]},
     {city: ["Canada", "Ottawa", "Winnipeg", "Vancouver", "Toronto", "Quebec"]},
     {city: ["China", "Chengdu", "Shenzen", "Tianjin", "Guangzhou", "Shanghai", "Beijing", "Hangzhou"]},
     {city: ["Croatia", "Hrvatska", "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Pula"]},
