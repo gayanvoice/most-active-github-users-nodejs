@@ -31,7 +31,7 @@ var country = [
     {city: ["France", "Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Lille"]},
     {city: ["Germany", "Berlin", "Frankfurt", "Munich", "Hamburg", "Cologne"]},
     {city: ["Greece", "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Crete"]},
-    {city: ["Hong_Kong", "HongKong"]},
+    {city: ["Hong_Kong", "HongKong", "Hong+Kong", "Kowloon"]},
     {city: ["India", "Bangalore", "Mumbai", "Delhi", "Kolkata", "Chennai"]},
     {city: ["Indonesia", "Jakarta", "Surabaya", "Bandung", "Medan"]},
     {city: ["Ireland", "Dublin", "Galway", "Cork", "Limerick", "Belfast", "Waterford", "Londonderry", "Drogheda"]},
