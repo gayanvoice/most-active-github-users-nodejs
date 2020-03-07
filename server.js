@@ -74,20 +74,20 @@ var start = true;
 const app = express();
 
 var limiter = new RateLimit({
-    windowMs: 60*1000, // 1 minute
+    windowMs: 60 * 1000, // 1 minute
     max: 15
 });
 
 
 // app keep alive
-setInterval(function() {
+setInterval(function () {
     http.get("http://githubstats-com.herokuapp.com/home");
     process.stdout.write('.');
 }, 300000);
 
 app.get('/admin/start', (req, res) => {
     try {
-        if(start){
+        if (start) {
             start = false;
             (async () => {
                 var delay = 5000, increment = 0, key = keys[0];
@@ -99,7 +99,7 @@ app.get('/admin/start', (req, res) => {
 
                 for (let {city} of country) {
                     await fx({city});
-                    if(increment<(country.length/2)){
+                    if (increment < (country.length / 2)) {
                         key = keys[0];
 
                     } else {
@@ -124,32 +124,32 @@ app.get('/admin/start', (req, res) => {
 
 
 app.get('/contributions/:country', (req, res) => {
-        try {
-            var filter = req.params.country;
-            console.log(filter);
-            if(filter === 'all'){
-                res.send(country);
-            } else {
-                mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
-                    assert.equal(null, err);
-                    const collection = client.db("database").collection("countries");
-                    collection.find({
-                        "country": {$regex: filter}
-                    }).toArray(function (error, doc) {
-                        res.send(doc);
-                    });
-                    client.close();
+    try {
+        var filter = req.params.country;
+        console.log(filter);
+        if (filter === 'all') {
+            res.send(country);
+        } else {
+            mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
+                assert.equal(null, err);
+                const collection = client.db("database").collection("countries");
+                collection.find({
+                    "country": {$regex: filter}
+                }).toArray(function (error, doc) {
+                    res.send(doc);
                 });
-            }
-        } catch (e) {
-            console.log(e);
-            // res.send(e.toString());
+                client.close();
+            });
         }
+    } catch (e) {
+        console.log(e);
+        // res.send(e.toString());
+    }
 });
 
 app.use(limiter, express.static(path.join(__dirname, 'client/build')));
-app.get('*', function(req, res) {
-    try{
+app.get('*', function (req, res) {
+    try {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     } catch (e) {
         console.log(e);

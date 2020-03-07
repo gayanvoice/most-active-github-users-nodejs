@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 
@@ -14,7 +14,7 @@ class List extends Component {
     }
 
     titleCase(str) {
-        str = str.replace(/_/g,' ');
+        str = str.replace(/_/g, ' ');
         var splitStr = str.toLowerCase().split(' ');
         for (var i = 0; i < splitStr.length; i++) {
             splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
@@ -22,7 +22,7 @@ class List extends Component {
         return splitStr.join(' ');
     }
 
-    renderListData(){
+    renderListData() {
         fetch('/contributions/all')
             .then((response) => response.json())
             .then((responseJson) => {
@@ -37,7 +37,7 @@ class List extends Component {
         });
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.renderListData();
     }
 
@@ -47,7 +47,7 @@ class List extends Component {
             return (
                 <div className="App">
                     <div className=" bg-white w-100">
-                        <LinearProgress color="secondary" />
+                        <LinearProgress color="secondary"/>
                     </div>
                 </div>)
         } else {
@@ -56,8 +56,9 @@ class List extends Component {
                     <h2 className="mb-3">Choose a country</h2>
                     <div className="list-group">
                         {this.state.data.map((item, key) => {
-                            return  <Link key={key} class="list-group-item list-group-item-action" to={"/country/"+ item.city[0].toLowerCase() + "/0/25"}>{this.titleCase(item.city[0])}</Link>
-                            })}
+                            return <Link key={key} class="list-group-item list-group-item-action"
+                                         to={"/country/" + item.city[0].toLowerCase() + "/0/25"}>{this.titleCase(item.city[0])}</Link>
+                        })}
                     </div>
                 </div>
             );
@@ -66,13 +67,13 @@ class List extends Component {
 }
 
 function Home() {
-  return (
-      <div className="App">
-        <div className="bg-white rounded shadow-lg m-2 p-4">
-            <List />
+    return (
+        <div className="App">
+            <div className="bg-white rounded shadow-lg m-2 p-4">
+                <List/>
+            </div>
         </div>
-      </div>
-  );
+    );
 }
 
 export default Home;

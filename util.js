@@ -1,6 +1,6 @@
 const fs = require('fs');
 module.exports = {
-    check_file: function (path){
+    check_file: function (path) {
         try {
             if (fs.existsSync(path)) {
                 //console.log('exists');
@@ -12,7 +12,7 @@ module.exports = {
         }
     },
 
-    getDateTime: function() {
+    getDateTime: function () {
         return date = new Date();
 
     },
@@ -23,9 +23,9 @@ module.exports = {
         return str.replace(/%s/g, () => args[i++]);
     },
 
-    locations: function (array){
+    locations: function (array) {
         var value = '';
-        array.forEach(function(entry) {
+        array.forEach(function (entry) {
             value = value + ' location:' + entry;
         });
         return value;

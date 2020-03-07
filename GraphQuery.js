@@ -5,9 +5,9 @@ const assert = require('assert');
 
 module.exports = class GraphQuery {
 
-    constructor(cities, key, records, url){
+    constructor(cities, key, records, url) {
         process.stdout.write(cities[0].toLowerCase() + ' ');
-        this.jsonAr=[];
+        this.jsonAr = [];
         this.refresh = 0;
         this.next = true;
         this.cursor = null;
@@ -56,19 +56,19 @@ module.exports = class GraphQuery {
 
     }
 
-    request(){
-        if (!(this.refresh < this.num)){
+    request() {
+        if (!(this.refresh < this.num)) {
             this.next = false;
         } else {
             this.refresh = this.refresh + 1;
         }
         //console.log(this.re);
-        if(this.next) {
+        if (this.next) {
             axios
                 .create({
                     baseURL: 'https://api.github.com/graphql',
                     headers: {
-                        Authorization: `bearer `  + this.key + ``
+                        Authorization: `bearer ` + this.key + ``
                     },
                 })
                 .post('', {
@@ -81,7 +81,7 @@ module.exports = class GraphQuery {
                     this.cursor = "\"" + data.data.search.pageInfo.endCursor + "\"";
                     this.next = data.data.search.pageInfo.hasNextPage;
 
-                    process.stdout.write( this.refresh + ' ');
+                    process.stdout.write(this.refresh + ' ');
                     Object.keys(jsonStr).forEach(function (index, key) {
                         if (jsonStr[key].node.__typename === "User") {
                             // "__typename": "User",
@@ -108,22 +108,22 @@ module.exports = class GraphQuery {
                     console.log(util.getDateTime() + e);
                 });
         } else {
-            var data  = {
+            var data = {
                 country: this.country,
                 dataset: this.jsonAr,
                 modified: util.getDateTime()
             };
-           mongo.connect(this.url, {useUnifiedTopology: true}, function(err, client) {
+            mongo.connect(this.url, {useUnifiedTopology: true}, function (err, client) {
                 assert.equal(null, err);
                 const collection = client.db("database").collection("countries");
                 collection.updateOne(
                     {_country: data.country},
-                    {$set:data},
+                    {$set: data},
                     {upsert: true})
-                    .then(function() {
-                    // process result
-                    client.close();
-                });
+                    .then(function () {
+                        // process result
+                        client.close();
+                    });
             });
 
             console.log(util.getDateTime() + " The file is saved!" + util.locations(this.cities));
