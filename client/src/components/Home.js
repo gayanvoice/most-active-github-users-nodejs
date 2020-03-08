@@ -137,12 +137,7 @@ export default function Home(props) {
                             <Typography variant="h6" className={classes.title}>
                                 GitHub Stats
                             </Typography>
-                            <Button color="inherit">Stat Counter GitHub</Button>
-                            <Button color="inherit">Source</Button>
-                            <IconButton
-                                component={Link}
-                                to="/home"
-                                color="inherit">
+                            <IconButton color="inherit" component={Link} onClick={() => {console.log("asdasd")}}>
                                 <GitHubIcon />
                             </IconButton>
                         </Toolbar>

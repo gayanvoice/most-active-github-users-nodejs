@@ -4,14 +4,17 @@ var mongo = require('mongodb').MongoClient;
 const assert = require('assert');
 const path = require('path');
 const http = require("http");
-var RateLimit = require('express-rate-limit');
+const RateLimit = require('express-rate-limit');
+const fs = require('fs');
+const template = fs.readFileSync(path.resolve('temp.svg'), 'utf8');
+const HEAD = require('./headers'); // stackoverflow.com/a/2068407/1148249
 
 // mongo auth
-const keys = ['', ''];
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const keys = ['e2c1d44486987c40e23fc9b2e343cc979b58b9db', 'cb547e7bcf6a1d0e3055c0b6e152a6791a46d4ef'];
+const url = "mongodb+srv://readmongo:clientmongo@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
-var country = [
+const country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
     {city: ["Algeria", "Algiers", "Boumerdes", "Tizi Ouzou", "Oran", "Annaba", "Constantine"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
@@ -70,10 +73,10 @@ var country = [
     {city: ["United_States", "UnitedStates", "PaloAlto", "NewYork", "California", "SanFrancisco"]},
     {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon", "DaNang", "NhaTrang", "HaiPhong"]},
 ];
-var start = true;
+let start = true;
 const app = express();
 
-var limiter = new RateLimit({
+const limiter = new RateLimit({
     windowMs: 60 * 1000, // 1 minute
     max: 15
 });
@@ -110,15 +113,15 @@ app.get('/admin/start', (req, res) => {
                 }
                 start = true;
             })();
-            res.send('server.js Process is already working');
+            res.send('true');
         } else {
-            res.send('server.js Process is not working');
+            res.send('false');
         }
 
         //res.send('server.js STARTED REFRESH');
         //console.log("server.js STARTED REFRESH");
     } catch (e) {
-        res.send("server.js ERROR IN ASYNC");
+        res.send("error");
     }
 });
 
@@ -146,6 +149,73 @@ app.get('/contributions/:country', (req, res) => {
         // res.send(e.toString());
     }
 });
+
+app.get('/stats/:user/:repository/get', (req, res) => {
+    try {
+        const user = req.params.user;
+        const repository = req.params.repository;
+
+        mongo.connect(url, {useUnifiedTopology: true}, function (err, client) {
+            assert.equal(null, err);
+            const collection = client.db("database").collection("repositories");
+            collection.findOneAndUpdate(
+                {
+                    "user": user,
+                    "repository": repository
+                },
+                { "$inc": { data : 1 }},
+                { new: true, setDefaultsOnInsert: true },
+                function(err, userUpdate) {
+                    if (err) {
+                        res.send("error");
+                    } else if (typeof userUpdate == null) {
+                        res.send("null");
+                    }  else if (typeof userUpdate != null) {
+                        res.writeHead(200, HEAD);
+                        res.end(makeSvg(userUpdate.value.data));
+
+                        //
+                        // res.send(userUpdate.value);
+                    }
+                }
+            );
+            client.close();
+        });
+    } catch (e) {
+        console.log(e);
+    }
+});
+
+const makeSvg = (count) => {
+    return template.replace('{count}', count);
+};
+
+app.get('/stats/:user/:repository/set', (req, res) => {
+    try {
+        const user = req.params.user;
+        const repository = req.params.repository;
+        const data = {
+            user: user,
+            repository: repository,
+        };
+        mongo.connect(url, {useUnifiedTopology: true}, function (err, client, upserted) {
+            assert.equal(null, err);
+            const collection = client.db("database").collection("repositories");
+            collection.updateOne(
+                {user: user, repository: repository},
+                {$set: data},
+                {upsert: true})
+                .then(function () {
+                    res.send("updated");
+                });
+            client.close();
+        });
+
+    } catch (e) {
+        console.log(e);
+    }
+});
+
 
 app.use(limiter, express.static(path.join(__dirname, 'client/build')));
 app.get('*', function (req, res) {

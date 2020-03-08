@@ -1,0 +1,17 @@
+<svg width="84" height="20" xmlns="http://www.w3.org/2000/svg">
+
+ <!-- If you have time to help us add descriptive comments please PR! -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="null" x="-1.754383" y="-0.877192" id="svg_1" fill="#555" height="22.16718" width="37.684205"/>
+  <rect stroke="null" y="-1.228068" id="svg_2" fill="#4c1" height="23.684204" width="51.92982" x="33.684199"/>
+  <g id="svg_4" font-size="11" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" text-anchor="middle" fill="#fff">
+   <text id="svg_5" y="14.350876" x="16.421058">stats</text>
+   <text id="svg_6" y="14.175438" x="58.877192">{count}</text>
+  </g>
+ </g>
+</svg>
