@@ -120,7 +120,7 @@ export default function Home(props) {
             }).catch((error) => {
             console.error(error);
         });
-    });
+    }, [false]);
 
     if (!render) {
         return (
@@ -156,8 +156,7 @@ export default function Home(props) {
                     <List>
                         {data.map((item, key) => {
                             return (
-                                <>
-                                    <ListItem button component={Link} to={"/country/" + item.city[0].toLowerCase() + "/0/25"}>
+                                    <ListItem button component={Link} to={"/country/" + item.city[0].toLowerCase() + "/0/25"} key={key}>
                                         <ListItemAvatar>
                                             <Avatar>
                                                 <ImageIcon />
@@ -172,7 +171,6 @@ export default function Home(props) {
                                             </Avatar>
                                         </ListItemAvatar>
                                     </ListItem>
-                                </>
                             )
                         })}
                     </List>

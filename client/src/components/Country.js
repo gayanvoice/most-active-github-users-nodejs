@@ -2,6 +2,19 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import Slide from "@material-ui/core/Slide";
+import PropTypes from "prop-types";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 class Country extends Component {
     constructor(props) {
@@ -84,18 +97,47 @@ class Country extends Component {
         var isRender = this.state.render;
         if (!isRender) {
             return (
-                <div className="App">
-                    <div className=" bg-white w-100">
-                        <LinearProgress color="secondary"/>
-                    </div>
-                </div>) // note you can also return null here to render nothing
+                <>
+                    <AppBar position="static">
+                        <LinearProgress />
+                        <Toolbar>
+                            <IconButton
+                                component={Link}
+                                to="/home"
+                                color="inherit">
+                                <ArrowBackIosIcon/>
+                            </IconButton>
+                            <Typography variant="h6">
+                                GitHub Stats
+                            </Typography>
+
+                        </Toolbar>
+                    </AppBar>
+                </>
+            );
         } else {
             return (
-                <div className="App">
-                    <div className="bg-white rounded w-100">
-                        <h6 className="mb-4"><Link className="font-weight-bold" to="/home">← Choose a country</Link>
-                        </h6>
-                        <h2 className="mb-2">Active users from {this.titleCase(this.props.match.params.name)}</h2>
+              <>
+                  <AppBar position="static">
+                            <Toolbar>
+                                <IconButton
+                                    component={Link}
+                                    to="/home"
+                                    color="inherit">
+                                    <ArrowBackIosIcon/>
+                                </IconButton>
+                                <Typography variant="h6">
+                                    GitHub Stats
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
+
+                  <Box my={2} mx={2}>
+                      <Grid container>
+                          <Grid item xs={12}>
+                              <Paper className={["p-3"]}>
+
+                                  <Typography variant="h6" gutterBottom >Active users from {this.titleCase(this.props.match.params.name)}</Typography>
                         <div className="table-responsive">
 
                             <table className="table table-borderless">
@@ -194,9 +236,12 @@ class Country extends Component {
                                 </ul>
                             </nav>
                         </div>
+                              </Paper>
+                          </Grid>
+                      </Grid>
+                  </Box>
 
-                    </div>
-                </div>
+                  </>
             );
         }
     }
