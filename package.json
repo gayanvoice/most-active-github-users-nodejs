@@ -45,22 +45,23 @@
     {
       "name": "Adem Kouki",
       "email": "ademkingnew@gmail.com",
-      "url": "https://github.com/Ademking" 
+      "url": "https://github.com/Ademking"
     },
     {
       "name": "Shivay Lamba",
       "email": "shivaylamba@gmail.com",
-      "url": "https://github.com/shivaylamba" 
+      "url": "https://github.com/shivaylamba"
     },
     {
       "name": "Imed Jaberi",
       "email": "imed_jebari@hotmail.fr",
-      "url": "https://github.com/3imed-jaberi" 
+      "url": "https://github.com/3imed-jaberi"
     }
   ],
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^4.6.0",
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
     "assert": "^2.0.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",

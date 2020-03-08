@@ -7,8 +7,8 @@ const http = require("http");
 var RateLimit = require('express-rate-limit');
 
 // mongo auth
-const keys = ['', ''];
-const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const keys = ['e2c1d44486987c40e23fc9b2e343cc979b58b9db', 'cb547e7bcf6a1d0e3055c0b6e152a6791a46d4ef'];
+const url = "mongodb+srv://readmongo:clientmongo@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
 var country = [
