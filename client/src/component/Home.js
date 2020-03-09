@@ -1,17 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 import {Link} from 'react-router-dom';
 import LinearProgress from "@material-ui/core/LinearProgress";
 import {makeStyles} from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import Container from "@material-ui/core/Container";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -27,7 +20,15 @@ import ImageIcon from '@material-ui/icons/Image';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Box from "@material-ui/core/Box";
 import Slide from "@material-ui/core/Slide";
-import Button from "@material-ui/core/Button";
+
+import {getCountry} from "../util/HomeUtils";
+import IconButton from "@material-ui/core/IconButton";
+import HomeIcon from "@material-ui/icons/Home";
+import Typography from "@material-ui/core/Typography";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import AppBar from "@material-ui/core/AppBar";
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -41,12 +42,12 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         flexGrow: 1,
-    },
+    }
 }));
 
 
 function ScrollTop(props) {
-    const { children, window } = props;
+    const {children, window} = props;
     const classes = useStyles();
     const trigger = useScrollTrigger({
         target: window ? window() : undefined,
@@ -58,7 +59,7 @@ function ScrollTop(props) {
         const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
 
         if (anchor) {
-            anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            anchor.scrollIntoView({behavior: 'smooth', block: 'center'});
         }
     };
 
@@ -71,16 +72,17 @@ function ScrollTop(props) {
     );
 }
 
-function HideOnScroll(props) {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({ target: window ? window() : undefined });
+const HideOnScroll = (props) => {
+    const {children, window} = props;
+    const trigger = useScrollTrigger({target: window ? window() : undefined});
 
     return (
         <Slide appear={false} direction="down" in={!trigger}>
             {children}
         </Slide>
     );
-}
+};
+
 
 HideOnScroll.propTypes = {
     children: PropTypes.element.isRequired,
@@ -92,14 +94,6 @@ ScrollTop.propTypes = {
     window: PropTypes.func,
 };
 
-function  getCountry(string) {
-    string = string.replace(/_/g, ' ');
-    const splitStr = string.toLowerCase().split(' ');
-    for (let i = 0; i < splitStr.length; i++) {
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    return splitStr.join(' ');
-}
 
 export default function Home(props) {
     const classes = useStyles();
@@ -134,41 +128,48 @@ export default function Home(props) {
                 <HideOnScroll {...props}>
                     <AppBar>
                         <Toolbar>
+                            <IconButton color={"inherit"} component={Link} to={'/'}>
+                                <HomeIcon />
+                            </IconButton>
                             <Typography variant="h6" className={classes.title}>
                                 GitHub Stats
                             </Typography>
-                            <IconButton color="inherit" component={Link} onClick={() => {console.log("asdasd")}}>
+                            <IconButton color={"inherit"} component={Link} to={'/stats'}>
+                                <EqualizerIcon />
+                            </IconButton>
+                            <IconButton color={"inherit"} href={'https://github.com/gayanvoice/most-active-github-users-nodejs'}>
                                 <GitHubIcon />
                             </IconButton>
                         </Toolbar>
                     </AppBar>
                 </HideOnScroll>
-                <Toolbar id="back-to-top-anchor" />
+                <Toolbar id="back-to-top-anchor"/>
                 <Box my={2} mx={2}>
                     <Grid container>
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                    <List>
-                        {data.map((item, key) => {
-                            return (
-                                    <ListItem button component={Link} to={"/country/" + item.city[0].toLowerCase() + "/0/25"} key={key}>
-                                        <ListItemAvatar>
-                                            <Avatar>
-                                                <ImageIcon />
-                                            </Avatar>
-                                        </ListItemAvatar>
-                                        {/*<Paper className={["p-3", classes.paper]} to={"/country/" + item.city[0].toLowerCase() + "/0/25"} >{getCountry(item.city[0])}</Paper >*/}
-                                        <ListItemText
-                                            primary={getCountry(item.city[0])} />
-                                        <ListItemAvatar>
-                                            <Avatar>
-                                                <ChevronRightIcon />
-                                            </Avatar>
-                                        </ListItemAvatar>
-                                    </ListItem>
-                            )
-                        })}
-                    </List>
+                                <List>
+                                    {data.map((item, key) => {
+                                        return (
+                                            <ListItem button component={Link}
+                                                      to={"/country/" + item.city[0].toLowerCase() + "/0/25"} key={key}>
+                                                <ListItemAvatar>
+                                                    <Avatar>
+                                                        <ImageIcon/>
+                                                    </Avatar>
+                                                </ListItemAvatar>
+                                                {/*<Paper className={["p-3", classes.paper]} to={"/country/" + item.city[0].toLowerCase() + "/0/25"} >{getCountry(item.city[0])}</Paper >*/}
+                                                <ListItemText
+                                                    primary={getCountry(item.city[0])}/>
+                                                <ListItemAvatar>
+                                                    <Avatar>
+                                                        <ChevronRightIcon/>
+                                                    </Avatar>
+                                                </ListItemAvatar>
+                                            </ListItem>
+                                        )
+                                    })}
+                                </List>
                             </Paper>
                         </Grid>
                     </Grid>
@@ -176,7 +177,7 @@ export default function Home(props) {
 
                 <ScrollTop {...props}>
                     <Fab color="secondary" size="small" aria-label="scroll back to top">
-                        <KeyboardArrowUpIcon />
+                        <KeyboardArrowUpIcon/>
                     </Fab>
                 </ScrollTop>
 

@@ -150,7 +150,7 @@ app.get('/contributions/:country', (req, res) => {
     }
 });
 
-app.get('/stats/:user/:repository/get', (req, res) => {
+app.get('/get/:user/:repository', (req, res) => {
     try {
         const user = req.params.user;
         const repository = req.params.repository;
@@ -190,7 +190,7 @@ const makeSvg = (count) => {
     return template.replace('{count}', count);
 };
 
-app.get('/stats/:user/:repository/set', (req, res) => {
+app.get('/set/:user/:repository', (req, res) => {
     try {
         const user = req.params.user;
         const repository = req.params.repository;
