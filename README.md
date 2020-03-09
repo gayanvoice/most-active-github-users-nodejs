@@ -4,6 +4,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/gayanvoice/githubstats.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/gayanvoice/githubstats/alerts/)
 ![GitHub](https://img.shields.io/github/license/gayanvoice/GitHubStats)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/gayanvoice/GitHubStats)
+[![GitHub Stats](http://www.githubstats.com/get/gayanvoice/most-active-github-users-nodejs)](http://www.githubstats.com/stats)
 
 Go to HTTP [http://www.githubstats.com/](http://www.githubstats.com/)
 Go to HTTP Secured [https://githubstats-com.herokuapp.com/](https://githubstats-com.herokuapp.com/)
