@@ -1,29 +1,13 @@
-<svg width="98" height="20" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <linearGradient id="b" x2="0" y2="100%">
-            <stop offset="0" stop-color="#bbb" stop-opacity="0.1"/>
-            <stop offset="1" stop-opacity="0.1"/>
-        </linearGradient>
-    </defs>
-    <clipPath id="a">
-        <rect width="98" height="20" rx="3" fill="#fff" id="svg_1"/>
-    </clipPath>
-    <g>
-        <title>background</title>
-        <rect x="-1" y="-1" width="25.05879" height="6.70588" id="canvas_background" fill="none"/>
-    </g>
-    <g>
-        <title>Layer 1</title>
-        <g clip-path="url(#a)" id="svg_2">
-            <path fill="#555" d="m0,0l47,0l0,20l-47,0l0,-20z" id="svg_3"/>
-            <path fill="#007ec6" d="m47,0l51,0l0,20l-51,0l0,-20z" id="svg_4"/>
-            <path fill="url(#b)" d="m0,0l98,0l0,20l-98,0l0,-20z" id="svg_5"/>
-        </g>
-        <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110" id="svg_6">
-            <text x="245" y="150" fill="#010101" fill-opacity="0.3" transform="scale(0.10000000149011612) " id="svg_7">stats</text>
-            <text x="245" y="140" transform="scale(0.10000000149011612) " id="svg_8">stats</text>
-            <text x="715" y="150" fill="#010101" fill-opacity="0.3" transform="scale(0.10000000149011612) " id="svg_9">{count}</text>
-            <text x="715" y="140" transform="scale(0.10000000149011612) " id="svg_10">{count}</text>
-        </g>
-    </g>
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="20">
+
+    <rect width="34" height="20" fill="#555"/>
+    <rect x="30" width="50" height="20" fill="#4c1"/>
+
+    <rect rx="3" width="84" height="20" fill="transparent"/>
+    <g fill="#fff" text-anchor="middle"
+       font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+        <text x="18" y="14">stats</text>
+        <text x="58" y="14">{count}</text>
+    </g>  <!-- If you have time to help us add descriptive comments please PR! -->
 </svg>

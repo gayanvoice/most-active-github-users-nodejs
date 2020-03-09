@@ -10,8 +10,8 @@ const template = fs.readFileSync(path.resolve('temp.svg'), 'utf8');
 const HEAD = require('./headers'); // stackoverflow.com/a/2068407/1148249
 
 // mongo auth
-const keys = ['e2c1d44486987c40e23fc9b2e343cc979b58b9db', 'cb547e7bcf6a1d0e3055c0b6e152a6791a46d4ef'];
-const url = "mongodb+srv://readmongo:clientmongo@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
+const keys = ['', ' '];
+const url = "mongodb+srv://:@cluster0-vdt7y.mongodb.net/test?retryWrites=true&w=majority";
 const records = [10, 100];
 
 const country = [
@@ -171,8 +171,16 @@ app.get('/get/:user/:repository', (req, res) => {
                     } else if (typeof userUpdate == null) {
                         res.send("null");
                     }  else if (typeof userUpdate != null) {
-                        res.writeHead(200, HEAD);
-                        res.end(makeSvg(userUpdate.value.data));
+                        if( userUpdate.value.data === undefined){
+                            res.writeHead(200, HEAD);
+                            res.end(makeSvg(0));
+                        } else {
+                            res.writeHead(200, HEAD);
+                            res.end(makeSvg(userUpdate.value.data));
+                        }
+
+
+
 
                         //
                         // res.send(userUpdate.value);

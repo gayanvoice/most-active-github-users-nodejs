@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <svg width="98" height="20" xmlns="http://www.w3.org/2000/svg">
  <defs>
   <linearGradient id="b" x2="0" y2="100%">
@@ -20,10 +21,8 @@
    <path fill="url(#b)" d="m0,0l98,0l0,20l-98,0l0,-20z" id="svg_5"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110" id="svg_6">
-   <text x="245" y="150" fill="#010101" fill-opacity="0.3" transform="scale(0.10000000149011612) " id="svg_7">stats</text>
-   <text x="245" y="140" transform="scale(0.10000000149011612) " id="svg_8">stats</text>
-   <text x="715" y="150" fill="#010101" fill-opacity="0.3" transform="scale(0.10000000149011612) " id="svg_9">{count}</text>
-   <text x="715" y="140" transform="scale(0.10000000149011612) " id="svg_10">{count}</text>
+   <text x="245" y="140" transform="scale(0.10000000149011612) ">stats</text>
+   <text x="715" y="140" transform="scale(0.10000000149011612) ">{count}</text>
   </g>
  </g>
 </svg>

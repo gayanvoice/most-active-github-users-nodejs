@@ -20,7 +20,8 @@ export default  class Stats extends React.Component {
             repository: '',
             submit: false,
             created: false,
-            copyText: ''
+            copyText: '',
+            markDown: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -38,7 +39,10 @@ export default  class Stats extends React.Component {
 
     handleSubmit(event) {
         this.submitRepository(this.state.username, this.state.repository);
-        this.setState({copyText: "http://localhost:3000/get/" + this.state.username + "/" + this.state.repository });
+        this.setState({
+            copyText: "http://www.githubstats.com/get/" + this.state.username + "/" + this.state.repository,
+            markDown: "[![GitHub Stats](http://www.githubstats.com/get/" + this.state.username + "/" + this.state.repository + ")](http://www.githubstats.com/stats)"
+        });
         event.preventDefault();
     }
 
@@ -122,6 +126,14 @@ export default  class Stats extends React.Component {
                                         id="outlined-multiline-static"
                                         label="Copy Text"
                                         value={this.state.copyText}
+                                        multiline
+                                        rows="4"
+                                        variant="outlined"
+                                    />
+                                    <TextField
+                                        id="outlined-multiline-static"
+                                        label="MarkDown Text"
+                                        value={this.state.markDown}
                                         multiline
                                         rows="4"
                                         variant="outlined"
