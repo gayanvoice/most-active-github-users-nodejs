@@ -1,5 +1,3 @@
-import React from "react";
-
 const getCountry = (string) => {
     string = string.replace(/_/g, ' ');
     const splitStr = string.toLowerCase().split(' ');

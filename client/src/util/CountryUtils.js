@@ -1,6 +1,3 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
-import React from "react";
-
 const compare = (a, b) => {
     if (a.public_contributions < b.public_contributions) {
         return 1;

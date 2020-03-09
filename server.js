@@ -194,9 +194,13 @@ app.get('/set/:user/:repository', (req, res) => {
     try {
         const user = req.params.user;
         const repository = req.params.repository;
+        console.log(user, repository);
         const data = {
             user: user,
             repository: repository,
+        };
+        const response = {
+            status: true
         };
         mongo.connect(url, {useUnifiedTopology: true}, function (err, client, upserted) {
             assert.equal(null, err);
@@ -206,7 +210,7 @@ app.get('/set/:user/:repository', (req, res) => {
                 {$set: data},
                 {upsert: true})
                 .then(function () {
-                    res.send("updated");
+                    res.send(response);
                 });
             client.close();
         });
