@@ -19,9 +19,9 @@ you have done in the year.
 
 ## Images
 ### Choose a country
-![Home page](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-1.PNG "githubstats.com screenshots")
+![Home page](https://raw.githubusercontent.com/b14d35/nodejs-graphql/images/github-stats-1.PNG "githubstats.com screenshots")
 ### Active users from Ireland
-![Ireland](https://raw.githubusercontent.com/gayanvoice/githubstats-github-graphql/images/github-stats-2.PNG "githubstats.com screenshots")
+![Ireland](https://raw.githubusercontent.com/b14d35/nodejs-graphql/images/github-stats-2.PNG "githubstats.com screenshots")
 
 ## How it works?
 Users need to create a GitHub token to fetch the results from GitHub Graph API. The list of countries and the cities are listed in `server.js` as arrays and `GraphQuery.js` fetches the data from GitHub Graph API. After the fetch was completed, it creates a JSON file in `/client/src/data/` where the React app gets the list of users and the contribution.
