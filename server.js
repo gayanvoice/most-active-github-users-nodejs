@@ -16,7 +16,7 @@ const records = [10, 100];
 
 const country = [
     {city: ["Albania", "Tirana", "durres", "vlore", "Elbasan", "Shkoder"]},
-    {city: ["Algeria", "Algiers", "Boumerdes", "Tizi Ouzou", "Oran", "Annaba", "Constantine"]},
+    {city: ["Algeria", "Algiers"]},
     {city: ["Argentina", "BuenosAires", "Cordoba", "Rosario", "Mendoza", "Tucuman"]},
     {city: ["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"]},
     {city: ["Austria", "Vienna", "Wien", "Linz", "Salzburg", "Graz", "Innsbruck"]},
