@@ -52,6 +52,7 @@ const country = [
     {city: ["Netherlands", "Amsterdam", "Rotterdam", "Hague", "Utrecht", "Holland", "Delft"]},
     {city: ["New_Zealand", "NewZealand", "Auckland", "Wellington", "ChristChurch", "Hamilton", "Tauranga", "Dunedin", "Rotorua"]},
     {city: ["Norway", "Norge", "Oslo", "Bergen"]},
+    {city: ["Nigeria", "Lagos", "Abuja", "Ondo", "Oyo", "Ogun"]},
     {city: ["Pakistan", "Karachi", "Lahore", "Faisalabad", "Rawalpindi", "Islamabad"]},
     {city: ["Philippines", "Quezon", "Manila", "Davao", "Caloocan", "Cebu"]},
     {city: ["Poland", "warsaw", "Kraków", "Wrocław", "Gdańsk", "Poznań", "Katowice", "Łódź", "Lublin"]},
