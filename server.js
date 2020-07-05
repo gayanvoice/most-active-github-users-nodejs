@@ -59,6 +59,7 @@ const country = [
     {city: ["Portugal", "Lisbon", "Lisboa", "Braga", "Madeira"]},
     {city: ["Romania", "Bucharest", "Cluj", "Iasi", "Timisoara", "Craiova"]},
     {city: ["Russia", "Moscow", "SaintPetersburg", "Novosibirsk", "Yekaterinburg", "Omsk", "Kazan", "Volgograd"]},
+    {city: ["Rwanda", "Kigali"]},
     {city: ["Serbia", "Srbija", "Србија", "Beograd", "NoviSad", "Nis", "Niš", "Kragujevac", "Užice", "Čačak", "Београд", "НовиСад", "Ниш", "Крагујевац", "Ужице", "Чачак"]},
     {city: ["Singapore"]},
     {city: ["South_Korea", "SouthKorea", "Korea", "Seoul", "Busan", "Incheon", "Daegu", "Gwangju", "Suwon", "Ulsan", "Daejeon", "Changwon", "Goyang-si", "Hwaseong", "Bucheon", "Cheongju"]},
