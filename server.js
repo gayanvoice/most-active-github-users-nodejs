@@ -46,6 +46,7 @@ const country = [
     {city: ["Macedonia", "Skopje", "Veles", "Ohrid", "Bitola", "Kumanovo", "Strumica", "Tetovo", "Gostivar", "Struga", "Kichevo", "Kavadarci", "Berovo"]},
     {city: ["Malaysia", "KualaLumpur", "Kajang", "Klang", "Subang", "Penang", "Johor"]},
     {city: ["Mexico", "Guadalajara", "Puebla", "Tijuana", "Mexicali", "Monterrey", "Hermosillo"]},
+    {city: ["Mongolia", "Mongolia", "Ulaanbaatar", "Erdenet", "Darkhan", "Choibalsan"]},
     {city: ["Morocco", "Morocco", "Casablanca", "Rabat", "Marrakesh", "Agadir"]},
     {city: ["Myanmar", "Yangon", "Mandalay", "Taunggyi"]},
     {city: ["Nepal", "Kathmandu", "Pokhara", "Lalitpur", "Bhaktapur", "Birgunj"]},
