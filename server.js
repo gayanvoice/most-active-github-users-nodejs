@@ -73,7 +73,7 @@ const country = [
     {city: ["Ukraine", "Kiev", "Kyiv", "Kharkiv", "Dnipro", "Odesa", "Donetsk", "Zaporizhia"]},
     {city: ["United_Arab_Emirates", "UnitedArabEmirates", "UAE", "AbuDhabi", "Dubai", "Sharjah", "Ajman", "Fujairah"]},
     {city: ["United_Kingdom", "UnitedKingdom", "London", "Birmingham", "Glasgow"]},
-    {city: ["United_States", "UnitedStates", "PaloAlto", "NewYork", "California", "SanFrancisco"]},
+    {city: ["United_States", "UnitedStates", "USA", "PaloAlto", "NewYork", "California", "Missouri", "SanFrancisco", "SaintLouis"]},
     {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon", "DaNang", "NhaTrang", "HaiPhong"]},
 ];
 let start = true;
