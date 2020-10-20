@@ -76,6 +76,7 @@ const country = [
     {city: ["United_Kingdom", "UnitedKingdom", "London", "Birmingham", "Glasgow"]},
     {city: ["United_States", "UnitedStates", "USA", "PaloAlto", "NewYork", "California", "Missouri", "SanFrancisco", "SaintLouis"]},
     {city: ["Vietnam", "HoChiMinh", "Hanoi", "Saigon", "DaNang", "NhaTrang", "HaiPhong"]},
+    {city: ["Yemen", "Sana'a"]},
 ];
 let start = true;
 const app = express();
